@@ -1,48 +1,50 @@
-/*
+/* ==UserStyle==
 @name Google Dark
 @namespace xtevenx
 @version 0.0.0
-*/
+==/UserStyle== */
 
 
-:root {
-    --fg-color: #c6c6c6;
-    --bg-color: #1c1c1c;
-    --bg-color2: #303030;
-}
+@-moz-document url("https://www.google.ca/") {
+    :root {
+        --fg-color: #c6c6c6;
+        --bg-color: #1c1c1c;
+        --bg-color2: #303030;
+    }
 
-/* background configurations */
-body, html {
-    background: var(--bg-color);
-}
+    /* background configurations */
+    body, html {
+        background: var(--bg-color);
+    }
 
-/* header link configurations */
-#hptl a {
-    color: var(--fg-color) !important;
-}
+    /* header link configurations */
+    #hptl a {
+        color: var(--fg-color) !important;
+    }
 
-#gb#gb a.gb_f, #gb#gb a.gb_g, #gb#gb span.gb_g {
-    color: var(--fg-color) !important;
-}
+    #gb#gb a.gb_f, #gb#gb a.gb_g, #gb#gb span.gb_g {
+        color: var(--fg-color) !important;
+    }
 
-.gb_C .gb_D {
-    background-position: -463px -36px !important;
-}
+    .gb_C .gb_D {
+        background-position: -463px -36px !important;
+    }
 
-/* search bar configurations */
-.RNNXgb {
-    background: var(--bg-color2) !important;
-    border: 1px solid var(--bg-color2) !important;
-}
+    /* search bar configurations */
+    .RNNXgb {
+        background: var(--bg-color2) !important;
+        border: 1px solid var(--bg-color2) !important;
+    }
 
-.gLFyf {
-    color: var(--fg-color) !important;
-}
+    .gLFyf {
+        color: var(--fg-color) !important;
+    }
 
-.aajZCb {
-    background: var(--bg-color2) !important;
-}
+    .aajZCb {
+        background: var(--bg-color2) !important;
+    }
 
-.sbl1 {
-    color: var(--fg-color) !important;
+    .sbl1 {
+        color: var(--fg-color) !important;
+    }
 }
