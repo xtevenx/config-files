@@ -1,0 +1,85 @@
+# show color
+OPTIONS=color
+
+# use vi-key controls
+OPTIONS=number_pad:0
+
+# show out-of-sight areas of lit rooms
+OPTIONS=dark_room, lit_corridor
+
+
+# autopickup configurations
+OPTIONS=autopickup
+OPTIONS=pickup_types:$
+
+
+# assorted display configurations
+OPTIONS=hitpointbar
+OPTIONS=showexp
+OPTIONS=showscore
+OPTIONS=time
+
+OPTIONS=msg_window:reversed
+
+# show highscore configuration
+OPTIONS=scores:10 top/2 around/o
+
+
+# use colored menus (regex allowed)
+OPTIONS=menucolors
+MENUCOLOR=" blessed "=green
+MENUCOLOR=" holy "=green
+MENUCOLOR=" cursed "=red
+MENUCOLOR=" unholy "=red
+MENUCOLOR=" cursed .* (being worn)"=orange&underline
+
+
+# use status highlights
+OPTIONS=statushilites
+
+# hitpoints
+OPTIONS=hilite_status:hitpoints/100%/grey&normal
+OPTIONS=hilite_status:hitpoints/<100%/green&normal
+OPTIONS=hilite_status:hitpoints/<87%/yellow&normal
+OPTIONS=hilite_status:hitpoints/<42%/orange&normal
+OPTIONS=hilite_status:hitpoints/<21%/red&bold
+OPTIONS=hilite_status:hitpoints/<9%/red&inverse
+
+# power
+OPTIONS=hilite_status:power/100%/grey&normal
+OPTIONS=hilite_status:power/<100%/green&normal
+OPTIONS=hilite_status:power/<49%/yellow&normal
+OPTIONS=hilite_status:power/<24%/orange&normal
+OPTIONS=hilite_status:power/<10%/red&bold
+
+# carry
+OPTIONS=hilite_status:cap/burdened/yellow&normal
+OPTIONS=hilite_status:cap/stressed/orange&normal
+OPTIONS=hilite_status:cap/strained/red&bold
+OPTIONS=hilite_status:cap/overtaxed/red&inverse
+OPTIONS=hilite_status:cap/overloaded/red&inverse&blink
+
+# hunger
+OPTIONS=hilite_status:hunger/satiated/yellow&normal
+OPTIONS=hilite_status:hunger/hungry/orange&normal
+OPTIONS=hilite_status:hunger/weak/red&bold
+OPTIONS=hilite_status:hunger/fainting/red&inverse
+OPTIONS=hilite_status:hunger/fainted/red&inverse&blink
+
+# mental condition
+OPTIONS=hilite_status:condition/hallu/yellow&normal
+OPTIONS=hilite_status:condition/conf/orange&normal
+OPTIONS=hilite_status:condition/stun/red&bold
+
+# physical condition
+OPTIONS=hilite_status:condition/foodpois/red&inverse
+OPTIONS=hilite_status:condition/termill/red&inverse
+OPTIONS=hilite_status:condition/slime/red&inverse
+
+# attributes
+OPTIONS=hilite_status:characteristics/up/green&normal
+OPTIONS=hilite_status:characteristics/down/red&bold
+
+# gold
+OPTIONS=hilite_status:gold/up/yellow&normal
+OPTIONS=hilite_status:gold/down/brown&normal
