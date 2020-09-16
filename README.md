@@ -10,3 +10,9 @@ Browser Configs
     * Wikipedia-Dark (https://github.com/StylishThemes/Wikipedia-Dark)
 * uBlock Origin (https://github.com/gorhill/uBlock)
 
+GUI Configs
+-----------
+
+* Capitaine Cursors (https://github.com/keeferrourke/capitaine-cursors)
+* `Desktop Background` (https://wallpapermemory.com/uploads/206/mew-pokemon-background-full-hd-279250.jpg)
+
