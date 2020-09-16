@@ -1,0 +1,89 @@
+set nocompatible    " disable vi compatible mode for scripting to work properly
+
+
+" install vim-plug (if not found)
+if empty(glob('~/.vim/autoload/plug.vim'))
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+                \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+
+call plug#begin('~/.vim/plugged/')
+
+" personal must have things
+Plug 'NLKNguyen/papercolor-theme'
+Plug 'ycm-core/YouCompleteMe'
+
+" very useful things
+Plug 'preservim/nerdcommenter'
+let g:NERDDefaultAlign = 'left'  " don't follow indents with comment delimeters
+let g:NERDCommentEmptyLines = 1  " comment empty lines when commenting many lines
+
+" cool mainly appearance things
+Plug 'preservim/nerdtree'
+nnoremap <C-n> :NERDTreeToggle<CR>
+
+Plug 'itchyny/lightline.vim'
+let g:lightline = {'colorscheme': 'PaperColor'}
+
+Plug 'edkolev/promptline.vim'
+"PromptlineSnapshot .promptline.sh
+
+Plug 'ryanoasis/vim-devicons'
+
+call plug#end()
+
+
+" appearance options
+syntax on
+set background=dark
+colorscheme PaperColor
+
+set number          " enable line numbers
+"set relativenumber  " show relative line numbers on non-active lines
+set nowrap          " disable line wrapping
+set cursorline      " enable line highligting on cursor
+
+set encoding=utf8   " use utf-8 encoding (unicode support)
+
+set scrolloff=3     " number of lines to view around the cursor
+set sidescrolloff=8 " number of columns to view around the cursor
+
+set ruler           " always display the cursor
+set laststatus=2    " always display the status bar
+
+set mouse=a         " enable mouse use
+
+" code indent options
+set autoindent              " enable auto-indent
+set expandtab               " convert tabs to spaces
+filetype plugin on          " enable file-type specific plugins
+filetype indent on          " enable file-type specific indentation rules
+
+set shiftwidth=4            " number of spaces to use when shifting
+set shiftround              " round to the nearest `shiftwidth` spaces when shifting
+
+set tabstop=4               " number of spaces to use when tabbing
+set smarttab                " use `tabstop` number of spaces when tabbing
+
+" search options
+set hlsearch    " highlight all occurances when searching
+set ignorecase  " ignore case when searching
+set smartcase   " enable case-sensitive search if query includes upper-case letter
+
+" miscellaneous options
+set backspace=indent,eol,start  " allow backspace over everything
+set confirm                     " confirm before closing unsaved file
+
+set undolevels=950324       " save a virtually unlimited amount of undos
+                            " `undolevels` is humorously set to the number of commits on the official linux git 
+                            " repository at the time of editing
+set undofile                " enable undo-persistance (after file close)
+
+" create undo directory if it doesn't yet exist
+let &undodir=expand('~/.vim/undodir')
+if !isdirectory(&undodir)
+    call mkdir(&undodir, 'p')
+endif
+
