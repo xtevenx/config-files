@@ -12,28 +12,70 @@
     --bg-color: #1c1c1c;
     --bg-color2: #303030;
     --hl-color: #585858;
+    --hl-color2: #808080;
 
     --blue: #5fafd7;
 }
 
 
-@-moz-document url("https://www.google.ca/") {
-    /* background configurations */
-    body, html {
+@-moz-document url("https://www.google.ca/"),
+regexp("https://www\\.google\\.ca/search\\?.*") {
+    /* general configurations */
+    body {
         background: var(--bg-color) !important;
-    }
-
-    /* header link configurations */
-    #hptl a {
         color: var(--fg-color) !important;
     }
 
-    #gb#gb a.gb_f, #gb#gb a.gb_g, #gb#gb span.gb_g {
+    a {
+        color: var(--blue) !important;
+    }
+
+
+    /* search bar configurations */
+    .RNNXgb {
+        background: var(--bg-color2) !important;
+        border: 1px solid var(--bg-color2) !important;
+    }
+
+    .RNNXgb:hover, .sbfc .RNNXgb, .sbfc .UUbT9 .aajZCb {
+        box-shadow: 0 1px 6px 0 var(--hl-color) !important;
+    }
+
+    .gLFyf {
         color: var(--fg-color) !important;
     }
 
-    .gb_C .gb_D {
-        background-position: -463px -36px !important;
+    /* dropdown menu configurations */
+    .aajZCb {
+        background: var(--bg-color2) !important;
+    }
+
+    .sbl1 {
+        color: var(--fg-color) !important;
+    }
+
+    .sbhl {
+        background: var(--hl-color) !important;
+    }
+
+    .xtSCL {
+        border-top: 1px solid var(--hl-color) !important;
+    }
+
+    .tfB0Bf input[type="submit"], .gbqfba {
+        background: var(--bg-color2) !important;
+        border: 1px solid var(--hl-color) !important;
+        color: var(--fg-color) !important;
+    }
+
+    .tfB0Bf input[type="submit"]:hover, .gbqfba:hover {
+        background: var(--hl-color) !important;
+        border: 1px solid var(--hl-color) !important;
+        color: var(--fg-color) !important;
+    }
+
+    a.duf3 {
+        color: var(--fg-color) !important;
     }
 
     /* profile dropdown cofigurations */
@@ -64,6 +106,7 @@
     .gb_wb.gb_wb {
         background: var(--bg-color2) !important;
         border: 1px solid var(--hl-color) !important;
+        color: var(--fg-color) !important;
     }
 
     .gb_wb.gb_wb:hover {
@@ -76,6 +119,7 @@
 
     .gb_Ab.gb_Ab {
         background: var(--bg-color2) !important;
+        color: var(--fg-color) !important;
     }
 
     .gb_Ab.gb_Ab:hover {
@@ -87,65 +131,38 @@
         border-bottom: 1px solid var(--hl-color) !important;
     }
 
-    .gb_Ib.gb_Ib, .gb_Jb.gb_Jb {
+    .gb_Ib.gb_Ib {
         background: var(--bg-color2) !important;
         border: 1px solid var(--hl-color) !important;
+        color: var(--fg-color) !important;
     }
 
-    .gb_Ib.gb_Ib:hover, .gb_Jb.gb_Jb:hover {
+    .gb_Ib.gb_Ib:hover {
         background: var(--hl-color) !important;
+    }
+
+    .gb_yb.gb_yb {
+        color: var(--fg-color) !important;
     }
 
     .gb_yb.gb_yb:hover {
         background: var(--hl-color) !important;
     }
+}
 
-    /* search bar configurations */
-    .RNNXgb {
-        background: var(--bg-color2) !important;
-        border: 1px solid var(--bg-color2) !important;
-    }
 
-    .RNNXgb:hover, .sbfc .RNNXgb, .sbfc .UUbT9 .aajZCb {
-        box-shadow: 0 1px 6px 0 var(--hl-color) !important;
-    }
-
-    .gLFyf {
+@-moz-document url("https://www.google.ca/") {
+    /* header link configurations */
+    #hptl a {
         color: var(--fg-color) !important;
     }
 
-    /* dropdown menu configurations */
-    .aajZCb {
-        background: var(--bg-color2) !important;
-    }
-
-    .sbl1 {
+    #gb#gb a.gb_g {
         color: var(--fg-color) !important;
     }
 
-    .sbhl {
-        background: var(--hl-color) !important;
-    }
-
-    .tfB0Bf input[type="submit"], .gbqfba {
-        background: var(--bg-color2) !important;
-        border: 1px solid var(--hl-color) !important;
-        color: var(--fg-color) !important;
-    }
-
-    .tfB0Bf input[type="submit"]:hover, .gbqfba:hover {
-        background: var(--hl-color) !important;
-        border: 1px solid var(--hl-color) !important;
-        color: var(--fg-color) !important;
-    }
-
-    /* little text configurations */
-    body {
-        color: var(--fg-color) !important;
-    }
-
-    a {
-        color: var(--blue) !important;
+    .gb_C .gb_D {
+        background-position: -463px -36px !important;
     }
 
     /* footer configurations */
@@ -161,6 +178,29 @@
     .b0KoTc {
         color: var(--fg-color) !important;
     }
+
+    #footer a {
+        color: var(--fg-color) !important;
+    }
 }
 
 
+@-moz-document regexp("https://www\\.google\\.ca/search\\?.*") {
+    /* header background configurations */
+    .sfbg, #hdtbSum, #appbar {
+        background: var(--bg-color) !important;
+    }
+
+    #hdtb {
+        border-bottom: 1px solid var(--hl-color) !important;
+    }
+
+    /* header link configurations */
+    .gb_ta svg {
+        color: var(--fg-color) !important;
+    }
+
+    .gb_D[aria-expanded="true"] .gb_7e {
+        fill: var(--hl-color2) !important;
+    }
+}
