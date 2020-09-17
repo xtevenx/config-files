@@ -3,7 +3,7 @@
 @description  Google Dark
 @namespace    xtevenx
 @author       xtevenx
-@version      0.0.0
+@version      0.0.1
 @preprocessor default
 ==/UserStyle== */
 
@@ -148,22 +148,6 @@ regexp("https://www\\.google\\.ca/search\\?.*") {
     .gb_yb.gb_yb:hover {
         background: var(--hl-color) !important;
     }
-}
-
-
-@-moz-document url("https://www.google.ca/") {
-    /* header link configurations */
-    #hptl a {
-        color: var(--fg-color) !important;
-    }
-
-    #gb#gb a.gb_g {
-        color: var(--fg-color) !important;
-    }
-
-    .gb_C .gb_D {
-        background-position: -463px -36px !important;
-    }
 
     /* footer configurations */
     .f6F9Be {
@@ -181,6 +165,22 @@ regexp("https://www\\.google\\.ca/search\\?.*") {
 
     #footer a {
         color: var(--fg-color) !important;
+    }
+}
+
+
+@-moz-document url("https://www.google.ca/") {
+    /* header link configurations */
+    #hptl a {
+        color: var(--fg-color) !important;
+    }
+
+    #gb#gb a.gb_g {
+        color: var(--fg-color) !important;
+    }
+
+    .gb_C .gb_D {
+        background-position: -463px -36px !important;
     }
 }
 
@@ -333,11 +333,11 @@ regexp("https://www\\.google\\.ca/search\\?.*") {
     }
 
     #isr_chc g-left-button {
-        background: linear-gradient(90deg, var(--bg-color) 10%, rgba(255, 255, 255, 0));
+        background: linear-gradient(90deg, var(--bg-color) 10%, rgba(255, 255, 255, 0)) !important;
     }
 
     #isr_chc g-right-button {
-        background: linear-gradient(270deg, var(--bg-color) 10%, rgba(255, 255, 255, 0));
+        background: linear-gradient(270deg, var(--bg-color) 10%, rgba(255, 255, 255, 0)) !important;
     }
 
     .EZRelc, .wUrVib {
@@ -396,5 +396,30 @@ regexp("https://www\\.google\\.ca/search\\?.*") {
 
     .action-menu-panel {
         background: var(--bg-color2) !important;
+    }
+
+    /* extra footer configurations */
+    #brs .med {
+        color: var(--fg-color) !important;
+    }
+
+    .YyVfkd {
+        color: var(--fg-color) !important;
+    }
+
+    #Wprf1b {
+        color: var(--fg-color) !important;
+    }
+
+    .smiUbb {
+        color: var(--fg-color) !important;
+    }
+
+    #swml a {
+        color: var(--fg-color) !important;
+    }
+
+    .fbar a {
+        color: var(--fg-color) !important;
     }
 }
