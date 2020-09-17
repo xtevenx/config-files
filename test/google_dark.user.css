@@ -249,6 +249,44 @@ regexp("https://www\\.google\\.(ca|com)/search\\?.*") {
     li a:hover, #cdrlnk:hover {
         background: var(--hl-color) !important;
     }
+    
+    /* most <about person/thing> configurations */
+    .kno-ecr-pt {
+        color: var(--fg-color) !important;
+    }
+    
+    .z1asCe svg {
+        color: var(--fg-color) !important;
+    }
+    
+    .SzZmKb + div {
+        border-bottom: 1px solid var(--hl-color) !important;
+    }
+    
+    .hb8SAc {
+        color: var(--fg-color) !important;
+    }
+    
+    .SW5pqf {
+        color: var(--blue) !important;
+    }
+    
+    .Ss2Faf {
+        color: var(--fg-color) !important;
+    }
+    
+    .H73aad {
+        background: var(--bg-color2) !important;
+        border: 1px solid var(--hl-color) !important;
+    }
+    
+    .H73aad:hover {
+        background: var(--hl-color) !important;
+    }
+    
+    .jleFbf {
+        color: var(--fg-color) !important;
+    }
 
     /* most "See results about" configurations */
     .garHBe {
