@@ -8,7 +8,7 @@
 ==/UserStyle== */
 
 
-@-moz-document regexp("https://www\\.google\\.(ca|com)/"),
+@-moz-document regexp("https://www\\.google\\.(ca|com)/\\?.*"),
 regexp("https://www\\.google\\.(ca|com)/search\\?.*") {
     :root {
         --fg-color: #c6c6c6;
@@ -22,7 +22,7 @@ regexp("https://www\\.google\\.(ca|com)/search\\?.*") {
 }
 
 
-@-moz-document regexp("https://www\\.google\\.(ca|com)/"),
+@-moz-document regexp("https://www\\.google\\.(ca|com)/\\?.*"),
 regexp("https://www\\.google\\.(ca|com)/search\\?.*") {
     /* general configurations */
     body {
@@ -173,7 +173,7 @@ regexp("https://www\\.google\\.(ca|com)/search\\?.*") {
 }
 
 
-@-moz-document regexp("https://www\\.google\\.(ca|com)/") {
+@-moz-document regexp("https://www\\.google\\.(ca|com)/\\?.*") {
     /* header link configurations */
     #hptl a {
         color: var(--fg-color) !important;
