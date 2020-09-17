@@ -344,6 +344,10 @@ regexp("https://www\\.google\\.ca/search\\?.*") {
         color: var(--blue) !important;
     }
 
+    .gl a:link {
+        color: var(--fg-color) !important;
+    }
+
     /* most "Videos" configurations */
     .cv2VAd {
         background: var(--bg-color2) !important;
@@ -367,6 +371,10 @@ regexp("https://www\\.google\\.ca/search\\?.*") {
         color: var(--fg-color) !important;
 
         box-shadow: 0 1px 6px 0 var(--hl-color) !important;
+    }
+
+    .BlOseb.eSq3C g-fab:hover, .k2Oeod.eSq3C g-fab:hover {
+        color: var(--hl-color2) !important;
     }
 
     /* most <general search result> configurations */
