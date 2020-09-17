@@ -18,8 +18,8 @@
 }
 
 
-@-moz-document url("https://www.google.ca/"),
-regexp("https://www\\.google\\.ca/search\\?.*") {
+@-moz-document regexp("https://www\\.google\\.(ca|com)/"),
+regexp("https://www\\.google\\.(ca|com)/search\\?.*") {
     /* general configurations */
     body {
         background: var(--bg-color) !important;
@@ -169,7 +169,7 @@ regexp("https://www\\.google\\.ca/search\\?.*") {
 }
 
 
-@-moz-document url("https://www.google.ca/") {
+@-moz-document regexp("https://www\\.google\\.(ca|com)/") {
     /* header link configurations */
     #hptl a {
         color: var(--fg-color) !important;
@@ -185,7 +185,7 @@ regexp("https://www\\.google\\.ca/search\\?.*") {
 }
 
 
-@-moz-document regexp("https://www\\.google\\.ca/search\\?.*") {
+@-moz-document regexp("https://www\\.google\\.(ca|com)/search\\?.*") {
     /* header background configurations */
     .sfbg, #hdtbSum, #appbar {
         background: var(--bg-color) !important;
