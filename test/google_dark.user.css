@@ -495,7 +495,7 @@ regexp("https://www\\.google\\.(ca|com)/search\\?.*") {
     }
 
     /* most <general search result> configurations */
-    .st {
+    .IsZvec { /* general search result body text */
         color: var(--fg-color) !important;
     }
 
