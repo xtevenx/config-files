@@ -1,0 +1,104 @@
+set nocompatible    " disable vi compatible mode for scripting to work properly
+
+
+" install PaperColor colorscheme (if not found)
+if empty(glob('~/.vim/colors/PaperColor.vim'))
+    silent !curl -fLo ~/.vim/colors/PaperColor.vim --create-dirs
+                \ https://raw.githubusercontent.com/NLKNguyen/papercolor-theme/master/colors/PaperColor.vim
+endif
+
+" create plugin directory (if not found)
+if empty(glob('~/.vim/pack/plugged/start/'))
+    silent !mkdir -p ~/.vim/pack/plugged/start/
+endif
+
+" install YouCompleteMe (if not found)
+if empty(glob('~/.vim/pack/plugged/start/YouCompleteMe'))
+    silent !cd ~/.vim/pack/plugged/start/ && git clone https://github.com/ycm-core/YouCompleteMe
+    silent !cd ~/.vim/pack/plugged/start/YouCompleteMe && git checkout 93956d747abd9f1ac438c219eb27e4ecd94cdb82
+endif
+
+" install nerdcommenter (if not found)
+if empty(glob('~/.vim/pack/plugged/start/nerdcommenter'))
+    silent !cd ~/.vim/pack/plugged/start/ && git clone https://github.com/preservim/nerdcommenter
+endif
+
+let g:NERDDefaultAlign = 'left'
+let g:NERDCommentEmptyLines = 1
+
+autocmd VimEnter * NERDTree
+autocmd VimEnter * wincmd p
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" install nerdtree (if not found)
+if empty(glob('~/.vim/pack/plugged/start/nerdtree'))
+    silent !cd ~/.vim/pack/plugged/start/ && git clone https://github.com/preservim/nerdtree
+endif
+
+nnoremap <C-n> :NERDTreeToggle<CR>
+
+" install lightline (if not found)
+if empty(glob('~/.vim/pack/plugged/start/lightline.vim'))
+    silent !cd ~/.vim/pack/plugged/start/ && git clone https://github.com/itchyny/lightline.vim
+endif
+
+let g:lightline = {'colorscheme': 'PaperColor'}
+
+" install vim-devicons (if not found)
+if empty(glob('~/.vim/pack/plugged/start/vim-devicons'))
+    silent !cd ~/.vim/pack/plugged/start/ && git clone https://github.com/ryanoasis/vim-devicons
+endif
+
+
+" appearance options
+syntax on
+set background=dark
+colorscheme PaperColor
+
+set number          " enable line numbers
+"set relativenumber  " show relative line numbers on non-active lines
+set nowrap          " disable line wrapping
+set cursorline      " enable line highligting on cursor
+
+set encoding=utf8   " use utf-8 encoding (unicode support)
+
+set scrolloff=3     " number of lines to view around the cursor
+set sidescrolloff=8 " number of columns to view around the cursor
+
+set ruler           " always display the cursor
+set laststatus=2    " always display the status bar
+
+set mouse=a         " enable mouse use
+
+" code indent options
+set autoindent              " enable auto-indent
+set expandtab               " convert tabs to spaces
+filetype plugin on          " enable file-type specific plugins
+filetype indent on          " enable file-type specific indentation rules
+
+set shiftwidth=4            " number of spaces to use when shifting
+set shiftround              " round to the nearest `shiftwidth` spaces when shifting
+
+set tabstop=4               " number of spaces to use when tabbing
+set smarttab                " use `tabstop` number of spaces when tabbing
+
+" search options
+set hlsearch    " highlight all occurances when searching
+set ignorecase  " ignore case when searching
+set smartcase   " enable case-sensitive search if query includes upper-case letter
+
+" miscellaneous options
+set backspace=indent,eol,start  " allow backspace over everything
+set confirm                     " confirm before closing unsaved file
+
+set undolevels=950324       " save a virtually unlimited amount of undos
+                            " `undolevels` is humorously set to the number of commits on the official linux git
+                            " repository at the time of editing
+set undofile                " enable undo-persistance (after file close)
+
+" create undo directory if it doesn't yet exist
+let &undodir=expand('~/sfuhome/.vim/undodir')
+if !isdirectory(&undodir)
+    call mkdir(&undodir, 'p')
+endif
+
