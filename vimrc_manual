@@ -26,16 +26,16 @@ endif
 let g:NERDDefaultAlign = 'left'
 let g:NERDCommentEmptyLines = 1
 
-autocmd VimEnter * NERDTree
-autocmd VimEnter * wincmd p
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
 " install nerdtree (if not found)
 if empty(glob('~/.vim/pack/plugged/start/nerdtree'))
     silent !cd ~/.vim/pack/plugged/start/ && git clone https://github.com/preservim/nerdtree
 endif
 
 nnoremap <C-n> :NERDTreeToggle<CR>
+
+autocmd VimEnter * NERDTree
+autocmd VimEnter * wincmd p
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " install lightline (if not found)
 if empty(glob('~/.vim/pack/plugged/start/lightline.vim'))
@@ -56,7 +56,7 @@ set background=dark
 colorscheme PaperColor
 
 set number          " enable line numbers
-"set relativenumber  " show relative line numbers on non-active lines
+set relativenumber  " show relative line numbers on non-active lines
 set nowrap          " disable line wrapping
 set cursorline      " enable line highligting on cursor
 
@@ -69,6 +69,8 @@ set ruler           " always display the cursor
 set laststatus=2    " always display the status bar
 
 set mouse=a         " enable mouse use
+set splitbelow      " split horizontal windows at the bottom.
+set splitright      " split vertical windows on the right.
 
 " code indent options
 set autoindent              " enable auto-indent

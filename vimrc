@@ -20,9 +20,14 @@ Plug 'preservim/nerdcommenter'
 let g:NERDDefaultAlign = 'left'  " don't follow indents with comment delimeters
 let g:NERDCommentEmptyLines = 1  " comment empty lines when commenting many lines
 
+Plug 'airblade/vim-gitgutter'
+
 " cool mainly appearance things
 Plug 'preservim/nerdtree'
 nnoremap <C-n> :NERDTreeToggle<CR>
+autocmd VimEnter * NERDTree
+autocmd VimEnter * wincmd p
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 Plug 'itchyny/lightline.vim'
 let g:lightline = {'colorscheme': 'PaperColor'}
@@ -41,7 +46,7 @@ set background=dark
 colorscheme PaperColor
 
 set number          " enable line numbers
-"set relativenumber  " show relative line numbers on non-active lines
+set relativenumber  " show relative line numbers on non-active lines
 set nowrap          " disable line wrapping
 set cursorline      " enable line highligting on cursor
 
@@ -54,6 +59,8 @@ set ruler           " always display the cursor
 set laststatus=2    " always display the status bar
 
 set mouse=a         " enable mouse use
+set splitbelow      " split horizontal windows at the bottom.
+set splitright      " split vertical windows on the right.
 
 " code indent options
 set autoindent              " enable auto-indent
@@ -77,7 +84,7 @@ set backspace=indent,eol,start  " allow backspace over everything
 set confirm                     " confirm before closing unsaved file
 
 set undolevels=950324       " save a virtually unlimited amount of undos
-                            " `undolevels` is humorously set to the number of commits on the official linux git 
+                            " `undolevels` is humorously set to the number of commits on the official linux git
                             " repository at the time of editing
 set undofile                " enable undo-persistance (after file close)
 
