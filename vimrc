@@ -25,8 +25,8 @@ Plug 'airblade/vim-gitgutter'
 " cool mainly appearance things
 Plug 'preservim/nerdtree'
 nnoremap <C-n> :NERDTreeToggle<CR>
-autocmd VimEnter * NERDTree
-autocmd VimEnter * wincmd p
+"autocmd VimEnter * NERDTree
+"autocmd VimEnter * wincmd p
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 Plug 'itchyny/lightline.vim'
