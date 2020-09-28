@@ -1,7 +1,7 @@
 set nocompatible    " disable vi compatible mode for scripting to work properly
 
 
-" install vim-plug (if not found)
+" install plugins (with vim-plug) ============================================
 if empty(glob('~/.vim/autoload/plug.vim'))
     silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
                 \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -11,30 +11,44 @@ endif
 
 call plug#begin('~/.vim/plugged/')
 
-" personal must have things
+" papercolor-theme configurations --------------------------------------------
 Plug 'NLKNguyen/papercolor-theme'
+
+" YouCompleteMe configurations -----------------------------------------------
 Plug 'ycm-core/YouCompleteMe'
 
-" very useful things
+" nerdcommenter configurations -----------------------------------------------
 Plug 'preservim/nerdcommenter'
 let g:NERDDefaultAlign = 'left'  " don't follow indents with comment delimeters
 let g:NERDCommentEmptyLines = 1  " comment empty lines when commenting many lines
 
+" vim-gitgutter configurations -----------------------------------------------
 Plug 'airblade/vim-gitgutter'
 
-" cool mainly appearance things
+" vimtex configurations ------------------------------------------------------
+Plug 'lervag/vimtex'
+let g:tex_flavor = 'latex'
+
+if !exists('g:ycm_semantic_triggers')
+    let g:ycm_semantic_triggers = {}
+endif
+au VimEnter * let g:ycm_semantic_triggers.tex = g:vimtex#re#youcompleteme
+
+" nerdtree configurations ----------------------------------------------------
 Plug 'preservim/nerdtree'
 nnoremap <C-n> :NERDTreeToggle<CR>
 "autocmd VimEnter * NERDTree
 "autocmd VimEnter * wincmd p
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
+" lightline configurations ---------------------------------------------------
 Plug 'itchyny/lightline.vim'
 let g:lightline = {'colorscheme': 'PaperColor'}
 
 Plug 'edkolev/promptline.vim'
 "PromptlineSnapshot .promptline.sh
 
+" vim-devicons configurations ------------------------------------------------
 Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
@@ -57,6 +71,7 @@ set sidescrolloff=8 " number of columns to view around the cursor
 
 set ruler           " always display the cursor
 set laststatus=2    " always display the status bar
+set noshowmode      " don't show mode information b/c it's shown in lightline.
 
 set mouse=a         " enable mouse use
 set splitbelow      " split horizontal windows at the bottom.
