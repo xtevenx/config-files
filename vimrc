@@ -14,8 +14,14 @@ call plug#begin('~/.vim/plugged/')
 " papercolor-theme configurations --------------------------------------------
 Plug 'NLKNguyen/papercolor-theme'
 
+" onedark configurations -----------------------------------------------------
+Plug 'joshdick/onedark.vim'
+
 " YouCompleteMe configurations -----------------------------------------------
 Plug 'ycm-core/YouCompleteMe'
+
+" auto-pairs configurations --------------------------------------------------
+Plug 'jiangmiao/auto-pairs'
 
 " nerdcommenter configurations -----------------------------------------------
 Plug 'preservim/nerdcommenter'
@@ -28,25 +34,31 @@ Plug 'airblade/vim-gitgutter'
 " vimtex configurations ------------------------------------------------------
 Plug 'lervag/vimtex'
 let g:tex_flavor = 'latex'
+let g:vimtex_view_automatic=0
 
 if !exists('g:ycm_semantic_triggers')
     let g:ycm_semantic_triggers = {}
 endif
+
 au VimEnter * let g:ycm_semantic_triggers.tex = g:vimtex#re#youcompleteme
 
 " nerdtree configurations ----------------------------------------------------
 Plug 'preservim/nerdtree'
 nnoremap <C-n> :NERDTreeToggle<CR>
-"autocmd VimEnter * NERDTree
-"autocmd VimEnter * wincmd p
+
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-" lightline configurations ---------------------------------------------------
-Plug 'itchyny/lightline.vim'
-let g:lightline = {'colorscheme': 'PaperColor'}
+" vim-airline configurations -------------------------------------------------
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
+let g:airline_powerline_fonts=1
+let g:airline_theme='papercolor'
+let g:airline#extensions#whitespace#enabled=0
+
+" promptline configurations --------------------------------------------------
 Plug 'edkolev/promptline.vim'
-"PromptlineSnapshot .promptline.sh
+":PromptlineSnapshot ~/.promptline.sh
 
 " vim-devicons configurations ------------------------------------------------
 Plug 'ryanoasis/vim-devicons'
