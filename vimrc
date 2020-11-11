@@ -11,11 +11,12 @@ endif
 
 call plug#begin('~/.vim/plugged/')
 
+" Color Schemes ==============================================================
+
 " papercolor-theme configurations --------------------------------------------
 Plug 'NLKNguyen/papercolor-theme'
 
-" onedark configurations -----------------------------------------------------
-Plug 'joshdick/onedark.vim'
+" Syntax/Autocomplete Tools ========================================================
 
 " YouCompleteMe configurations -----------------------------------------------
 Plug 'ycm-core/YouCompleteMe'
@@ -23,10 +24,7 @@ Plug 'ycm-core/YouCompleteMe'
 " auto-pairs configurations --------------------------------------------------
 Plug 'jiangmiao/auto-pairs'
 
-" nerdcommenter configurations -----------------------------------------------
-Plug 'preservim/nerdcommenter'
-let g:NERDDefaultAlign = 'left'  " don't follow indents with comment delimeters
-let g:NERDCommentEmptyLines = 1  " comment empty lines when commenting many lines
+" Integration Tools ==========================================================
 
 " vim-gitgutter configurations -----------------------------------------------
 Plug 'airblade/vim-gitgutter'
@@ -42,11 +40,22 @@ endif
 
 au VimEnter * let g:ycm_semantic_triggers.tex = g:vimtex#re#youcompleteme
 
+" Miscellaneous Tools ========================================================
+
+" nerdcommenter configurations -----------------------------------------------
+Plug 'preservim/nerdcommenter'
+let g:NERDDefaultAlign = 'left'  " don't follow indents with comment delimeters
+let g:NERDCommentEmptyLines = 1  " comment empty lines when commenting many lines
+
 " nerdtree configurations ----------------------------------------------------
 Plug 'preservim/nerdtree'
 nnoremap <C-n> :NERDTreeToggle<CR>
 
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" promptline configurations --------------------------------------------------
+" invoke `promptline': PromptlineSnapshot ~/.promptline.sh
+Plug 'edkolev/promptline.vim'
 
 " vim-airline configurations -------------------------------------------------
 Plug 'vim-airline/vim-airline'
@@ -55,10 +64,6 @@ Plug 'vim-airline/vim-airline-themes'
 let g:airline_powerline_fonts=1
 let g:airline_theme='papercolor'
 let g:airline#extensions#whitespace#enabled=0
-
-" promptline configurations --------------------------------------------------
-Plug 'edkolev/promptline.vim'
-":PromptlineSnapshot ~/.promptline.sh
 
 " vim-devicons configurations ------------------------------------------------
 Plug 'ryanoasis/vim-devicons'
