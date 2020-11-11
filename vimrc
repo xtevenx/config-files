@@ -16,13 +16,16 @@ call plug#begin('~/.vim/plugged/')
 " papercolor-theme configurations --------------------------------------------
 Plug 'NLKNguyen/papercolor-theme'
 
-" Syntax/Autocomplete Tools ========================================================
-
-" YouCompleteMe configurations -----------------------------------------------
-Plug 'ycm-core/YouCompleteMe'
+" Syntax/Autocomplete Tools ==================================================
 
 " auto-pairs configurations --------------------------------------------------
 Plug 'jiangmiao/auto-pairs'
+
+" vim-polyglot configurations ------------------------------------------------
+Plug 'sheerun/vim-polyglot'
+
+" YouCompleteMe configurations -----------------------------------------------
+Plug 'ycm-core/YouCompleteMe'
 
 " Integration Tools ==========================================================
 
