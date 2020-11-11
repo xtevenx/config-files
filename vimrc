@@ -13,8 +13,8 @@ call plug#begin('~/.vim/plugged/')
 
 " Syntax/Autocomplete Plugins ================================================
 
-" auto-pairs configurations --------------------------------------------------
-Plug 'jiangmiao/auto-pairs'
+" delimitmate configurations --------------------------------------------------
+Plug 'raimondi/delimitmate'
 
 " vim-polyglot configurations ------------------------------------------------
 Plug 'sheerun/vim-polyglot'
