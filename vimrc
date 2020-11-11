@@ -68,6 +68,7 @@ let g:NERDCommentEmptyLines = 1  " comment empty lines when commenting many line
 Plug 'preservim/nerdtree'
 nnoremap <C-n> :NERDTreeToggle<CR>
 
+" close vim if nerdtree is the last window open.
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " promptline configurations --------------------------------------------------
@@ -132,9 +133,9 @@ set smartcase   " enable case-sensitive search if query includes upper-case lett
 set backspace=indent,eol,start  " allow backspace over everything
 set confirm                     " confirm before closing unsaved file
 
-set undolevels=950324       " save a virtually unlimited amount of undos
-                            " `undolevels` is humorously set to the number of commits on the official linux git
-                            " repository at the time of editing
+set undolevels=967067       " Save a virtually unlimited amount of undos.
+                            " `undolevels` is humorously set to the number of commits on the
+                            " official linux git repository at the time of editing.
 set undofile                " enable undo-persistance (after file close)
 
 " create undo directory if it doesn't yet exist
