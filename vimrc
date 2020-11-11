@@ -11,12 +11,7 @@ endif
 
 call plug#begin('~/.vim/plugged/')
 
-" Color Schemes ==============================================================
-
-" papercolor-theme configurations --------------------------------------------
-Plug 'NLKNguyen/papercolor-theme'
-
-" Syntax/Autocomplete Tools ==================================================
+" Syntax/Autocomplete Plugins ================================================
 
 " auto-pairs configurations --------------------------------------------------
 Plug 'jiangmiao/auto-pairs'
@@ -27,7 +22,7 @@ Plug 'sheerun/vim-polyglot'
 " YouCompleteMe configurations -----------------------------------------------
 Plug 'ycm-core/YouCompleteMe'
 
-" Integration Tools ==========================================================
+" Integration Plugins ========================================================
 
 " vim-gitgutter configurations -----------------------------------------------
 Plug 'airblade/vim-gitgutter'
@@ -43,7 +38,26 @@ endif
 
 au VimEnter * let g:ycm_semantic_triggers.tex = g:vimtex#re#youcompleteme
 
-" Miscellaneous Tools ========================================================
+" Display Plugins ============================================================
+
+" indentLine configurations --------------------------------------------------
+Plug 'Yggdroot/indentLine'
+
+" papercolor-theme configurations --------------------------------------------
+Plug 'NLKNguyen/papercolor-theme'
+
+" Miscellaneous Plugins ======================================================
+
+" comfortable-motion.vim configurations --------------------------------------
+Plug 'yuttie/comfortable-motion.vim'
+
+" for 42 row vim window (laptop).
+"nnoremap <silent> <C-j> :call comfortable_motion#flick( 144)<CR>
+"nnoremap <silent> <C-k> :call comfortable_motion#flick(-144)<CR>
+
+" for 52 row vim window (desktop).
+nnoremap <silent> <C-j> :call comfortable_motion#flick( 170)<CR>
+nnoremap <silent> <C-k> :call comfortable_motion#flick(-170)<CR>
 
 " nerdcommenter configurations -----------------------------------------------
 Plug 'preservim/nerdcommenter'
