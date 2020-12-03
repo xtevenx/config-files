@@ -43,6 +43,9 @@ au VimEnter * let g:ycm_semantic_triggers.tex = g:vimtex#re#youcompleteme
 " indentLine configurations --------------------------------------------------
 Plug 'Yggdroot/indentLine'
 
+" indentLine screws with TeX file display.
+autocmd BufNewFile,BufRead *.tex IndentLinesDisable
+
 " papercolor-theme configurations --------------------------------------------
 Plug 'NLKNguyen/papercolor-theme'
 
