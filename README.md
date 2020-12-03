@@ -3,10 +3,12 @@
 Browser Configs
 ---------------
 
-* darkreader (https://github.com/darkreader/darkreader)
-* uBlock Origin (https://github.com/gorhill/uBlock)
+* [darkreader](https://github.com/darkreader/darkreader)
+* [uBlock Origin](https://github.com/gorhill/uBlock)
 
 GUI Configs
 -----------
 
-* Capitaine Cursors (https://github.com/keeferrourke/capitaine-cursors)
+* [Capitaine Cursors](https://github.com/keeferrourke/capitaine-cursors)
+* [`Desktop Background`](https://raw.githubusercontent.com/xtevenx/config-files/master/backup/desktop_background.png)
+* [Windows Terminal Colorsheme](https://github.com/julianlatest/material-windows-terminal)
