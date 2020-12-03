@@ -75,7 +75,7 @@ nnoremap <C-n> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " promptline configurations --------------------------------------------------
-" invoke `promptline': PromptlineSnapshot ~/.promptline.sh
+" invoke `promptline': PromptlineSnapshot ~/.promptline.sh airline
 Plug 'edkolev/promptline.vim'
 
 " vim-airline configurations -------------------------------------------------
@@ -147,3 +147,11 @@ if !isdirectory(&undodir)
     call mkdir(&undodir, 'p')
 endif
 
+" extra plugin configurations.
+let g:promptline_preset = {
+    \'a' : [ promptline#slices#host({ 'only_if_ssh': 1 }) ],
+    \'b' : [ promptline#slices#user() ],
+    \'c' : [ promptline#slices#cwd({ 'dir_limit': 2 }) ],
+    \'x' : [ promptline#slices#git_status() ],
+    \'y' : [ promptline#slices#vcs_branch() ],
+    \'warn' : [ promptline#slices#last_exit_code() ]}
