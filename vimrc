@@ -30,13 +30,16 @@ Plug 'airblade/vim-gitgutter'
 " vimtex configurations ------------------------------------------------------
 Plug 'lervag/vimtex'
 let g:tex_flavor = 'latex'
-let g:vimtex_view_automatic=0
 
 if !exists('g:ycm_semantic_triggers')
     let g:ycm_semantic_triggers = {}
 endif
 
 au VimEnter * let g:ycm_semantic_triggers.tex = g:vimtex#re#youcompleteme
+
+" disable viewer options
+let g:vimtex_view_automatic=0
+let g:vimtex_view_general_viewer='echo'
 
 " Display Plugins ============================================================
 
