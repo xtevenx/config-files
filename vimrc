@@ -49,8 +49,14 @@ Plug 'Yggdroot/indentLine'
 " indentLine screws with TeX file display.
 autocmd BufNewFile,BufRead *.tex IndentLinesDisable
 
-" papercolor-theme configurations --------------------------------------------
-Plug 'NLKNguyen/papercolor-theme'
+" material.vim configurations ------------------------------------------------
+Plug 'kaicataldo/material.vim', { 'branch': 'main' }
+"let g:material_terminal_italics = 1
+let g:material_theme_style = 'ocean'
+
+if (has('termguicolors'))
+    set termguicolors
+endif
 
 " Miscellaneous Plugins ======================================================
 
@@ -86,7 +92,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 let g:airline_powerline_fonts=1
-let g:airline_theme='papercolor'
+let g:airline_theme='material'
 let g:airline#extensions#whitespace#enabled=0
 
 " vim-devicons configurations ------------------------------------------------
@@ -98,7 +104,7 @@ call plug#end()
 " appearance options
 syntax on
 set background=dark
-colorscheme PaperColor
+colorscheme material
 
 set number          " enable line numbers
 set relativenumber  " show relative line numbers on non-active lines
