@@ -4,7 +4,7 @@ Browser Configs
 ---------------
 
 * [darkreader](https://github.com/darkreader/darkreader)
-* [Stylus](https://github.com/openstyles/stylus) ([GitHub Dark](https://github.com/StylishThemes/GitHub-Dark), [StackOverflow Dark](https://github.com/StylishThemes/StackOverflow-Dark), [Wikipedia Dark](https://github.com/StylishThemes/Wikipedia-Dark), [Overlay Scrollbars](https://github.com/StylishThemes/Overlay-Scrollbars))
+* [Stylus](https://github.com/openstyles/stylus) ([Wikipedia Dark](https://github.com/StylishThemes/Wikipedia-Dark))
 * [uBlock Origin](https://github.com/gorhill/uBlock)
 
 GUI Configs
