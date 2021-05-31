@@ -1,0 +1,6 @@
+set visualbell
+set noerrorbells
+set clipboard+=unnamed
+
+unmap <leader>c
+map <leader>c<space> :action CommentByLineComment<CR>
