@@ -17,6 +17,7 @@
     --comment-grey: #5c6370;
     
     /* Colors picked by hand. (aka. they're random) */
+    --lighter-black: #50555e;
     --darker-black: #202329;
     --darkest-black: #171824;
     --darker-yellow: #b1904d;
@@ -56,7 +57,7 @@ a {
 body.background-image {
     /* Main page background. */
     background-image: none;
-    background-color: var(--gutter-grey);
+    background-color: var(--lighter-black);
 }
 
 .WikiaPage {
