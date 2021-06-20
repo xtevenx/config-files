@@ -97,6 +97,11 @@ body.background-image {
 
 /* Info box styling. */
 
+.pi-item.pi-image {
+    /* Info box champion image. */
+    display: none;
+}
+
 .pi-theme-client.portable-infobox {
     /* Info box border. */
     border-color: var(--light-yellow);
