@@ -29,14 +29,11 @@
     font-family: "Open Sans", sans-serif;
 }
 
-a {
-    color: var(--yellow);
-}
-
 /* Hide unnecessary (useless) elements. */
 
 .wds-global-navigation,
 .wds-community-header,
+.page-header__categories,
 .page-header__contribution,
 #WikiaRailWrapper,
 #See_also,
@@ -69,6 +66,11 @@ body.background-image {
 .WikiaPage .WikiaPageContentWrapper {
     /* Body background. */
     background-color: var(--black);
+}
+
+.title-parenthesis {
+    /* Err... titles in parentheses? :) */
+    color: var(--comment-grey);
 }
 
 /* Champion splash image styling. */
