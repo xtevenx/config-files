@@ -25,8 +25,11 @@
 }
 
 * {
-    color: var(--white);
     font-family: "Open Sans", sans-serif;
+}
+
+*:not(a):not(b):not(small) {
+    color: var(--white);
 }
 
 /* Hide unnecessary (useless) elements. */
