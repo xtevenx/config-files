@@ -43,7 +43,6 @@
 
 /* Hide unnecessary (useless) elements. */
 
-.wds-global-navigation,
 .wds-community-header,
 .page-header__categories,
 .page-header__contribution,
@@ -58,6 +57,8 @@
 #mixed-content-footer,
 .wds-global-footer,
 #WikiaBar {
+    /* Global navigation bar elements that are to be removed are done so in its
+     * own section below; this is just because there are so many of them. */
     display: none;
 }
 
@@ -83,6 +84,46 @@ body.background-image {
 .title-parenthesis {
     /* Err... titles in parentheses? :) */
     color: var(--comment-grey);
+}
+
+/* Global navigation bar styling. */
+
+.wds-global-navigation__content-bar-left,
+.wds-global-navigation__search-container.search-scope-is-loaded .wds-global-navigation__search-scope,
+.wds-global-navigation__search-submit,
+.wds-dropdown.wds-global-navigation__user-menu.wds-has-dark-shadow.wds-global-navigation__user-anon,
+.wds-global-navigation__start-a-wiki {
+    display: none;
+}
+
+#globalNavigation {
+    /* Global navigation bar. */
+    background-color: var(--darkest-black);
+}
+
+.wds-global-navigation__search-input-wrapper {
+    /* Global search bar border. */
+    border-color: var(--light-yellow);
+}
+
+.wds-global-navigation__search-input {
+    /* Global search bar color. */
+    color: var(--white);
+}
+
+.wds-global-navigation__search-suggestions.wds-dropdown__content {
+    /* Global search bar dropdown. */
+    background-color: var(--black);
+}
+
+.wds-global-navigation__dropdown-link {
+    /* Global search bar dropdown links. */
+    color: var(--white) !important;
+}
+
+.wds-dropdown__content .wds-list.wds-is-linked > li.wds-is-selected > a:not(.wds-button), .wds-dropdown__content .wds-list.wds-is-linked > li:hover > a:not(.wds-button) {
+    /* Global search bar dropdown links hover. */
+    background-color: var(--darkest-yellow);
 }
 
 /* Champion splash image styling. */
@@ -111,11 +152,6 @@ body.background-image {
 }
 
 /* Info box styling. */
-
-.pi-item.pi-image {
-    /* Info box champion image. */
-    display: none;
-}
 
 .pi-theme-client.portable-infobox {
     /* Info box border. */
