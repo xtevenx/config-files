@@ -6,6 +6,7 @@
 // @namespace    xtevenx
 // @license      Unlicense
 // @match        https://leagueoflegends.fandom.com/*
+// @run-at       document-idle
 // ==/UserScript==
 
 // The locations of the elements are in parentheses after they are described.
