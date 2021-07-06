@@ -13,7 +13,7 @@
 // These locations are relative to the main page information.
 
 // Remove the global navigation bar (left).
-for (const e in document.getElementsByClassName("global-navigation")) {
+for (const e of document.getElementsByClassName("global-navigation")) {
     e.remove();
 }
 
@@ -24,6 +24,6 @@ document.getElementById("mw-data-after-content").remove();
 document.getElementById("mixed-content-footer").remove();
 
 // Remove the global page footer (bottom).
-for (const e in document.getElementsByClassName("wds-global-footer")) {
+for (const e of document.getElementsByClassName("wds-global-footer")) {
     e.remove();
 }
