@@ -1,0 +1,21 @@
+/* ==UserStyle==
+@name         LoL Wiki Clean
+@description  Clean style for the League of Legends Fandom Wiki.
+@version      0.0.0-dev
+@author       xtevenx
+@namespace    xtevenx
+@license      Unlicense
+==/UserStyle== */
+
+@-moz-document domain("leagueoflegends.fandom.com") {
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+    * {
+        font-family: "Open Sans", sans-serif;
+    }
+
+    .main-container {
+        margin-left: 0;
+        width: 100%;
+    }
+}
