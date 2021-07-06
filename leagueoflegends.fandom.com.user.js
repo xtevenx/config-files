@@ -1,9 +1,8 @@
 // ==UserScript==
-// @name         LoL Wiki Clean
-// @description  Clean style for the League of Legends Fandom Wiki.
+// @name         LoL Wiki Clean (JS)
+// @description  Clean script for the League of Legends Fandom Wiki.
 // @version      0.0.0-dev
 // @author       xtevenx
-// @namespace    xtevenx
 // @license      Unlicense
 // @match        https://leagueoflegends.fandom.com/*
 // @run-at       document-idle
