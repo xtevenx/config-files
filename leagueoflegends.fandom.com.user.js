@@ -1,12 +1,12 @@
-// ==UserStyle==
+// ==UserScript==
 // @name         LoL Wiki Clean
 // @description  Clean style for the League of Legends Fandom Wiki.
 // @version      0.0.0-dev
 // @author       xtevenx
 // @namespace    xtevenx
-// @license      GPL-3.0-or-later
+// @license      Unlicense
 // @match        https://leagueoflegends.fandom.com/*
-// ==/UserStyle==
+// ==/UserScript==
 
 // The locations of the elements are in parentheses after they are described.
 // These locations are relative to the main page information.
