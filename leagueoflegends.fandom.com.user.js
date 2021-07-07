@@ -5,7 +5,7 @@
 // @author       xtevenx
 // @license      Unlicense
 // @match        https://leagueoflegends.fandom.com/*
-// @run-at       document-idle
+// @run-at       document-end
 // ==/UserScript==
 
 // The locations of the elements are in parentheses after they are described.
@@ -13,6 +13,11 @@
 
 // Remove the global navigation bar (left).
 for (const e of document.getElementsByClassName("global-navigation")) {
+    e.remove();
+}
+
+// Remove the information panel (right).
+for (const e of document.getElementsByClassName("page__right-rail")) {
     e.remove();
 }
 
@@ -26,3 +31,6 @@ document.getElementById("mixed-content-footer").remove();
 for (const e of document.getElementsByClassName("wds-global-footer")) {
     e.remove();
 }
+
+// Remove the tiny menu (bottom right).
+document.getElementById("WikiaBar").remove();
