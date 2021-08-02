@@ -4,7 +4,7 @@
 // @version      0.0.0-dev
 // @author       xtevenx
 // @license      Unlicense
-// @match        https://leagueoflegends.fandom.com/*
+// @match        https://*.fandom.com/*
 // @run-at       document-end
 // ==/UserScript==
 
