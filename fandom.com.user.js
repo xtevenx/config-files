@@ -11,6 +11,8 @@
 // The locations of the elements are in parentheses after they are described.
 // These locations are relative to the main page information.
 
+let element = null;
+
 // Remove the global navigation bar (left).
 for (const e of document.getElementsByClassName("global-navigation")) {
     e.remove();
@@ -22,10 +24,12 @@ for (const e of document.getElementsByClassName("page__right-rail")) {
 }
 
 // Remove the comments section (bottom).
-document.getElementById("mw-data-after-content").remove();
+element = document.getElementById("mw-data-after-content");
+if (element !== null) { element.remove(); }
 
 // Remove the random links section (bottom).
-document.getElementById("mixed-content-footer").remove();
+element = document.getElementById("mixed-content-footer");
+if (element !== null) { element.remove(); }
 
 // Remove the global page footer (bottom).
 for (const e of document.getElementsByClassName("wds-global-footer")) {
@@ -33,4 +37,5 @@ for (const e of document.getElementsByClassName("wds-global-footer")) {
 }
 
 // Remove the tiny menu (bottom right).
-document.getElementById("WikiaBar").remove();
+element = document.getElementById("WikiaBar");
+if (element !== null) { element.remove(); }
