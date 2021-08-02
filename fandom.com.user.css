@@ -6,7 +6,7 @@
 @license      Unlicense
 ==/UserStyle== */
 
-@-moz-document domain("leagueoflegends.fandom.com") {
+@-moz-document domain("*.fandom.com") {
     @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 
     * {
