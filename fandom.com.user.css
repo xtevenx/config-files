@@ -6,9 +6,7 @@
 @license      Unlicense
 ==/UserStyle== */
 
-@-moz-document domain("https://*.fandom.com") {
-    @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
-
+@-moz-document domain("fandom.com") {
     * {
         font-family: "Open Sans", sans-serif;
     }
