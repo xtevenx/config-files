@@ -4,7 +4,7 @@ Browser Configs
 ---------------
 
 * [darkreader](https://github.com/darkreader/darkreader)
-* [Stylus](https://github.com/openstyles/stylus) ([Wikipedia Dark](https://github.com/StylishThemes/Wikipedia-Dark))
+* [decentraleyes](https://git.synz.io/Synzvato/decentraleyes)
 * [uBlock Origin](https://github.com/gorhill/uBlock)
 
 GUI Configs
