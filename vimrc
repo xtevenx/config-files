@@ -149,7 +149,7 @@ autocmd BufNewFile,BufRead *.tex set spell
 set backspace=indent,eol,start  " allow backspace over everything
 set confirm                     " confirm before closing unsaved file
 
-set undolevels=967067       " Save a virtually unlimited amount of undos.
+set undolevels=1042665      " Save a virtually unlimited amount of undos.
                             " `undolevels` is humorously set to the number of commits on the
                             " official linux git repository at the time of editing.
 set undofile                " enable undo-persistance (after file close)
