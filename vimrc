@@ -141,6 +141,10 @@ set hlsearch    " highlight all occurances when searching
 set ignorecase  " ignore case when searching
 set smartcase   " enable case-sensitive search if query includes upper-case letter
 
+" typesetting options
+set spelllang=en
+autocmd BufNewFile,BufRead *.tex set spell
+
 " miscellaneous options
 set backspace=indent,eol,start  " allow backspace over everything
 set confirm                     " confirm before closing unsaved file
