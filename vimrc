@@ -53,6 +53,21 @@ let g:vimtex_view_general_viewer='echo'
 Plug 'ludovicchabant/vim-gutentags'
 " Automatic ctags generator/updator.
 
+" liuchengxu/vista.vim configurations ----------------------------------------
+Plug 'liuchengxu/vista.vim'
+" Helpful tags viewer.
+
+nnoremap <F8> :Vista!!<CR>
+
+let g:vista#renderer#enable_icon = 1
+
+" close vim if Vista is the last window open.
+autocmd bufenter * if winnr("$") == 1 && vista#sidebar#IsOpen() | q | endif
+
+" close vim if Vista *AND* NERDTree are the last windows open.
+autocmd bufenter * if (winnr("$") == 2 && exists("b:NERDTree") && vista#sidebar#IsOpen() 
+            \ && b:NERDTree.isTabTree()) | qall | endif
+
 " junegunn/fzf.vim configurations --------------------------------------------
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -110,7 +125,8 @@ Plug 'preservim/nerdtree'
 nnoremap <C-n> :NERDTreeToggle<CR>
 
 " close vim if nerdtree is the last window open.
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree")
+            \ && b:NERDTree.isTabTree()) | q | endif
 
 " promptline configurations --------------------------------------------------
 " invoke `promptline': PromptlineSnapshot ~/.promptline.sh airline
