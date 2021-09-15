@@ -60,13 +60,14 @@ Plug 'liuchengxu/vista.vim'
 nnoremap <F8> :Vista!!<CR>
 
 let g:vista#renderer#enable_icon = 1
+let g:vista_sidebar_width = 37
 
 " close vim if Vista is the last window open.
 autocmd bufenter * if winnr("$") == 1 && vista#sidebar#IsOpen() | q | endif
 
 " close vim if Vista *AND* NERDTree are the last windows open.
-autocmd bufenter * if (winnr("$") == 2 && exists("b:NERDTree") && vista#sidebar#IsOpen() 
-            \ && b:NERDTree.isTabTree()) | qall | endif
+autocmd bufenter * if winnr("$") == 2 && vista#sidebar#IsOpen() && exists("b:NERDTree")
+            \ && b:NERDTree.isTabTree() | qall | endif
 
 " junegunn/fzf.vim configurations --------------------------------------------
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -123,6 +124,8 @@ Plug 'preservim/nerdtree'
 " Integrated ide-like file browser.
 
 nnoremap <C-n> :NERDTreeToggle<CR>
+
+let g:NERDTreeWinSize = 30
 
 " close vim if nerdtree is the last window open.
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree")
