@@ -15,20 +15,26 @@ call plug#begin('~/.vim/plugged/')
 
 " delimitmate configurations --------------------------------------------------
 Plug 'raimondi/delimitmate'
+" Auto-close enclosing punctuation (braces, etc).
 
 " vim-polyglot configurations ------------------------------------------------
 Plug 'sheerun/vim-polyglot'
+" Syntax highlighting for most languages.
 
 " YouCompleteMe configurations -----------------------------------------------
 Plug 'ycm-core/YouCompleteMe'
+" Heavy but robust auto-complete engine.
 
 " Integration Plugins ========================================================
 
 " vim-gitgutter configurations -----------------------------------------------
 Plug 'airblade/vim-gitgutter'
+" Show git diff markers in margin.
 
 " vimtex configurations ------------------------------------------------------
 Plug 'lervag/vimtex'
+" TeX language auto-complete and stuff.
+
 let g:tex_flavor = 'latex'
 
 if !exists('g:ycm_semantic_triggers')
@@ -45,12 +51,15 @@ let g:vimtex_view_general_viewer='echo'
 
 " indentLine configurations --------------------------------------------------
 Plug 'Yggdroot/indentLine'
+" Indentation markers for large code folds.
 
 " indentLine screws with TeX file display.
 autocmd BufNewFile,BufRead *.tex IndentLinesDisable
 
 " material.vim configurations ------------------------------------------------
 Plug 'kaicataldo/material.vim', { 'branch': 'main' }
+" Material Design based color scheme.
+
 "let g:material_terminal_italics = 1
 let g:material_theme_style = 'ocean'
 
@@ -62,6 +71,7 @@ endif
 
 " comfortable-motion.vim configurations --------------------------------------
 Plug 'yuttie/comfortable-motion.vim'
+" Smooth scrolling in vim.
 
 " for 42 row vim window (laptop).
 "nnoremap <silent> <C-j> :call comfortable_motion#flick( 144)<CR>
@@ -73,11 +83,15 @@ nnoremap <silent> <C-k> :call comfortable_motion#flick(-170)<CR>
 
 " nerdcommenter configurations -----------------------------------------------
 Plug 'preservim/nerdcommenter'
+" Indentation commands.
+
 let g:NERDDefaultAlign = 'left'  " don't follow indents with comment delimeters
 let g:NERDCommentEmptyLines = 1  " comment empty lines when commenting many lines
 
 " nerdtree configurations ----------------------------------------------------
 Plug 'preservim/nerdtree'
+" Integrated ide-like file browser.
+
 nnoremap <C-n> :NERDTreeToggle<CR>
 
 " close vim if nerdtree is the last window open.
@@ -86,10 +100,12 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " promptline configurations --------------------------------------------------
 " invoke `promptline': PromptlineSnapshot ~/.promptline.sh airline
 Plug 'edkolev/promptline.vim'
+" Shell prompt based off current vim-airline theme.
 
 " vim-airline configurations -------------------------------------------------
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+" Customizable status line with more information.
 
 let g:airline_powerline_fonts=1
 let g:airline_theme='material'
@@ -97,6 +113,7 @@ let g:airline#extensions#whitespace#enabled=0
 
 " vim-devicons configurations ------------------------------------------------
 Plug 'ryanoasis/vim-devicons'
+" Fancy icons for NERDTree and vim-airline.
 
 call plug#end()
 
