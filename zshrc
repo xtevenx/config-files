@@ -33,3 +33,8 @@ export PATH=$PATH:/home/$USER/.local/bin/
 
 # Start-up scripts.
 source ~/.promptline.sh
+
+# Add the following to /etc/wsl.conf for performance on WSL:
+# [interop]
+# appendWindowsPath = false
+eval $(thefuck --alias)
