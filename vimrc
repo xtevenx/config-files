@@ -13,7 +13,7 @@ call plug#begin('~/.vim/plugged/')
 
 " Syntax/Autocomplete Plugins ================================================
 
-" delimitmate configurations --------------------------------------------------
+" delimitmate configurations -------------------------------------------------
 Plug 'raimondi/delimitmate'
 " Auto-close enclosing punctuation (braces, etc).
 
@@ -74,12 +74,14 @@ Plug 'yuttie/comfortable-motion.vim'
 " Smooth scrolling in vim.
 
 " for 42 row vim window (laptop).
+nnoremap <silent> <C-j> :call comfortable_motion#flick( 108)<CR>
+nnoremap <silent> <C-k> :call comfortable_motion#flick(-108)<CR>
 "nnoremap <silent> <C-j> :call comfortable_motion#flick( 144)<CR>
 "nnoremap <silent> <C-k> :call comfortable_motion#flick(-144)<CR>
 
 " for 52 row vim window (desktop).
-nnoremap <silent> <C-j> :call comfortable_motion#flick( 170)<CR>
-nnoremap <silent> <C-k> :call comfortable_motion#flick(-170)<CR>
+"nnoremap <silent> <C-j> :call comfortable_motion#flick( 170)<CR>
+"nnoremap <silent> <C-k> :call comfortable_motion#flick(-170)<CR>
 
 " nerdcommenter configurations -----------------------------------------------
 Plug 'preservim/nerdcommenter'
