@@ -49,6 +49,10 @@ let g:vimtex_view_general_viewer='echo'
 
 " Project Plugins ============================================================
 
+" ludovicchabant/vim-gutentags configurations --------------------------------
+Plug 'ludovicchabant/vim-gutentags'
+" Automatic ctags generator/updator.
+
 " junegunn/fzf.vim configurations --------------------------------------------
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
