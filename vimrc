@@ -47,6 +47,15 @@ au VimEnter * let g:ycm_semantic_triggers.tex = g:vimtex#re#youcompleteme
 let g:vimtex_view_automatic=0
 let g:vimtex_view_general_viewer='echo'
 
+" Project Plugins ============================================================
+
+" junegunn/fzf.vim configurations --------------------------------------------
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+" Performant file fuzzy-finder.
+
+nnoremap <C-p> :FZF<CR>
+
 " Display Plugins ============================================================
 
 " indentLine configurations --------------------------------------------------
