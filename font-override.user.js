@@ -8,16 +8,14 @@
 // @run-at       document-end
 // ==/UserScript==
 
-(function foo(n) {
-  for (const e of n.childNodes) {
-    foo(e);
-    if (typeof e.style !== 'undefined') {
-      const fontFamily = window.getComputedStyle(e, null).getPropertyValue('font-family');
-      if (fontFamily.toLowerCase().includes('mono')) {
-        e.style.fontFamily = 'Fira Mono,' + fontFamily;
-      } else {
-        e.style.fontFamily = 'Fira Sans,' + fontFamily;
-      }
+(function foo(e) {
+  e.childNodes.forEach(foo);
+  if (typeof e.style !== 'undefined') {
+    const fontFamily = window.getComputedStyle(e, null).getPropertyValue('font-family');
+    if (fontFamily.toLowerCase().includes('mono')) {
+      e.style.fontFamily = 'Fira Mono,' + fontFamily;
+    } else {
+      e.style.fontFamily = 'Fira Sans,' + fontFamily;
     }
   }
-})(document);
+})(document.body);
