@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Font Override (JS)
 // @description  Script that uses forces standardized fonts for all web pages.
-// @version      0.0.1-dev
+// @version      0.1.0-dev
 // @author       xtevenx
 // @license      Unlicense
 // @match        https://*/*
@@ -11,10 +11,26 @@
 const fontFaces = ['Fira Sans', 'Fira Mono'];
 //const fontFaces = ['Comic Sans MS', 'ComicMono NF'];
 
-(function foo(e) {
-  e.childNodes.forEach(foo);
+function fixFontFamily(e) {
   if (typeof e.style !== 'undefined') {
     const fontFamily = window.getComputedStyle(e, null).getPropertyValue('font-family');
-    e.style.fontFamily = fontFaces[+fontFamily.toLowerCase().includes('mono')] + ',' + fontFamily;
+    const properFontFamily = fontFaces[+fontFamily.toLowerCase().includes('mono')];
+    if (!fontFamily.startsWith(properFontFamily)) {
+      e.style.fontFamily = properFontFamily + ',' + fontFamily;
+    }
   }
-})(document.body);
+}
+
+function fixNodeTree(e) {
+  e.childNodes.forEach(fixNodeTree);
+  fixFontFamily(e);
+} fixNodeTree(document.body);
+
+
+// Set up and deploy a mutation observer.
+new MutationObserver(function(mutationArray, _) {
+  for (const m of mutationArray) {
+    if (m.type === 'attributes') { fixFontFamily(m.target); }
+    else if (m.type === 'childList') { fixNodeTree(m.target); }
+  }
+}).observe(document.body, { subtree: true, childList: true, attributes: true });
