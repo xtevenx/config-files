@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Font Override (JS)
 // @description  Script that uses forces standardized fonts for all web pages.
-// @version      0.1.0-dev
+// @version      0.1.1-dev
 // @author       xtevenx
 // @license      Unlicense
 // @match        https://*/*
@@ -29,8 +29,5 @@ function fixNodeTree(e) {
 
 // Set up and deploy a mutation observer.
 new MutationObserver(function(mutationArray, _) {
-  for (const m of mutationArray) {
-    if (m.type === 'attributes') { fixFontFamily(m.target); }
-    else if (m.type === 'childList') { fixNodeTree(m.target); }
-  }
-}).observe(document.body, { subtree: true, childList: true, attributes: true });
+  for (const m of mutationArray) { fixNodeTree(m.target); }
+}).observe(document.body, { subtree: true, childList: true });
