@@ -196,6 +196,10 @@ set smartcase   " enable case-sensitive search if query includes upper-case lett
 set spelllang=en
 autocmd BufNewFile,BufRead *.tex set spell
 
+" keybinding options
+autocmd FileType cpp    nnoremap <buffer> <leader>r :!g++ "%:p" -o "%:p:r" && "%:p:r"<CR>
+autocmd FileType python nnoremap <buffer> <leader>r :!python3 "%:p"<CR>
+
 " miscellaneous options
 set backspace=indent,eol,start  " allow backspace over everything
 set confirm                     " confirm before closing unsaved file
