@@ -1,0 +1,23 @@
+/* ==UserStyle==
+@name         Youtube Focus (CSS)
+@description  Style that hides many Youtube features.
+@version      0.1.0
+@author       xtevenx
+@license      Unlicense
+==/UserStyle== */
+
+@-moz-document domain("youtube.com") {
+  #masthead-container, #guide, #comments, #secondary {
+    display: none !important;
+    height: 0 !important;
+    width: 0 !important;
+  }
+
+  #page-manager {
+    margin: 0 !important;
+  }
+
+  ytd-video-secondary-info-renderer {
+    border-bottom: 0 !important;
+  }
+}
