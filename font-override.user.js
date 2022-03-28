@@ -1,14 +1,15 @@
 // ==UserScript==
 // @name         Font Override (JS)
 // @description  Script that forces standardized fonts for all web pages.
-// @version      0.2.0-dev
+// @version      0.2.1
 // @author       xtevenx
 // @license      Unlicense
 // @match        https://*/*
 // @run-at       document-start
 // ==/UserScript==
 
-const fontFaces = ['Fira Sans', 'Fira Mono'];
+const fontFaces = ['Open Sans', 'Fira Code'];
+//const fontFaces = ['Fira Sans', 'Fira Mono'];
 //const fontFaces = ['Comic Sans MS', 'ComicMono NF'];
 
 function fixFontFamily(e) {
