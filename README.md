@@ -1,15 +1,6 @@
-### These are my personal config files; they're only public because it's easier to work with. :P
+*"Oh hey there. I hope you're doing well!"*
 
-Browser Configs
----------------
-
-* [darkreader](https://github.com/darkreader/darkreader)
-* [decentraleyes](https://git.synz.io/Synzvato/decentraleyes)
-* [uBlock Origin](https://github.com/gorhill/uBlock)
-
-GUI Configs
------------
+---
 
 * [Capitaine Cursors](https://github.com/keeferrourke/capitaine-cursors)
-* [`Desktop Background`](https://raw.githubusercontent.com/xtevenx/config-files/master/backup/desktop_background.png)
 * [Windows Terminal Colorsheme](https://github.com/julianlatest/material-windows-terminal)
