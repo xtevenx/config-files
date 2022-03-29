@@ -1,12 +1,12 @@
 /* ==UserStyle==
 @name         Youtube Focus (CSS)
 @description  Style that hides some Youtube features.
-@version      0.2.1
+@version      0.2.2
 @author       xtevenx
 @license      Unlicense
 ==/UserStyle== */
 
-@-moz-document domain("youtube.com") {
+@-moz-document domain("www.youtube.com") {
   #masthead-container {
     opacity: 0 !important;
     transition: 250ms !important;
@@ -17,7 +17,7 @@
     transition: 250ms !important;
   }
 
-  #guide-button, #guide, #comments, #secondary {
+  #guide-button, #guide, #comments, #secondary, #related {
     display: none !important;
     height: 0 !important;
     width: 0 !important;
