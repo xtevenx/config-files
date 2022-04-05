@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name         Youtube Focus (CSS)
 @description  Style that hides some Youtube features.
-@version      0.2.2
+@version      0.2.3
 @author       xtevenx
 @license      Unlicense
 ==/UserStyle== */
@@ -29,6 +29,10 @@
 
   #header {
     transform: translateY(calc(-1 * var(--ytd-toolbar-height)));
+  }
+
+  ytd-mini-guide-renderer {
+    display: none !important;
   }
 
   ytd-video-secondary-info-renderer {
