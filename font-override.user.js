@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Font Override (JS)
 // @description  Script that forces standardized fonts for all web pages.
-// @version      0.2.3
+// @version      0.2.4
 // @author       xtevenx
 // @license      Unlicense
 // @match        https://*/*
@@ -17,8 +17,7 @@ function fixFontFamily(e) {
   if (typeof e.style !== 'undefined') {
     const fontFamily = window.getComputedStyle(e, null).getPropertyValue('font-family');
     if (ignoreFonts.some((x) => fontFamily.includes(x))) { return; }
-    const newFontFamily = fontFaces[+fontFamily.toLowerCase().includes('mono')];
-    if (!fontFamily.startsWith(newFontFamily)) { e.style.fontFamily = newFontFamily; }
+    e.style.fontFamily = fontFaces[+fontFamily.toLowerCase().includes('mono')];
   }
 }
 
