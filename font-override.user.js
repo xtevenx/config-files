@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Font Override (JS)
 // @description  Script that forces standardized fonts for all web pages.
-// @version      0.2.9
+// @version      0.2.10
 // @author       xtevenx
 // @license      Unlicense
 // @match        https://*/*
@@ -15,6 +15,7 @@ const ignoreFonts = [
   'inherit',
   'anchorjs-icons',
   'Font Awesome',
+  'FontAwesome',
   'Glyphicons Halflings',
   'GMP Icons',
   'Material Icons'
