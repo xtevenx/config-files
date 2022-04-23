@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name         Youtube Focus (CSS)
 @description  Style that hides some Youtube features.
-@version      0.2.4
+@version      0.2.5
 @author       xtevenx
 @license      Unlicense
 ==/UserStyle== */
@@ -9,11 +9,13 @@
 @-moz-document domain("www.youtube.com") {
   #masthead-container {
     opacity: 0 !important;
+    transform: translateY(calc(-0.5 * var(--ytd-toolbar-height))) !important;
     transition: 250ms !important;
   }
 
   #masthead-container:hover {
     opacity: 1 !important;
+    transform: none !important;
     transition: 250ms !important;
   }
 
