@@ -20,6 +20,7 @@ const ignoreFonts = [
   'FontAwesome',
   'fontello',
   'Glyphicons Halflings',
+  'glyphicons halflings',
   'GMP Icons',
   'icomoon',
   'lichess',
