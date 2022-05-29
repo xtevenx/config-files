@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Font Override (JS)
 // @description  Script that forces standardized fonts for all web pages.
-// @version      0.2.13
+// @version      0.2.14
 // @author       xtevenx
 // @license      Unlicense
 // @match        https://*/*
@@ -14,9 +14,11 @@ const fontFaces = ['Open Sans', 'Fira Mono'];
 const ignoreFonts = [
   'inherit',
   'anchorjs-icons',
+  'docons',
   'FabricMDL2Icons',
   'Font Awesome',
   'FontAwesome',
+  'fontello',
   'Glyphicons Halflings',
   'GMP Icons',
   'icomoon',
@@ -27,7 +29,9 @@ const ignoreFonts = [
 function fixFontFamily(e) {
   if (typeof e.style !== 'undefined') {
     const fontFamily = window.getComputedStyle(e, null).getPropertyValue('font-family');
-    if (!ignoreFonts.some((x) => fontFamily.includes(x))) { e.style.fontFamily = fontFaces[+fontFamily.toLowerCase().includes('mono')]; }
+    if (!ignoreFonts.some((x) => fontFamily.includes(x))) {
+      e.style.fontFamily = fontFaces[+fontFamily.toLowerCase().includes('mono')];
+    }
   }
 }
 
