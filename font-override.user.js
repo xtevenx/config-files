@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Font Override (JS)
 // @description  Script that forces standardized fonts for all web pages.
-// @version      0.2.14
+// @version      0.2.15
 // @author       xtevenx
 // @license      Unlicense
 // @match        https://*/*
@@ -17,6 +17,7 @@ const ignoreFonts = [
   'docons',
   'FabricMDL2Icons',
   'Font Awesome',
+  'Font Awesome 5 Brands',
   'FontAwesome',
   'fontello',
   'Glyphicons Halflings',
