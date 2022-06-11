@@ -3,6 +3,57 @@ let g:python3_host_prog = '/usr/bin/python3'
 lua require('plugins')
 
 
+set completeopt=menu,menuone,noselect
+
+lua << EOF
+  local cmp = require('cmp')
+
+  cmp.setup({
+    snippet = {
+      expand = function(args)
+        vim.fn["vsnip#anonymous"](args.body)
+      end,
+    },
+    mapping = cmp.mapping.preset.insert({
+      ['<TAB>'] = cmp.mapping(function(fallback)
+        if cmp.visible() then
+          local entry = cmp.get_selected_entry()
+          if not entry then
+            cmp.select_next_item({ behavior = cmp.SelectBehavior.Insert })
+          else
+            cmp.confirm()
+          end
+        else
+          fallback()
+        end
+      end),
+      ['<CR>'] = cmp.mapping.confirm({ select = true }),
+    }),
+    sources = {
+      { name = 'buffer' },
+      { name = 'nvim_lsp' },
+      { name = 'path' },
+      { name = 'vsnip' },
+    },
+    formatting = {
+      format = require('lspkind').cmp_format(),
+    },
+  })
+
+  local servers = { 'rust_analyzer' }
+
+  local capabilities = vim.lsp.protocol.make_client_capabilities()
+  capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+
+  local lspconfig = require('lspconfig')
+  for _, lsp in ipairs(servers) do
+    lspconfig[lsp].setup {
+      capabilities = capabilities,
+    }
+  end
+EOF
+
+
 " material theme plugin
 let g:material_theme_style = 'ocean'
 if (has('termguicolors'))
