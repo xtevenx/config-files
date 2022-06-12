@@ -8,17 +8,24 @@ return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
   use 'neovim/nvim-lspconfig'
+  use 'onsails/lspkind.nvim'
 
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/cmp-path'
-  use 'hrsh7th/cmp-vsnip'
-  use 'hrsh7th/vim-vsnip'
   use 'hrsh7th/nvim-cmp'
 
-  use 'onsails/lspkind.nvim'
+  use 'L3MON4D3/LuaSnip'
+  use 'saadparwaiz1/cmp_luasnip'
 
-  use {'kaicataldo/material.vim', branch = 'main'}
+  use {'nvim-treesitter/nvim-treesitter', run = 'TSUpdate'}
+
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+  }
+
+  use 'joshdick/onedark.vim'
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
