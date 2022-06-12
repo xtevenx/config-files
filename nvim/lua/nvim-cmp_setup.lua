@@ -13,7 +13,11 @@ cmp.setup({
   mapping = cmp.mapping.preset.insert({
     ['<TAB>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
-        cmp.select_next_item()
+        if (cmp.get_active_entry() ~= cmp.get_selected_entry()) then
+          cmp.confirm()
+        else
+          cmp.select_next_item()
+        end
       elseif luasnip.expand_or_jumpable() then
         luasnip.expand_or_jump()
       else
