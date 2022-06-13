@@ -1,5 +1,7 @@
 require('plugins')
 
+require('impatient')
+
 require('nvim-cmp_setup')
 
 
@@ -17,17 +19,19 @@ require('nvim-treesitter.configs').setup {
 -- Lualine
 
 require('lualine').setup {}
-
 vim.o.showmode = false
+
+
+-- One Dark
+
+require('onedark').setup {}
+vim.o.background = 'dark'
+vim.o.termguicolors = true
 
 
 -- Miscellaneous
 
 vim.g.python3_host_prog = '/usr/bin/python3'
-
-vim.cmd('colorscheme onedark')
-vim.o.background = 'dark'
-vim.o.termguicolors = true
 
 vim.o.relativenumber = true     -- Display relative line numbers
 vim.o.wrap = false              -- Disable line wrapping

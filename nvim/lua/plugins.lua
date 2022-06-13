@@ -25,7 +25,13 @@ return require('packer').startup(function(use)
     requires = { 'kyazdani42/nvim-web-devicons', opt = true }
   }
 
-  use 'joshdick/onedark.vim'
+  --use 'navarasu/onedark.nvim'     -- slower
+  use 'ful1e5/onedark.nvim'
+
+  -- Performance
+  use 'nathom/filetype.nvim'
+  use 'lewis6991/impatient.nvim'
+  use 'dstein64/vim-startuptime'
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

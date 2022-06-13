@@ -33,7 +33,17 @@ cmp.setup({
         fallback()
       end
     end),
-    ['<CR>'] = cmp.mapping.confirm({ select = true }),
+    ['<CR>'] = cmp.mapping(function(fallback)
+        if cmp.visible() then
+          if cmp.get_selected_entry() == nil then
+            cmp.close()
+          else
+            cmp.confirm()
+          end
+        else
+          fallback()
+        end
+    end),
   }),
   sources = {
     { name = 'buffer' },
@@ -49,6 +59,8 @@ cmp.setup({
 local servers = {
   clangd = {},        -- https://github.com/clangd/clangd
                       -- Unzip release and add bin dir to path
+  pyright = {},       -- https://github.com/microsoft/pyright
+                      -- Run `npm install -g pyright`
   rust_analyzer = {}, -- https://github.com/rust-lang/rust-analyzer
                       -- Clone and run `cargo xtask install --server`
   sumneko_lua = {     -- https://github.com/sumneko/lua-language-server
