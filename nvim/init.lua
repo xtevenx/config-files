@@ -5,14 +5,31 @@ require('impatient')
 require('nvim-cmp_setup')
 
 
--- Treesitter
+-- LuaSnip
+
+require('luasnip/loaders/from_vscode').lazy_load {}
+
+
+-- nvim-treesitter
 
 require('nvim-treesitter.configs').setup {
   ensure_installed = 'all',
   sync_install = false,
-  highlight = {
-      enable = true
-  },
+  highlight = { enable = true },
+  rainbow = { enable = true },
+}
+
+
+-- nvim-tree
+
+require('nvim-tree').setup {
+  view = {
+    mappings = {
+      list = {
+        { key = 's', action = 'vsplit' }
+      }
+    }
+  }
 }
 
 

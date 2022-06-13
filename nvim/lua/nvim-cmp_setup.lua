@@ -59,8 +59,10 @@ cmp.setup({
 local servers = {
   clangd = {},        -- https://github.com/clangd/clangd
                       -- Unzip release and add bin dir to path
-  pyright = {},       -- https://github.com/microsoft/pyright
-                      -- Run `npm install -g pyright`
+  pylsp = {},         -- https://github.com/python-lsp/python-lsp-server
+                      -- Run `pip install "python-lsp-server[all]"`
+  --pyright = {},       -- https://github.com/microsoft/pyright
+  --                    -- Run `npm install -g pyright`
   rust_analyzer = {}, -- https://github.com/rust-lang/rust-analyzer
                       -- Clone and run `cargo xtask install --server`
   sumneko_lua = {     -- https://github.com/sumneko/lua-language-server

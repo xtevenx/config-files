@@ -7,31 +7,55 @@ end
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
+  -- Auto-completion
   use 'neovim/nvim-lspconfig'
-  use 'onsails/lspkind.nvim'
 
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/cmp-path'
   use 'hrsh7th/nvim-cmp'
 
+  use 'onsails/lspkind.nvim'
+
   use 'L3MON4D3/LuaSnip'
   use 'saadparwaiz1/cmp_luasnip'
 
-  use {'nvim-treesitter/nvim-treesitter', run = 'TSUpdate'}
+  -- [Bonus] Snippet Database
+  use 'rafamadriz/friendly-snippets'
 
+  -- Syntax Highlighting
+  use {'nvim-treesitter/nvim-treesitter', run = 'TSUpdate'}
+  use 'p00f/nvim-ts-rainbow'
+
+  -- Indent Style Guessing
   use {
-    'nvim-lualine/lualine.nvim',
-    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+    'NMAC427/guess-indent.nvim',
+    config = function() require('guess-indent').setup {} end,
   }
 
-  --use 'navarasu/onedark.nvim'     -- slower
+  -- File Explorer
+  use {
+    'kyazdani42/nvim-tree.lua',
+    requires = { 'kyazdani42/nvim-web-devicons' },
+  }
+
+  -- Status Line
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'kyazdani42/nvim-web-devicons' },
+  }
+
+  -- Color Scheme
   use 'ful1e5/onedark.nvim'
+  use { 'navarasu/onedark.vim', disable = true }  -- slow performance
+
+  -- Indentation Guides
+  use 'lukas-reineke/indent-blankline.nvim'
 
   -- Performance
   use 'nathom/filetype.nvim'
   use 'lewis6991/impatient.nvim'
-  use 'dstein64/vim-startuptime'
+  use { 'dstein64/vim-startuptime', disable = true }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
