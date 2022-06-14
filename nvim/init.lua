@@ -1,80 +1,10 @@
 require('plugins')
-
 require('impatient')
-
-require('nvim-cmp_setup')
-
-
--- LuaSnip
-
-require('luasnip/loaders/from_vscode').lazy_load {}
+require('user.nvim-cmp')
+require('user.other')
 
 
--- nvim-treesitter
-
-require('nvim-treesitter.configs').setup {
-  ensure_installed = 'all',
-  sync_install = false,
-  highlight = { enable = true },
-  rainbow = { enable = true },
-}
-
-
--- nvim-tree
-
-require('nvim-tree').setup {
-  view = {
-    mappings = {
-      list = {
-        { key = 's', action = 'vsplit' }
-      }
-    }
-  }
-}
-
-vim.keymap.set('n', '<C-h>', ':NvimTreeToggle<CR>')
-
-
--- bufferline
-
-require('bufferline').setup {
-  options = {
-    diagnostics = 'nvim_lsp',
-    diagnostics_indicator = function(count, level, diagnostics_dict, context)
-      local glyphs = {
-        ['error'] = '',
-        ['warning'] = '',
-        ['info'] = '',
-        ['hint'] = '',
-        ['other'] = '',
-      }
-      return ' '..glyphs[level]..' '..count
-    end,
-    offsets = {{
-      filetype = 'NvimTree',
-      text = 'File Explorer',
-    }}
-  }
-}
-
-vim.keymap.set('n', '<C-n>', ':BufferLineCycleNext<CR>')
-vim.keymap.set('n', '<C-m>', ':BufferLineCyclePrev<CR>')
-
-
--- Lualine
-
-require('lualine').setup {}
-vim.o.showmode = false
-
-
--- One Dark
-
-require('onedark').setup {}
-vim.o.background = 'dark'
-vim.o.termguicolors = true
-
-
--- Miscellaneous
+-- Basic NeoVim Configurations
 
 vim.g.python3_host_prog = '/usr/bin/python3'
 
