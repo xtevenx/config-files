@@ -10,11 +10,16 @@ cmp.setup({
       require('luasnip').lsp_expand(args.body)
     end,
   },
+  window = {
+    documentation = cmp.config.window.bordered(),
+  },
   mapping = cmp.mapping.preset.insert({
     ['<TAB>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
         if (cmp.get_active_entry() ~= cmp.get_selected_entry()) then
           cmp.confirm()
+        elseif #cmp.get_entries() == 1 then
+          cmp.confirm({ select = true })
         else
           cmp.select_next_item()
         end

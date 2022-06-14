@@ -22,9 +22,9 @@ vim.o.splitright = true         -- Default vertical splits right
 vim.o.ignorecase = true         -- Ignore case when finding
 vim.o.smartcase = true          -- Except if query contains a capital letter
 
---vim.o.tabstop = 4               -- Set tab width to 4 spaces
---vim.o.shiftwidth = 4            -- Set indent width to 4 spaces
---vim.o.expandtab = true          -- Insert spaces instead of tabs
+vim.o.tabstop = 4               -- Set tab width to 4 spaces
+vim.o.shiftwidth = 4            -- Set indent width to 4 spaces
+vim.o.expandtab = true          -- Insert spaces instead of tabs
 
 vim.api.nvim_create_autocmd('FileType', {
   pattern = 'cpp',
