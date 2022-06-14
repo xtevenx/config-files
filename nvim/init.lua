@@ -32,7 +32,33 @@ require('nvim-tree').setup {
   }
 }
 
-vim.keymap.set('n', '<C-n>', ':NvimTreeToggle<CR>')
+vim.keymap.set('n', '<C-h>', ':NvimTreeToggle<CR>')
+
+
+-- bufferline
+
+require('bufferline').setup {
+  options = {
+    diagnostics = 'nvim_lsp',
+    diagnostics_indicator = function(count, level, diagnostics_dict, context)
+      local glyphs = {
+        ['error'] = '',
+        ['warning'] = '',
+        ['info'] = '',
+        ['hint'] = '',
+        ['other'] = '',
+      }
+      return ' '..glyphs[level]..' '..count
+    end,
+    offsets = {{
+      filetype = 'NvimTree',
+      text = 'File Explorer',
+    }}
+  }
+}
+
+vim.keymap.set('n', '<C-n>', ':BufferLineCycleNext<CR>')
+vim.keymap.set('n', '<C-m>', ':BufferLineCyclePrev<CR>')
 
 
 -- Lualine
@@ -66,9 +92,9 @@ vim.o.splitright = true         -- Default vertical splits right
 vim.o.ignorecase = true         -- Ignore case when finding
 vim.o.smartcase = true          -- Except if query contains a capital letter
 
-vim.o.tabstop = 4               -- Set tab width to 4 spaces
-vim.o.shiftwidth = 4            -- Set indent width to 4 spaces
-vim.o.expandtab = true          -- Insert spaces instead of tabs
+--vim.o.tabstop = 4               -- Set tab width to 4 spaces
+--vim.o.shiftwidth = 4            -- Set indent width to 4 spaces
+--vim.o.expandtab = true          -- Insert spaces instead of tabs
 
 vim.api.nvim_create_autocmd('FileType', {
   pattern = 'cpp',

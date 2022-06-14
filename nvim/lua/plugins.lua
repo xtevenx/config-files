@@ -39,10 +39,25 @@ return require('packer').startup(function(use)
     config = function() require('nvim-autopairs').setup {} end,
   }
 
+  -- Commenting
+  use {
+    'numToStr/Comment.nvim',
+    config = function() require('Comment').setup {
+      toggler = { line = '<C-j>' },
+      opleader = { line = '<C-k>' },
+    } end,
+  }
+
   -- File Explorer
   use {
     'kyazdani42/nvim-tree.lua',
     requires = { 'kyazdani42/nvim-web-devicons' },
+  }
+
+  -- Buffer Line
+  use {
+    'akinsho/bufferline.nvim',
+    requires = 'kyazdani42/nvim-web-devicons',
   }
 
   -- Status Line
