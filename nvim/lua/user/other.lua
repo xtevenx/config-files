@@ -42,6 +42,7 @@ vim.keymap.set('n', '<C-h>', ':NvimTreeToggle<CR>')
 -- bufferline
 require('bufferline').setup {
   options = {
+    separator_style = 'padded_slant',
     offsets = {
       {
         filetype = 'NvimTree',
@@ -55,10 +56,24 @@ vim.keymap.set('n', '<C-n>', ':BufferLineCycleNext<CR>')
 vim.keymap.set('n', '<C-m>', ':BufferLineCyclePrev<CR>')
 
 -- Lualine
-require('lualine').setup {}
+require('lualine').setup {
+  options = { disabled_filetypes = { 'packer' } },
+  extensions = { 'aerial', 'nvim-tree', 'toggleterm' },
+}
+
 vim.o.showmode = false
 
 -- One Dark
-require('onedark').setup {}
+require('onedark').setup {
+  dark_float = true,
+  sidebars = { 'aerial', 'packer' }
+}
 vim.o.background = 'dark'
 vim.o.termguicolors = true
+
+-- indent-blankline
+require('indent_blankline').setup {
+  show_current_context = true,
+}
+
+vim.cmd('highlight IndentBlanklineContextChar guifg=#5c6370 gui=nocombine')
