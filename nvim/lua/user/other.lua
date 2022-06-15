@@ -9,6 +9,23 @@ require('nvim-treesitter.configs').setup {
   rainbow = { enable = true },
 }
 
+-- toggleterm
+local commands = {
+  c = 'gcc "%:p" -o "%:p:r" && "%:p:r"',
+  cpp = 'g++ "%:p" -o "%:p:r" && "%:p:r"',
+  python = 'python3 "%:p"',
+  rust = 'cargo run',
+} -- Can only use double quotes inside the command.
+
+for ft, cmd in pairs(commands) do
+  vim.api.nvim_create_autocmd('FileType', {
+    pattern = ft,
+    callback = function()
+      vim.keymap.set('n', '<leader>r', ":TermExec cmd='"..cmd.."'<CR>")
+    end,
+  })
+end
+
 -- nvim-tree
 require('nvim-tree').setup {
   view = {

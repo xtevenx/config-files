@@ -25,17 +25,3 @@ vim.o.smartcase = true          -- Except if query contains a capital letter
 vim.o.tabstop = 4               -- Set tab width to 4 spaces
 vim.o.shiftwidth = 4            -- Set indent width to 4 spaces
 vim.o.expandtab = true          -- Insert spaces instead of tabs
-
-vim.api.nvim_create_autocmd('FileType', {
-  pattern = 'cpp',
-  callback = function()
-    vim.keymap.set('n', '<leader>r', ":!g++ '%:p' -o '%:p:r' && '%:p:r'<CR>")
-  end
-})
-
-vim.api.nvim_create_autocmd('FileType', {
-  pattern = 'python',
-  callback = function()
-    vim.keymap.set('n', '<leader>r', ":!python3 '%:p'<CR>")
-  end
-})

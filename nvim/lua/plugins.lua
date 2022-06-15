@@ -43,8 +43,18 @@ return require('packer').startup(function(use)
   use {
     'numToStr/Comment.nvim',
     config = function() require('Comment').setup {
-      toggler = { line = '<C-j>' },
-      opleader = { line = '<C-k>' },
+      toggler = { line = '<leader>c<space>' },
+      opleader = { line = '<leader>c' },
+    } end,
+  }
+
+  -- Terminal Manager
+  use {
+    'akinsho/toggleterm.nvim',
+    config = function() require('toggleterm').setup {
+      open_mapping = '<C-j>',
+      direction = 'float',
+      float_opts = { border = 'curved' },
     } end,
   }
 
@@ -72,6 +82,15 @@ return require('packer').startup(function(use)
 
   -- Indentation Guides
   use 'lukas-reineke/indent-blankline.nvim'
+
+  -- Smooth Scrolling
+  use {
+    'declancm/cinnamon.nvim',
+    config = function() require('cinnamon').setup {
+      default_keymaps = true,
+      default_delay = 8,
+    } end,
+  }
 
   -- Performance
   use 'nathom/filetype.nvim'
