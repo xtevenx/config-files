@@ -64,6 +64,17 @@ return require('packer').startup(function(use)
     requires = { 'kyazdani42/nvim-web-devicons' },
   }
 
+  -- Code Outline
+  use {
+    'stevearc/aerial.nvim',
+    config = function() require('aerial').setup {
+      backends = { 'treesitter', 'lsp' },
+      close_behavior = 'close',
+      min_width = 30, -- same as nvim-tree
+      open_automatic = true,
+    } end,
+  }
+
   -- Buffer Line
   use {
     'akinsho/bufferline.nvim',
