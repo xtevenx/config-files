@@ -68,9 +68,9 @@ return require('packer').startup(function(use)
   use {
     'stevearc/aerial.nvim',
     config = function() require('aerial').setup {
-      backends = { 'treesitter', 'lsp' },
+      backends = { 'treesitter', 'lsp', 'markdown' },
       close_behavior = 'close',
-      min_width = 30, -- same as nvim-tree
+      min_width = 33, -- Size when 'no symbols' to display.
       open_automatic = true,
     } end,
   }

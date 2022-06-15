@@ -5,6 +5,16 @@ local cmp = require('cmp')
 local luasnip = require('luasnip')
 
 cmp.setup({
+  enabled = function()
+    -- Keep completion enabled in command-line mode.
+    if vim.api.nvim_get_mode().mode == 'c' then
+      return true
+    else
+      local context = require('cmp.config.context')
+      return not context.in_treesitter_capture("comment")
+         and not context.in_syntax_group("Comment")
+    end
+  end,
   snippet = {
     expand = function(args)
       require('luasnip').lsp_expand(args.body)
@@ -73,6 +83,10 @@ local servers = {
   sumneko_lua = {     -- https://github.com/sumneko/lua-language-server
                       -- Unzip release and add bin dir to path
     Lua = { diagnostics = { globals = {'vim'} } },
+  },
+  texlab = {          -- https://github.com/latex-lsp/texlab
+                      -- Run `cargo install texlab`
+    texlab = { build = { onSave = true } },
   },
 }
 

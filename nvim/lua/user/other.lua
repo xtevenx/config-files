@@ -27,19 +27,26 @@ for ft, cmd in pairs(commands) do
 end
 
 -- nvim-tree
+local function aerial_split(_)
+  require('nvim-tree.actions').on_keypress('split')
+  require('aerial').close_all {}
+  require('aerial').open_all {}
+end
+
 require('nvim-tree').setup {
   open_on_setup = true,
   ignore_buffer_on_setup = true,
   view = {
+    width = 33,  -- Same as aerial when 'no symbols' to display.
     mappings = {
       list = {
-        { key = 's', action = 'vsplit' }
+        { key = 's', action = 'aerial_split', action_cb = aerial_split }
       }
     }
   }
 }
 
-vim.keymap.set('n', '<C-h>', ':NvimTreeToggle<CR>')
+vim.keymap.set('n', '<C-h>', ':NvimTreeOpen<CR>')
 
 vim.api.nvim_create_autocmd('BufEnter', {
   nested = true,
@@ -56,7 +63,7 @@ vim.api.nvim_create_autocmd('BufEnter', {
       end
     end
     if close then
-      vim.cmd('qall')
+      vim.cmd('qall!')
     end
   end
 })

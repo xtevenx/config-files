@@ -8,6 +8,8 @@ require('user.other')
 
 vim.g.python3_host_prog = '/usr/bin/python3'
 
+vim.g.tex_flavor = 'latex'
+
 vim.o.number = true             -- Display line numbers
 vim.o.relativenumber = true     -- Display relative line numbers
 vim.o.wrap = false              -- Disable line wrapping
@@ -27,4 +29,12 @@ vim.o.tabstop = 4               -- Set tab width to 4 spaces
 vim.o.shiftwidth = 4            -- Set indent width to 4 spaces
 vim.o.expandtab = true          -- Insert spaces instead of tabs
 
+vim.o.undofile = true           -- Use an undo file
+
 vim.keymap.set('n', '<leader>w', ':bprevious | bdelete #<CR>')
+
+local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+for type, icon in pairs(signs) do
+  local hl = "DiagnosticSign" .. type
+  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+end
