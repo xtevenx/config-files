@@ -16,7 +16,7 @@ vim.o.wrap = false              -- Disable line wrapping
 vim.o.cursorline = true         -- Highlight current line
 
 vim.o.scrolloff = 4             -- Show rows around cursor
-vim.o.sidescrolloff = 12        -- Show columns around cursor
+vim.o.sidescrolloff = 8         -- Show columns around cursor
 
 vim.o.mouse = 'a'               -- Enable mouse interaction
 vim.o.splitbelow = true         -- Default horizontal splits below
