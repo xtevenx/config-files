@@ -99,7 +99,7 @@ return require('packer').startup(function(use)
     'declancm/cinnamon.nvim',
     config = function() require('cinnamon').setup {
       default_keymaps = true,
-      default_delay = 8,
+      default_delay = 1,
     } end,
   }
 
