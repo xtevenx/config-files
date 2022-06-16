@@ -10,12 +10,6 @@ require('nvim-treesitter.configs').setup {
 }
 
 -- nvim-tree
-local function aerial_split(_)
-  require('nvim-tree.actions').on_keypress('split')
-  require('aerial').close_all()
-  require('aerial').open_all()
-end
-
 require('nvim-tree').setup {
   open_on_setup = true,
   ignore_buffer_on_setup = true,
@@ -23,7 +17,7 @@ require('nvim-tree').setup {
     width = 33, -- Same as aerial when 'no symbols' to display.
     mappings = {
       list = {
-        { key = 's', action = 'aerial_split', action_cb = aerial_split },
+        { key = 's', action = 'split' },
       },
     },
   },

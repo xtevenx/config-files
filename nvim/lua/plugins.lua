@@ -52,8 +52,8 @@ return require('packer').startup(function(use)
     'numToStr/Comment.nvim',
     config = function()
       require('Comment').setup {
-        toggler = { line = '<leader>c<space>' },
-        opleader = { line = '<leader>c' },
+        toggler = { line = '<leader>c<space>' }, -- KEYMAP!
+        opleader = { line = '<leader>c' }, -- KEYMAP!
       }
     end,
   }
@@ -63,7 +63,7 @@ return require('packer').startup(function(use)
     'akinsho/toggleterm.nvim',
     config = function()
       require('toggleterm').setup {
-        open_mapping = '<C-j>',
+        open_mapping = '<C-j>', -- KEYMAP!
         direction = 'float',
         float_opts = { border = 'curved' },
       }
@@ -82,7 +82,7 @@ return require('packer').startup(function(use)
     config = function()
       require('aerial').setup {
         backends = { 'treesitter', 'lsp', 'markdown' },
-        close_behavior = 'close',
+        close_behavior = 'global',
         min_width = 33, -- Size when 'no symbols' to display.
         open_automatic = true,
       }

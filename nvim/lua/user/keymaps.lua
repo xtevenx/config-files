@@ -1,10 +1,14 @@
 vim.o.timeoutlen = 600          -- Key mapping timeout
 
+-- This file contains *almost* all the custom keybinds.
+-- Some exceptions are:
+-- - Comment toggle (plugins.lua)
+-- - ToggleTerm (plugins.lua)
+
 vim.keymap.set('n', '<leader>w', ':bprevious | bdelete #<CR>')
 vim.keymap.set('n', '<leader>f', ':lua vim.lsp.buf.format({ bufnr = 0 })<CR>')
 
 vim.keymap.set('n', '<C-h>', ':NvimTreeOpen<CR>')
-vim.keymap.set('n', '<C-k>', ":lua require('aerial').close_all(); require('aerial').open_all()<CR>")
 vim.keymap.set('n', '<C-n>', ':BufferLineCycleNext<CR>')
 vim.keymap.set('n', '<C-m>', ':BufferLineCyclePrev<CR>')
 
