@@ -50,7 +50,8 @@ return require('packer').startup(function(use)
   -- Commenting
   use {
     'numToStr/Comment.nvim',
-    config = function() require('Comment').setup {
+    config = function()
+      require('Comment').setup {
         toggler = { line = '<leader>c<space>' },
         opleader = { line = '<leader>c' },
       }
@@ -60,7 +61,8 @@ return require('packer').startup(function(use)
   -- Terminal Manager
   use {
     'akinsho/toggleterm.nvim',
-    config = function() require('toggleterm').setup {
+    config = function()
+      require('toggleterm').setup {
         open_mapping = '<C-j>',
         direction = 'float',
         float_opts = { border = 'curved' },
@@ -77,7 +79,8 @@ return require('packer').startup(function(use)
   -- Code Outline
   use {
     'stevearc/aerial.nvim',
-    config = function() require('aerial').setup {
+    config = function()
+      require('aerial').setup {
         backends = { 'treesitter', 'lsp', 'markdown' },
         close_behavior = 'close',
         min_width = 33, -- Size when 'no symbols' to display.
@@ -89,7 +92,7 @@ return require('packer').startup(function(use)
   -- Buffer Line
   use {
     'akinsho/bufferline.nvim',
-    requires = 'kyazdani42/nvim-web-devicons',
+    requires = { 'kyazdani42/nvim-web-devicons' },
   }
 
   -- Status Line
@@ -108,11 +111,18 @@ return require('packer').startup(function(use)
   -- Smooth Scrolling
   use {
     'declancm/cinnamon.nvim',
-    config = function() require('cinnamon').setup {
+    config = function()
+      require('cinnamon').setup {
         default_keymaps = true,
         default_delay = 1,
       }
     end,
+  }
+
+  -- Keybind Helper
+  use {
+    'folke/which-key.nvim',
+    config = function() require('which-key').setup() end,
   }
 
   -- Performance

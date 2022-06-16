@@ -9,23 +9,6 @@ require('nvim-treesitter.configs').setup {
   rainbow = { enable = true },
 }
 
--- toggleterm
-local commands = {
-  c = 'gcc "%:p" -o "%:p:r" && "%:p:r"',
-  cpp = 'g++ "%:p" -o "%:p:r" && "%:p:r"',
-  python = 'python3 "%:p"',
-  rust = 'cargo run',
-} -- Can only use double quotes inside the command.
-
-for ft, cmd in pairs(commands) do
-  vim.api.nvim_create_autocmd('FileType', {
-    pattern = ft,
-    callback = function()
-      vim.keymap.set('n', '<leader>r', ":TermExec cmd='" .. cmd .. "'<CR>")
-    end,
-  })
-end
-
 -- nvim-tree
 local function aerial_split(_)
   require('nvim-tree.actions').on_keypress('split')
@@ -40,13 +23,11 @@ require('nvim-tree').setup {
     width = 33, -- Same as aerial when 'no symbols' to display.
     mappings = {
       list = {
-        { key = 's', action = 'aerial_split', action_cb = aerial_split }
-      }
-    }
-  }
+        { key = 's', action = 'aerial_split', action_cb = aerial_split },
+      },
+    },
+  },
 }
-
-vim.keymap.set('n', '<C-h>', ':NvimTreeOpen<CR>')
 
 vim.api.nvim_create_autocmd('BufEnter', {
   nested = true,
@@ -78,13 +59,14 @@ require('bufferline').setup {
   }
 }
 
-vim.keymap.set('n', '<C-n>', ':BufferLineCycleNext<CR>')
-vim.keymap.set('n', '<C-m>', ':BufferLineCyclePrev<CR>')
-
 -- Lualine
 require('lualine').setup {
-  options = { disabled_filetypes = { 'packer' } },
-  sections = { lualine_c = { 'filename', 'aerial' } },
+  options = {
+    disabled_filetypes = { 'packer' },
+  },
+  sections = {
+    lualine_c = { 'filename', 'aerial' },
+  },
   extensions = { 'aerial', 'nvim-tree', 'toggleterm' },
 }
 

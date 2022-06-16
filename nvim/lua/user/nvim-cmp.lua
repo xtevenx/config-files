@@ -63,7 +63,10 @@ cmp.setup {
   sources = {
     { name = 'buffer' },
     { name = 'nvim_lsp' },
-    { name = 'path', option = { trailing_slash = true } },
+    {
+      name = 'path',
+      option = { trailing_slash = true },
+    },
     { name = 'luasnip' },
   },
   formatting = {
@@ -84,7 +87,11 @@ local servers = {
   -- https://github.com/sumneko/lua-language-server
   -- Unzip release and add bin dir to path
   sumneko_lua = {
-    Lua = { diagnostics = { globals = { 'vim' } } },
+    Lua = {
+      diagnostics = {
+        globals = { 'vim' }
+      },
+    },
   },
   -- https://github.com/latex-lsp/texlab
   -- Run `cargo install texlab`

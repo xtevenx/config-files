@@ -1,7 +1,8 @@
 require('plugins')
 require('impatient')
-require('user.nvim-cmp')
+require('user.keymaps')
 require('user.null-ls')
+require('user.nvim-cmp')
 require('user.other')
 
 
@@ -31,9 +32,6 @@ vim.o.shiftwidth = 4            -- Set indent width to 4 spaces
 vim.o.expandtab = true          -- Insert spaces instead of tabs
 
 vim.o.undofile = true           -- Use an undo file
-
-vim.keymap.set('n', '<leader>w', ':bprevious | bdelete #<CR>')
-vim.keymap.set('n', '<leader>f', ':lua vim.lsp.buf.format({ bufnr = 0 })<CR>')
 
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 for type, icon in pairs(signs) do
