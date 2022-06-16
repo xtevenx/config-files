@@ -1,10 +1,10 @@
-vim.opt.completeopt = {'menuone', 'noselect'}
+vim.opt.completeopt = { 'menuone', 'noselect' }
 
 local cmp = require('cmp')
 
 local luasnip = require('luasnip')
 
-cmp.setup({
+cmp.setup {
   enabled = function()
     -- Keep completion enabled in command-line mode.
     if vim.api.nvim_get_mode().mode == 'c' then
@@ -12,7 +12,7 @@ cmp.setup({
     else
       local context = require('cmp.config.context')
       return not context.in_treesitter_capture("comment")
-         and not context.in_syntax_group("Comment")
+          and not context.in_syntax_group("Comment")
     end
   end,
   snippet = {
@@ -49,15 +49,15 @@ cmp.setup({
       end
     end),
     ['<CR>'] = cmp.mapping(function(fallback)
-        if cmp.visible() then
-          if cmp.get_selected_entry() == nil then
-            cmp.close()
-          else
-            cmp.confirm()
-          end
+      if cmp.visible() then
+        if cmp.get_selected_entry() == nil then
+          cmp.close()
         else
-          fallback()
+          cmp.confirm()
         end
+      else
+        fallback()
+      end
     end),
   }),
   sources = {
@@ -69,24 +69,30 @@ cmp.setup({
   formatting = {
     format = require('lspkind').cmp_format(),
   },
-})
+}
 
 local servers = {
-  clangd = {},        -- https://github.com/clangd/clangd
-                      -- Unzip release and add bin dir to path
-  pylsp = {},         -- https://github.com/python-lsp/python-lsp-server
-                      -- Run `pip install "python-lsp-server[all]"`
-  --pyright = {},       -- https://github.com/microsoft/pyright
-  --                    -- Run `npm install -g pyright`
-  rust_analyzer = {}, -- https://github.com/rust-lang/rust-analyzer
-                      -- Clone and run `cargo xtask install --server`
-  sumneko_lua = {     -- https://github.com/sumneko/lua-language-server
-                      -- Unzip release and add bin dir to path
-    Lua = { diagnostics = { globals = {'vim'} } },
+  -- https://github.com/clangd/clangd
+  -- Unzip release and add bin dir to path
+  clangd = {},
+  -- https://github.com/microsoft/pyright
+  -- Run `npm install -g pyright`
+  pyright = {},
+  -- https://github.com/rust-lang/rust-analyzer
+  -- Clone and run `cargo xtask install --server`
+  rust_analyzer = {},
+  -- https://github.com/sumneko/lua-language-server
+  -- Unzip release and add bin dir to path
+  sumneko_lua = {
+    Lua = { diagnostics = { globals = { 'vim' } } },
   },
-  texlab = {          -- https://github.com/latex-lsp/texlab
-                      -- Run `cargo install texlab`
-    texlab = { build = { onSave = true } },
+  -- https://github.com/latex-lsp/texlab
+  -- Run `cargo install texlab`
+  texlab = {
+    texlab = {
+      build = { onSave = true },
+      chktex = { onOpenAndSave = true, onEdit = true },
+    },
   },
 }
 

@@ -1,7 +1,9 @@
 local fn = vim.fn
-local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
-  packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+  packer_bootstrap = fn.system {
+    'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path
+  }
 end
 
 return require('packer').startup(function(use)
@@ -23,39 +25,47 @@ return require('packer').startup(function(use)
   -- [Bonus] Snippet Database
   use 'rafamadriz/friendly-snippets'
 
+  -- Other Tools and LSP Integration
+  use {
+    'jose-elias-alvarez/null-ls.nvim',
+    requires = { 'nvim-lua/plenary.nvim' },
+  }
+
   -- Syntax Highlighting
-  use {'nvim-treesitter/nvim-treesitter', run = 'TSUpdate'}
+  use { 'nvim-treesitter/nvim-treesitter', run = 'TSUpdate' }
   use 'p00f/nvim-ts-rainbow'
 
   -- Indent Style Guessing
   use {
     'NMAC427/guess-indent.nvim',
-    config = function() require('guess-indent').setup {} end,
+    config = function() require('guess-indent').setup() end,
   }
 
   -- Auto Pairing
   use {
     'windwp/nvim-autopairs',
-    config = function() require('nvim-autopairs').setup {} end,
+    config = function() require('nvim-autopairs').setup() end,
   }
 
   -- Commenting
   use {
     'numToStr/Comment.nvim',
     config = function() require('Comment').setup {
-      toggler = { line = '<leader>c<space>' },
-      opleader = { line = '<leader>c' },
-    } end,
+        toggler = { line = '<leader>c<space>' },
+        opleader = { line = '<leader>c' },
+      }
+    end,
   }
 
   -- Terminal Manager
   use {
     'akinsho/toggleterm.nvim',
     config = function() require('toggleterm').setup {
-      open_mapping = '<C-j>',
-      direction = 'float',
-      float_opts = { border = 'curved' },
-    } end,
+        open_mapping = '<C-j>',
+        direction = 'float',
+        float_opts = { border = 'curved' },
+      }
+    end,
   }
 
   -- File Explorer
@@ -68,11 +78,12 @@ return require('packer').startup(function(use)
   use {
     'stevearc/aerial.nvim',
     config = function() require('aerial').setup {
-      backends = { 'treesitter', 'lsp', 'markdown' },
-      close_behavior = 'close',
-      min_width = 33, -- Size when 'no symbols' to display.
-      open_automatic = true,
-    } end,
+        backends = { 'treesitter', 'lsp', 'markdown' },
+        close_behavior = 'close',
+        min_width = 33, -- Size when 'no symbols' to display.
+        open_automatic = true,
+      }
+    end,
   }
 
   -- Buffer Line
@@ -89,7 +100,7 @@ return require('packer').startup(function(use)
 
   -- Color Scheme
   use 'ful1e5/onedark.nvim'
-  use { 'navarasu/onedark.vim', disable = true }  -- slow performance
+  use { 'navarasu/onedark.vim', disable = true } -- slow performance
 
   -- Indentation Guides
   use 'lukas-reineke/indent-blankline.nvim'
@@ -98,9 +109,10 @@ return require('packer').startup(function(use)
   use {
     'declancm/cinnamon.nvim',
     config = function() require('cinnamon').setup {
-      default_keymaps = true,
-      default_delay = 1,
-    } end,
+        default_keymaps = true,
+        default_delay = 1,
+      }
+    end,
   }
 
   -- Performance

@@ -1,5 +1,5 @@
 -- LuaSnip
-require('luasnip/loaders/from_vscode').lazy_load {}
+require('luasnip/loaders/from_vscode').lazy_load()
 
 -- nvim-treesitter
 require('nvim-treesitter.configs').setup {
@@ -21,7 +21,7 @@ for ft, cmd in pairs(commands) do
   vim.api.nvim_create_autocmd('FileType', {
     pattern = ft,
     callback = function()
-      vim.keymap.set('n', '<leader>r', ":TermExec cmd='"..cmd.."'<CR>")
+      vim.keymap.set('n', '<leader>r', ":TermExec cmd='" .. cmd .. "'<CR>")
     end,
   })
 end
@@ -29,15 +29,15 @@ end
 -- nvim-tree
 local function aerial_split(_)
   require('nvim-tree.actions').on_keypress('split')
-  require('aerial').close_all {}
-  require('aerial').open_all {}
+  require('aerial').close_all()
+  require('aerial').open_all()
 end
 
 require('nvim-tree').setup {
   open_on_setup = true,
   ignore_buffer_on_setup = true,
   view = {
-    width = 33,  -- Same as aerial when 'no symbols' to display.
+    width = 33, -- Same as aerial when 'no symbols' to display.
     mappings = {
       list = {
         { key = 's', action = 'aerial_split', action_cb = aerial_split }
