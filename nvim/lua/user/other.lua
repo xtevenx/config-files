@@ -9,6 +9,10 @@ require('nvim-treesitter.configs').setup {
   rainbow = { enable = true },
 }
 
+-- telescope
+require('telescope').setup()
+require('telescope').load_extension('fzy_native')
+
 -- nvim-tree
 require('nvim-tree').setup {
   open_on_setup = true,

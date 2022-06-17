@@ -58,6 +58,15 @@ return require('packer').startup(function(use)
     end,
   }
 
+  -- Fuzzy Finder
+  use {
+    'nvim-telescope/telescope.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim',
+      'nvim-telescope/telescope-fzy-native.nvim',
+    },
+  }
+
   -- Terminal Manager
   use {
     'akinsho/toggleterm.nvim',

@@ -13,7 +13,13 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { noremap = true })
 vim.keymap.set('n', '<leader>w', ':bprevious | bdelete #<CR>')
 vim.keymap.set('n', '<leader>f', ':lua vim.lsp.buf.format({ bufnr = 0 })<CR>')
 
+vim.keymap.set('n', '<leader>sb', ":lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>")
+vim.keymap.set('n', '<leader>sf', ":lua require('telescope.builtin').find_files()<CR>")
+vim.keymap.set('n', '<leader>sg', ":lua require('telescope.builtin').live_grep()<CR>")
+vim.keymap.set('n', '<leader>st', ":lua require('telescope.builtin').treesitter()<CR>")
+
 vim.keymap.set('n', '<leader>e', ':NvimTreeOpen<CR>')
+
 vim.keymap.set('n', '<C-n>', ':BufferLineCycleNext<CR>')
 vim.keymap.set('n', '<C-m>', ':BufferLineCyclePrev<CR>')
 
