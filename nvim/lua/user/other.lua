@@ -54,6 +54,12 @@ require('bufferline').setup {
 }
 
 -- Lualine
+local trouble_extension = {
+  sections = {
+    lualine_a = { function() return 'Trouble' end },
+  },
+  filetypes = { 'Trouble' },
+}
 require('lualine').setup {
   options = {
     disabled_filetypes = { 'packer' },
@@ -61,7 +67,7 @@ require('lualine').setup {
   sections = {
     lualine_c = { 'filename', 'aerial' },
   },
-  extensions = { 'aerial', 'nvim-tree', 'toggleterm' },
+  extensions = { 'aerial', 'nvim-tree', 'toggleterm', trouble_extension },
 }
 
 vim.o.showmode = false
@@ -69,7 +75,7 @@ vim.o.showmode = false
 -- One Dark
 require('onedark').setup {
   dark_float = true,
-  sidebars = { 'aerial', 'packer' }
+  sidebars = { 'aerial', 'packer', 'Trouble' }
 }
 vim.o.background = 'dark'
 vim.o.termguicolors = true

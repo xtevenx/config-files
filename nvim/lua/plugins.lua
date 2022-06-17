@@ -89,6 +89,13 @@ return require('packer').startup(function(use)
     end,
   }
 
+  -- Diagnostics Summary
+  use {
+    'folke/trouble.nvim',
+    requires = { 'kyazdani42/nvim-web-devicons' },
+    config = function() require('trouble').setup() end,
+  }
+
   -- Buffer Line
   use {
     'akinsho/bufferline.nvim',

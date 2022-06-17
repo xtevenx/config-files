@@ -12,6 +12,15 @@ vim.keymap.set('n', '<C-h>', ':NvimTreeOpen<CR>')
 vim.keymap.set('n', '<C-n>', ':BufferLineCycleNext<CR>')
 vim.keymap.set('n', '<C-m>', ':BufferLineCyclePrev<CR>')
 
+vim.keymap.set('n', '<C-k>', ':Trouble<CR>')
+vim.api.nvim_create_autocmd('BufEnter', {
+  callback = function()
+    if vim.api.nvim_buf_get_option(0, 'filetype') ~= 'Trouble' then
+      vim.cmd('TroubleClose')
+    end
+  end,
+})
+
 -- Terminal Commands
 local commands = {
   c = 'gcc "%:p" -o "%:p:r" && "%:p:r"',
