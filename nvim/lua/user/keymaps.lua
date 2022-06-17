@@ -5,14 +5,19 @@ vim.o.timeoutlen = 600          -- Key mapping timeout
 -- - Comment toggle (plugins.lua)
 -- - ToggleTerm (plugins.lua)
 
+vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { noremap = true })
+vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { noremap = true })
+vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { noremap = true })
+vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { noremap = true })
+
 vim.keymap.set('n', '<leader>w', ':bprevious | bdelete #<CR>')
 vim.keymap.set('n', '<leader>f', ':lua vim.lsp.buf.format({ bufnr = 0 })<CR>')
 
-vim.keymap.set('n', '<C-h>', ':NvimTreeOpen<CR>')
+vim.keymap.set('n', '<leader>e', ':NvimTreeOpen<CR>')
 vim.keymap.set('n', '<C-n>', ':BufferLineCycleNext<CR>')
 vim.keymap.set('n', '<C-m>', ':BufferLineCyclePrev<CR>')
 
-vim.keymap.set('n', '<C-k>', ':Trouble<CR>')
+vim.keymap.set('n', '<leader>d', ':Trouble<CR>')
 vim.api.nvim_create_autocmd('BufEnter', {
   callback = function()
     if vim.api.nvim_buf_get_option(0, 'filetype') ~= 'Trouble' then

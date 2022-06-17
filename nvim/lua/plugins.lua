@@ -63,7 +63,7 @@ return require('packer').startup(function(use)
     'akinsho/toggleterm.nvim',
     config = function()
       require('toggleterm').setup {
-        open_mapping = '<C-j>', -- KEYMAP!
+        open_mapping = '<leader>t', -- KEYMAP!
         direction = 'float',
         float_opts = { border = 'curved' },
       }
