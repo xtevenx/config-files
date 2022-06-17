@@ -6,7 +6,7 @@ require('user.nvim-cmp')
 require('user.other')
 
 
--- Basic NeoVim Configurations
+-- Basic Neovim Configurations
 
 vim.g.python3_host_prog = '/usr/bin/python3'
 

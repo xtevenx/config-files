@@ -79,8 +79,6 @@ return require('packer').startup(function(use)
     config = function()
       require('toggleterm').setup {
         open_mapping = '<leader>t', -- KEYMAP!
-        direction = 'float',
-        float_opts = { border = 'curved' },
       }
     end,
   }
@@ -97,9 +95,7 @@ return require('packer').startup(function(use)
     config = function()
       require('aerial').setup {
         backends = { 'treesitter', 'lsp', 'markdown' },
-        close_behavior = 'global',
-        min_width = 33, -- Size when 'no symbols' to display.
-        open_automatic = true,
+        min_width = 30, -- Same as nvim-tree default width
       }
     end,
   }

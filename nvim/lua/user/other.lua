@@ -9,45 +9,22 @@ require('nvim-treesitter.configs').setup {
   rainbow = { enable = true },
 }
 
--- telescope
+-- telescope.nvim
 require('telescope').setup()
 require('telescope').load_extension('fzy_native')
 
--- nvim-tree
+-- nvim-tree.lua
 require('nvim-tree').setup {
-  open_on_setup = true,
-  ignore_buffer_on_setup = true,
   view = {
-    width = 33, -- Same as aerial when 'no symbols' to display.
     mappings = {
       list = {
-        { key = 's', action = 'split' },
+        { key = 's', action = 'vsplit' },
       },
     },
   },
 }
 
-vim.api.nvim_create_autocmd('BufEnter', {
-  nested = true,
-  callback = function()
-    local ignore = { ['NvimTree'] = true, ['aerial'] = true }
-    local wins = vim.api.nvim_list_wins()
-    local close = true
-    for _, win in ipairs(wins) do
-      local buf = vim.api.nvim_win_get_buf(win)
-      local ft = vim.api.nvim_buf_get_option(buf, 'filetype')
-      if ignore[ft] == nil then
-        close = false
-        break
-      end
-    end
-    if close then
-      vim.cmd('qall!')
-    end
-  end
-})
-
--- bufferline
+-- bufferline.nvim
 require('bufferline').setup {
   options = {
     separator_style = 'padded_slant',
@@ -57,7 +34,7 @@ require('bufferline').setup {
   }
 }
 
--- Lualine
+-- Lualine.nvim
 local trouble_extension = {
   sections = {
     lualine_a = { function() return 'Trouble' end },
@@ -76,7 +53,7 @@ require('lualine').setup {
 
 vim.o.showmode = false
 
--- One Dark
+-- onedark.nvim
 require('onedark').setup {
   dark_float = true,
   sidebars = { 'aerial', 'packer', 'Trouble' }
@@ -84,9 +61,28 @@ require('onedark').setup {
 vim.o.background = 'dark'
 vim.o.termguicolors = true
 
--- indent-blankline
+-- indent-blankline.nvim
 require('indent_blankline').setup {
   show_current_context = true,
 }
 
 vim.cmd('highlight IndentBlanklineContextChar guifg=#5c6370 gui=nocombine')
+
+
+-- Miscellaneous
+
+vim.api.nvim_create_autocmd('BufEnter', {
+  callback = function()
+    local close = {
+      ['aerial'] = 'AerialCloseAll',
+      ['NvimTree'] = 'NvimTreeClose',
+      ['Trouble'] = 'TroubleClose',
+    }
+    local buft = vim.api.nvim_buf_get_option(0, 'filetype')
+    for ft, cmd in pairs(close) do
+      if buft ~= ft then
+        vim.cmd(cmd)
+      end
+    end
+  end,
+})
