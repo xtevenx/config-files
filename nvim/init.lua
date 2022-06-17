@@ -31,6 +31,8 @@ vim.o.tabstop = 4               -- Set tab width to 4 spaces
 vim.o.shiftwidth = 4            -- Set indent width to 4 spaces
 vim.o.expandtab = true          -- Insert spaces instead of tabs
 
+vim.o.cmdheight = 0             -- Disable command line if not in use
+
 vim.o.undofile = true           -- Use an undo file
 
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
