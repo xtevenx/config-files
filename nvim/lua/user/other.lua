@@ -28,6 +28,7 @@ require('nvim-tree').setup {
 require('bufferline').setup {
   options = {
     separator_style = 'padded_slant',
+    always_show_bufferline = false,
     offsets = {
       { filetype = 'NvimTree', text = 'File Explorer' },
     }
@@ -43,7 +44,7 @@ local trouble_extension = {
 }
 require('lualine').setup {
   options = {
-    disabled_filetypes = { 'packer' },
+    disabled_filetypes = { 'alpha', 'packer' },
   },
   sections = {
     lualine_c = { 'filename', 'aerial' },
@@ -51,6 +52,7 @@ require('lualine').setup {
   extensions = { 'aerial', 'nvim-tree', 'toggleterm', trouble_extension },
 }
 
+vim.o.laststatus = 3
 vim.o.showmode = false
 
 -- onedark.nvim

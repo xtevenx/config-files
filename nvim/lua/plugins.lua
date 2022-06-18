@@ -119,6 +119,15 @@ return require('packer').startup(function(use)
     requires = { 'kyazdani42/nvim-web-devicons' },
   }
 
+  -- Start Screen
+  use {
+    'goolord/alpha-nvim',
+    requires = { 'kyazdani42/nvim-web-devicons' },
+    config = function()
+      require('alpha').setup(require('alpha.themes.dashboard').config)
+    end,
+  }
+
   -- Color Scheme
   use 'ful1e5/onedark.nvim'
   use { 'navarasu/onedark.vim', disable = true } -- slow performance

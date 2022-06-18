@@ -1,5 +1,6 @@
 require('plugins')
 require('impatient')
+require('user.alpha')
 require('user.keymaps')
 require('user.null-ls')
 require('user.nvim-cmp')
