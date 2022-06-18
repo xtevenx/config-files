@@ -11,8 +11,8 @@ cmp.setup {
       return true
     else
       local context = require('cmp.config.context')
-      return not context.in_treesitter_capture("comment")
-          and not context.in_syntax_group("Comment")
+      return not context.in_treesitter_capture('comment')
+          and not context.in_syntax_group('Comment')
     end
   end,
   snippet = {

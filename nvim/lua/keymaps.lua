@@ -1,10 +1,9 @@
 vim.o.timeoutlen = 600 -- Key mapping timeout
 
 -- This file contains *almost* all the custom keybinds.
--- Some exceptions are:
--- - Comment toggle (plugins.lua)
--- - Formatting (user/null-ls.lua)
--- - ToggleTerm (plugins.lua)
+-- Exceptions are at:
+-- - plugins/Comment.lua
+-- - plugins/others.lua
 
 vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { noremap = true })
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { noremap = true })
@@ -18,14 +17,27 @@ vim.keymap.set('n', '<leader>sc', "<cmd>lua require('telescope.builtin').treesit
 vim.keymap.set('n', '<leader>sf', "<cmd>lua require('telescope.builtin').find_files()<CR>")
 vim.keymap.set('n', '<leader>sg', "<cmd>lua require('telescope.builtin').live_grep()<CR>")
 
-vim.keymap.set('n', '<leader>b', '<cmd>AerialOpen<CR>')
-vim.keymap.set('n', '<leader>d', '<cmd>Trouble<CR>')
-vim.keymap.set('n', '<leader>e', '<cmd>NvimTreeOpen<CR>')
+vim.keymap.set('n', '<leader>b', '<cmd>AerialToggle<CR>')
+vim.keymap.set('n', '<leader>d', '<cmd>TroubleToggle<CR>')
+vim.keymap.set('n', '<leader>e', '<cmd>NvimTreeToggle<CR>')
 
 vim.keymap.set('n', '<C-n>', '<cmd>BufferLineCycleNext<CR>')
 vim.keymap.set('n', '<C-m>', '<cmd>BufferLineCyclePrev<CR>')
 
--- Terminal Commands
+-- Formatting Commands
+vim.keymap.set('n', '<leader>f', '<cmd>lua vim.lsp.buf.format()<CR>')
+
+local choose_nls = { 'c', 'cpp' }
+for _, ft in ipairs(choose_nls) do
+  vim.api.nvim_create_autocmd('FileType', {
+    pattern = ft,
+    callback = function()
+      vim.keymap.set('n', '<leader>f', "<cmd>lua vim.lsp.buf.format({ name = 'null-ls' })<CR>", { buffer = true })
+    end,
+  })
+end
+
+-- Simple Run Commands
 local commands = {
   c = 'gcc "%:p" -o "%:p:r" && "%:p:r"',
   cpp = 'g++ "%:p" -o "%:p:r" && "%:p:r"',

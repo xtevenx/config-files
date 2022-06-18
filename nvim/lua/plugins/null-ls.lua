@@ -28,16 +28,3 @@ null_ls.setup {
     null_ls.builtins.formatting.yapf,
   },
 }
-
--- Keymaps
-vim.keymap.set('n', '<leader>f', '<cmd>lua vim.lsp.buf.format()<CR>')
-
-local choose_nls = { 'c', 'cpp' }
-for _, ft in ipairs(choose_nls) do
-  vim.api.nvim_create_autocmd('FileType', {
-    pattern = ft,
-    callback = function()
-      vim.keymap.set('n', '<leader>f', "<cmd>lua vim.lsp.buf.format({ name = 'null-ls' })<CR>", { buffer = true })
-    end,
-  })
-end
