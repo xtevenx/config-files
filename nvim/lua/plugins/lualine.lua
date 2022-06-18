@@ -7,9 +7,6 @@ local trouble_extension = {
 
 require('lualine').setup {
   extensions = { 'aerial', 'nvim-tree', 'toggleterm', trouble_extension },
-  options = {
-    disabled_filetypes = { 'alpha', 'packer' },
-  },
   sections = {
     lualine_c = { 'filename', 'aerial' },
   },

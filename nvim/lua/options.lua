@@ -34,3 +34,5 @@ end
 -- Neovide Configurations
 vim.o.guifont = 'FiraCode Nerd Font:h12'
 vim.g.neovide_fullscreen = true
+vim.g.neovide_cursor_animation_length = 0.04
+vim.g.neovide_cursor_trail_length = 0.2

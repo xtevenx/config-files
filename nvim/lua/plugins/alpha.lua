@@ -68,7 +68,7 @@ local l_buttons = #dashboard.section.buttons.val * 2 - 1
 local l_footer = #dashboard.section.footer.val
 local hb_padding = 2
 
-local p_total = vim.o.lines - (l_header + l_buttons + l_footer) - hb_padding - 1
+local p_total = vim.o.lines - (l_header + l_buttons + l_footer) - hb_padding
 local bf_padding = 0
 local hf_padding = (1 - bf_padding) / 2
 
@@ -83,3 +83,15 @@ dashboard.config.layout = {
 
 -- Setup
 require('alpha').setup(dashboard.opts)
+
+vim.api.nvim_create_autocmd({ 'FileType', 'BufEnter' }, {
+  callback = function()
+    if vim.bo.filetype == 'alpha' then
+      vim.o.laststatus = 0
+      vim.o.showtabline = 0
+    else
+      vim.o.laststatus = 3
+      vim.o.showtabline = 2
+    end
+  end,
+})
