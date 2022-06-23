@@ -83,7 +83,11 @@ local servers = {
   pyright = {},
   -- https://github.com/rust-lang/rust-analyzer
   -- Clone and run `cargo xtask install --server`
-  rust_analyzer = {},
+  rust_analyzer = {
+    ['rust-analyzer'] = {
+      checkOnSave = { command = 'clippy', features = 'all' },
+    },
+  },
   -- https://github.com/sumneko/lua-language-server
   -- Unzip release and add bin dir to path
   sumneko_lua = {
