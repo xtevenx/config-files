@@ -31,8 +31,10 @@ export EDITOR='vim'
 export PATH=$PATH:/usr/local/texlive/2020/bin/x86_64-linux/
 export PATH=$PATH:/home/$USER/.local/bin/
 
-# Start-up scripts.
-source ~/.promptline.sh
+# Basic prompt.
+setopt PROMPT_SUBST
+PROMPT='%F{blue} ${${(%):-%2~}//\//  }  %f'
+RPROMPT='%(?..%F{red}  %?%f)'
 
 # Add the following to /etc/wsl.conf for performance on WSL:
 # [interop]
