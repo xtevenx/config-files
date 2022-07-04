@@ -1,12 +1,15 @@
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
-HISTSIZE=13107
-SAVEHIST=13107
+HISTSIZE=99999
+SAVEHIST=99999
 setopt nomatch notify
 unsetopt autocd beep extendedglob
 bindkey -v
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
+
+zstyle ':completion:*' completer _complete _ignored _correct _approximate
+zstyle ':completion:*' max-errors 1
 zstyle :compinstall filename '/home/xteven/.zshrc'
 
 autoload -Uz compinit
@@ -19,17 +22,15 @@ compinit
 
 
 # Aliases.
-alias ls='ls --color=auto'
-alias dir='dir --color=auto'
-alias vdir='vdir --color=auto'
-alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
+alias d='exa --icons'
+alias e='nvim'
+alias f='fd'
+alias g='rg'
+alias v='bat'
 
 # Environment variables.
-export EDITOR='vim'
-export PATH=$PATH:/usr/local/texlive/2020/bin/x86_64-linux/
-export PATH=$PATH:/home/$USER/.local/bin/
+export EDITOR='nvim'
+export PATH=$PATH:~/.local/bin/
 
 # Basic prompt.
 setopt PROMPT_SUBST
