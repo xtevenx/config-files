@@ -13,3 +13,6 @@ require('toggleterm').setup { open_mapping = '<leader>t' } -- KEYMAP!
 -- plugins/telescope.lua
 require('telescope').setup()
 require('telescope').load_extension('fzy_native')
+
+-- plugins/nvim-colorizer.lua
+require('colorizer').setup()

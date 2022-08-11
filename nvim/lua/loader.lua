@@ -84,6 +84,9 @@ return require('packer').startup(function(use)
   use 'ful1e5/onedark.nvim'
   use { 'navarasu/onedark.vim', disable = true } -- slow performance
 
+  -- Color Highlighting
+  use { 'norcalli/nvim-colorizer.lua' }
+
   -- Indentation Guides
   use 'lukas-reineke/indent-blankline.nvim'
 
