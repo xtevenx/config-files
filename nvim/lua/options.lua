@@ -1,4 +1,8 @@
-vim.g.python3_host_prog = '/usr/bin/python3'
+-- By default title is off. Needed for detecting window as neovim instance (sworkstyle)
+vim.cmd('set title')
+
+-- Basic configurations
+vim.g.python3_host_prog = '/usr/bin/python'
 
 vim.g.tex_flavor = 'latex'      -- Set default TeX flavour
 
@@ -21,7 +25,7 @@ vim.o.tabstop = 4               -- Set tab width to 4 spaces
 vim.o.shiftwidth = 4            -- Set indent width to 4 spaces
 vim.o.expandtab = true          -- Insert spaces instead of tabs
 
-vim.o.cmdheight = 0             -- Disable command line if not in use
+vim.o.cmdheight = 1             -- Disable command line if not in use
 
 vim.o.undofile = true           -- Use an undo file
 
@@ -32,7 +36,6 @@ for type, icon in pairs(signs) do
 end
 
 -- Neovide Configurations
-vim.o.guifont = 'FiraCode Nerd Font:h12'
-vim.g.neovide_fullscreen = true
-vim.g.neovide_cursor_animation_length = 0.04
-vim.g.neovide_cursor_trail_length = 0.2
+vim.o.guifont = 'FuraCode Nerd Font:h13'
+vim.g.neovide_cursor_animation_length = 0.06
+vim.g.neovide_cursor_trail_length = 0.4

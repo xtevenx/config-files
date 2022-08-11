@@ -76,10 +76,10 @@ cmp.setup {
 
 local servers = {
   -- https://github.com/clangd/clangd
-  -- Unzip release and add bin dir to path
+  -- Run `pacman -S clang'
   clangd = {},
   -- https://github.com/microsoft/pyright
-  -- Run `npm install -g pyright`
+  -- Run `pip install pyright'
   pyright = {},
   -- https://github.com/rust-lang/rust-analyzer
   -- Clone and run `cargo xtask install --server`
@@ -89,7 +89,7 @@ local servers = {
     },
   },
   -- https://github.com/sumneko/lua-language-server
-  -- Unzip release and add bin dir to path
+  -- Run `pacman -S lua-language-server`
   sumneko_lua = {
     Lua = {
       diagnostics = {

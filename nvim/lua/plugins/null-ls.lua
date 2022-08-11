@@ -4,7 +4,7 @@ null_ls.setup {
   on_attach = require('aerial').on_attach,
   sources = {
     -- https://github.com/danmar/cppcheck
-    -- Consult README in the repository
+    -- Run `pacman -S cppcheck`
     null_ls.builtins.diagnostics.cppcheck,
     -- https://github.com/PyCQA/flake8
     -- Run `pip install flake8`
