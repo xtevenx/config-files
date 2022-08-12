@@ -1,11 +1,11 @@
 local dashboard = require('alpha.themes.dashboard')
 
--- Colors (from ful1e5/onedark.nvim)
+-- Colors (from catppuccin/nvim)
 local BLUE = 'Function'
-local CYAN = 'PreProc'
+local CYAN = 'Operator'
 local GREEN = 'String'
 local PURPLE = 'Statement'
-local RED = 'Identifier'
+local RED = 'Error'
 
 -- Modified from https://github.com/goolord/alpha-nvim
 local function button(sc, txt, keybind, keybind_opts, opts_)

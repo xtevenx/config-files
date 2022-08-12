@@ -81,8 +81,7 @@ return require('packer').startup(function(use)
         requires = { 'kyazdani42/nvim-web-devicons' } }
 
   -- Color Scheme
-  use 'ful1e5/onedark.nvim'
-  use { 'navarasu/onedark.vim', disable = true } -- slow performance
+  use 'catppuccin/nvim'
 
   -- Color Highlighting
   use { 'norcalli/nvim-colorizer.lua' }
