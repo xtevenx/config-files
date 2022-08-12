@@ -1,9 +1,9 @@
 # some global theme specific variables
-set $gtk-theme Catppuccin-Mocha-Teal
+set $gtk-theme Catppuccin-Mocha
 set $cursor-theme xcursor-breeze
 set $gui-font Roboto 11
 set $term-font RobotoMono Nerd Font 14
-set $kvantum-theme Catppuccin-Mocha-Teal
+set $kvantum-theme Catppuccin-Mocha-Blue
 
 # patch the icon theme with catppuccin colors
 set $icon-theme Papirus-Dark
@@ -37,11 +37,11 @@ set $crust  #11111b
 set $background-color $base
 set $text-color $text
 set $selection-color $surfa2
-set $accent-color $teal
+set $accent-color $blue
 
 # Basic color configuration using the Base16 variables for windows and borders.
 # Property Name         Border  BG      Text    Indicator Child Border
-client.focused          $teal   $teal   $crust  $teal     $teal
+client.focused          $blue   $blue   $crust  $blue     $blue
 client.focused_inactive $base   $base   $text   $base     $base
 client.unfocused        $base   $base   $text   $base     $base
 client.urgent           $maroon $maroon $crust  $maroon   $maroon

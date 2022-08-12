@@ -5,7 +5,7 @@
 # Read `man 5 sway` for a complete reference.
 
 # styles - set the folder for your theme definition file
-set $theme $HOME/.config/sway/themes/Catppuccin-Mocha-Teal
+set $theme $HOME/.config/sway/themes/Catppuccin-Mocha
 
 # theme variables
 include $theme/definitions
