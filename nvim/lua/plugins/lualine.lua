@@ -6,6 +6,7 @@ local trouble_extension = {
 }
 
 require('lualine').setup {
+  options = { theme = 'catppuccin' },
   extensions = { 'aerial', 'nvim-tree', 'toggleterm', trouble_extension },
   sections = {
     lualine_c = { 'filename', 'aerial' },
