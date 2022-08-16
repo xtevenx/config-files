@@ -1,6 +1,5 @@
-foot/foot.ini.example
+*.example
 nvim/plugin/
 sway/config.d/README.md
-sway/config.d/XX-keyboard.conf.example
 sway/definitions.d/README.md
 sway/help.man

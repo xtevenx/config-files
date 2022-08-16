@@ -1,0 +1,10 @@
+{
+    "include": [
+        "/usr/share/sway/templates/waybar/config.jsonc"
+    ],
+    "tray": {
+        "icon-size": 21,
+        "spacing": 5,
+        "reverse-direction": true,
+    }
+}
