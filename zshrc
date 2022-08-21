@@ -36,6 +36,7 @@ alias mv="mv -i"                                                # Confirm before
 
 alias ls='exa --classify --icons'
 alias cat='bat --theme=Catppuccin-mocha'
+alias neovide='neovide --multigrid'
 
 # Color man pages
 export LESS_TERMCAP_mb=$'\E[01;32m'
