@@ -16,7 +16,8 @@ null_ls.setup {
     -- Run `pip install pylint`
     null_ls.builtins.diagnostics.pylint,
     -- https://www.kernel.org/doc/html/latest/process/clang-format.html
-    -- Run `npm install -g clang-format`
+    -- Comes with `pacman -S clang`
+    -- <ELSE> Run `npm install -g clang-format`
     null_ls.builtins.formatting.clang_format.with {
       extra_args = { '-style', '{BasedOnStyle: LLVM, IndentWidth: 4}' },
     },

@@ -81,7 +81,8 @@ local servers = {
   -- Run `pip install pyright'
   pyright = {},
   -- https://github.com/rust-lang/rust-analyzer
-  -- Clone and run `cargo xtask install --server`
+  -- Run `pacman -S rust-analyzer`
+  -- <OR> Clone and run `cargo xtask install --server`
   rust_analyzer = {
     ['rust-analyzer'] = {
       checkOnSave = { command = 'clippy', features = 'all' },
@@ -97,7 +98,8 @@ local servers = {
     },
   },
   -- https://github.com/latex-lsp/texlab
-  -- Run `cargo install texlab`
+  -- Run `pacman -S texlab`
+  -- <OR> `cargo install texlab`
   texlab = {
     texlab = {
       build = { onSave = true },
