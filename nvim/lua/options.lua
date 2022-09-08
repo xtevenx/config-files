@@ -27,6 +27,7 @@ vim.o.expandtab = true          -- Insert spaces instead of tabs
 
 -- vim.o.cmdheight = 0             -- Disable command line if not in use  -- v0.8+
 
+vim.o.clipboard = 'unnamedplus' -- Share the system clipboard
 vim.o.undofile = true           -- Use an undo file
 
 local signs = { Error = ' ', Warn = ' ', Hint = ' ', Info = ' ' }
