@@ -1,9 +1,9 @@
 vim.o.timeoutlen = 600 -- Key mapping timeout
 
 -- This file contains *almost* all the custom keybinds.
--- Exceptions are at:
+-- Exceptions commented with 'KEYMAP!' in:
 -- - plugins/Comment.lua
--- - plugins/others.lua
+-- - plugins/toggleterm.lua
 
 vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { noremap = true })
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { noremap = true })

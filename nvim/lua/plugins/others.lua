@@ -7,9 +7,6 @@ require('indent_blankline').setup { show_current_context = true }
 -- plugins/LuaSnip.lua
 require('luasnip/loaders/from_vscode').lazy_load()
 
--- plugins/toggleterm.lua
-require('toggleterm').setup { open_mapping = '<leader>T' } -- KEYMAP!
-
 -- plugins/telescope.lua
 require('telescope').setup()
 require('telescope').load_extension('fzy_native')
