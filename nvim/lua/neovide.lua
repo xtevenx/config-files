@@ -1,8 +1,12 @@
--- Neovide Configurations
+-- Neovide configurations
 vim.o.guifont = 'FuraCode Nerd Font:h13'
 vim.g.neovide_cursor_animation_length = 0.06
 vim.g.neovide_cursor_trail_length = 0.4
 
+-- Make ctrl-v work properly for pasting
+vim.keymap.set({ 'i', 'c' }, '<C-v>', '<C-r>+', { noremap = true })
+
+-- Set basic terminal colors properly for the catppuccin color theme
 vim.g.terminal_color_0 = '#45474a'
 vim.g.terminal_color_1 = '#f38ba8'
 vim.g.terminal_color_2 = '#a6e3a1'
