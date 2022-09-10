@@ -25,16 +25,14 @@ vim.keymap.set('n', '<C-n>', '<cmd>BufferLineCycleNext<CR>')
 vim.keymap.set('n', '<C-m>', '<cmd>BufferLineCyclePrev<CR>')
 
 -- Formatting Commands
-vim.keymap.set('n', '<leader>f', '<cmd>lua vim.lsp.buf.formatting()<CR>')
--- vim.keymap.set('n', '<leader>f', '<cmd>lua vim.lsp.buf.format()<CR>')  -- v0.8+
+vim.keymap.set('n', '<leader>f', '<cmd>lua vim.lsp.buf.format()<CR>')
 
 local choose_nls = { 'c', 'cpp' }
 for _, ft in ipairs(choose_nls) do
   vim.api.nvim_create_autocmd('FileType', {
     pattern = ft,
     callback = function()
-      vim.keymap.set('n', '<leader>f', "<cmd>lua vim.lsp.buf.formatting({ name = 'null-ls' })<CR>", { buffer = true })
-      -- vim.keymap.set('n', '<leader>f', "<cmd>lua vim.lsp.buf.format({ name = 'null-ls' })<CR>", { buffer = true })  -- v0.8+
+      vim.keymap.set('n', '<leader>f', "<cmd>lua vim.lsp.buf.format({ name = 'null-ls' })<CR>", { buffer = true })
     end,
   })
 end
