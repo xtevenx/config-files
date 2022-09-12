@@ -9,9 +9,6 @@ null_ls.setup {
     -- https://github.com/PyCQA/flake8
     -- Run `pip install flake8`
     null_ls.builtins.diagnostics.flake8,
-    -- https://github.com/amperser/proselint
-    -- Run `pip install proselint`
-    null_ls.builtins.diagnostics.proselint, -- this is a joke :)
     -- https://github.com/PyCQA/pylint
     -- Run `pip install pylint`
     null_ls.builtins.diagnostics.pylint,

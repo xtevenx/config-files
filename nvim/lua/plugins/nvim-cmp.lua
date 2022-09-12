@@ -103,7 +103,6 @@ local servers = {
   texlab = {
     texlab = {
       build = { onSave = true },
-      chktex = { onOpenAndSave = true, onEdit = true },
     },
   },
 }
