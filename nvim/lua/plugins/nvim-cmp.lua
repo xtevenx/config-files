@@ -102,7 +102,10 @@ local servers = {
   -- <OR> `cargo install texlab`
   texlab = {
     texlab = {
-      build = { onSave = true },
+      build = {
+        args = { '-pdflatex=lualatex', '-pdf', '-interaction=nonstopmode', '-synctex=1', '%f' },
+        onSave = true,
+      },
     },
   },
 }
