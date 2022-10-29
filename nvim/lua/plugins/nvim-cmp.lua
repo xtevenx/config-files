@@ -110,13 +110,11 @@ local servers = {
   },
 }
 
-local on_attach = require('aerial').on_attach
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 local lspconfig = require('lspconfig')
 for lsp, settings in pairs(servers) do
   lspconfig[lsp].setup {
-    on_attach = on_attach,
     capabilities = capabilities,
     settings = settings,
   }

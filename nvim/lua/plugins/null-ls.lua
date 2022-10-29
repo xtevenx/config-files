@@ -1,7 +1,6 @@
 local null_ls = require('null-ls')
 
 null_ls.setup {
-  on_attach = require('aerial').on_attach,
   sources = {
     -- https://github.com/danmar/cppcheck
     -- Run `pacman -S cppcheck`
