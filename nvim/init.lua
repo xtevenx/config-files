@@ -6,6 +6,8 @@ require('options')
 
 if vim.g.neovide then
     require('neovide')
+else
+    require('plugins.cinnamon')
 end
 
 require('plugins.aerial')

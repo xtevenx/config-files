@@ -1,6 +1,3 @@
--- plugins/cinnamon.lua
-require('cinnamon').setup { default_keymaps = true, default_delay = 1 }
-
 -- plugins/indent-blankline.lua
 require('indent_blankline').setup { show_current_context = true }
 
