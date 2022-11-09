@@ -2,6 +2,9 @@
     "include": [
         "/usr/share/sway/templates/waybar/config.jsonc"
     ],
+    "custom/weather": {
+        "exec": "~/.config/waybar/scripts/weather.py"
+    },
     "tray": {
         "icon-size": 21,
         "spacing": 5,
