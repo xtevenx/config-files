@@ -134,6 +134,9 @@ def build_data(weather):
     data['tooltip'] += f"Wind: {wind_speed}km/h\n"
     data['tooltip'] += f"Humidity: {humidity}%\n"
 
+    if weather['weather'][0]['date'] != datetime.now().strftime("%Y-%m-%d"):
+        weather['weather'].pop(0)
+
     for i, day in enumerate(weather['weather']):
         sunrise = day['astronomy'][0]['sunrise']
         sunset = day['astronomy'][0]['sunset']
@@ -151,7 +154,7 @@ def build_data(weather):
                 map(str,
                     (format_time(hour['time']),
                      WEATHER_SYMBOL[WWO_CODE[hour['weatherCode']]],
-                     format_temp(hour['FeelsLikeC']),
+                     format_temp(hour['tempC']),
                      hour['weatherDesc'][0]['value'], format_chances(hour))))
             data['tooltip'] += "\n"
 
