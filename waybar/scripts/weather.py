@@ -155,7 +155,8 @@ def build_data(weather):
                     (format_time(hour['time']),
                      WEATHER_SYMBOL[WWO_CODE[hour['weatherCode']]],
                      format_temp(hour['tempC']),
-                     hour['weatherDesc'][0]['value'], format_chances(hour))))
+                     hour['weatherDesc'][0]['value'])))
+            data['tooltip'] += format_chances(hour)
             data['tooltip'] += "\n"
 
     data['tooltip'] = data['tooltip'].rstrip()
