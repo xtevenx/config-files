@@ -2,35 +2,45 @@
 """
 Cleaned up version of the default weather plugin.
 
+Changes:
+    - Remove trailing whitespace.
+    - Add day of week for third forecast day.
+    - Remove first day if incorrect (happens just past midnight).
+    - Ensure all icons fit properly.
+    - Use time-dependent icons for sun/moon.
+    - Use only 24-hour time. :)
+
+Requires nf-weather icons.
+
 Credits to @bjesus for the initial code.
 https://gist.github.com/bjesus/f8db49e1434433f78e5200dc403d58a3
 """
 
 import json
-from datetime import datetime
+from datetime import datetime, timedelta
 
 import requests
 
 WEATHER_SYMBOL = {
-    "Unknown": " ",
-    "Cloudy": " ",
-    "Fog": " ",
-    "HeavyRain": " ",
-    "HeavyShowers": " ",
-    "HeavySnow": " ",
-    "HeavySnowShowers": " ",
-    "LightRain": " ",
-    "LightShowers": " ",
-    "LightSleet": " ",
-    "LightSleetShowers": " ",
-    "LightSnow": " ",
-    "LightSnowShowers": " ",
-    "PartlyCloudy": " ",
-    "Sunny": " ",
-    "ThunderyHeavyRain": " ",
-    "ThunderyShowers": " ",  # no nf-weather snow thunderstorm without sun
-    "ThunderySnowShowers": " ",  # no nf-weather snow thunderstorm without sun
-    "VeryCloudy": " ",
+    "Unknown": [" ", " "],
+    "Cloudy": [" ", " "],
+    "Fog": [" ", " "],
+    "HeavyRain": [" ", " "],
+    "HeavyShowers": [" ", " "],
+    "HeavySnow": [" ", " "],
+    "HeavySnowShowers": [" ", " "],
+    "LightRain": [" ", " "],
+    "LightShowers": [" ", " "],
+    "LightSleet": [" ", " "],
+    "LightSleetShowers": [" ", " "],
+    "LightSnow": [" ", " "],
+    "LightSnowShowers": [" ", " "],
+    "PartlyCloudy": [" ", " "],
+    "Sunny": [" ", " "],
+    "ThunderyHeavyRain": [" ", " "],
+    "ThunderyShowers": [" ", " "],  # no icon without sun/moon
+    "ThunderySnowShowers": [" ", " "],  # no icon without sun/moon
+    "VeryCloudy": [" ", " "],
 }
 
 WWO_CODE = {
@@ -117,19 +127,18 @@ def build_data(weather):
 
     data = {}
 
-    current_temp = weather['current_condition'][0]['temp_C']
-    current_weather = weather['current_condition'][0]['weatherDesc'][0][
-        'value']
+    curr_temp = weather['current_condition'][0]['temp_C']
+    curr_weather = weather['current_condition'][0]['weatherDesc'][0]['value']
     feels_like = weather['current_condition'][0]['FeelsLikeC']
     location_name = weather['nearest_area'][0]['areaName'][0]['value']
     wind_speed = weather['current_condition'][0]['windspeedKmph']
     humidity = weather['current_condition'][0]['humidity']
 
-    data['text'] = current_temp + "°"
+    data['text'] = curr_temp + "°"
     data['alt'] = WWO_CODE[weather['current_condition'][0]['weatherCode']]
 
     data['tooltip'] = f"Weather in <b>{location_name}</b>:\n"
-    data['tooltip'] += f"<b>{current_weather} {current_temp}°</b>\n"
+    data['tooltip'] += f"<b>{curr_weather} {curr_temp}°</b>\n"
     data['tooltip'] += f"Feels like: {feels_like}°\n"
     data['tooltip'] += f"Wind: {wind_speed}km/h\n"
     data['tooltip'] += f"Humidity: {humidity}%\n"
@@ -138,22 +147,28 @@ def build_data(weather):
         weather['weather'].pop(0)
 
     for i, day in enumerate(weather['weather']):
-        sunrise = day['astronomy'][0]['sunrise']
-        sunset = day['astronomy'][0]['sunset']
+        sunrise = datetime.strptime(day['astronomy'][0]['sunrise'], "%I:%M %p")
+        sunset = datetime.strptime(day['astronomy'][0]['sunset'], "%I:%M %p")
         day_of_week = datetime.strptime(day['date'], "%Y-%m-%d").strftime("%A")
 
         data['tooltip'] += "\n<b>"
         data['tooltip'] += ["Today", "Tomorrow", day_of_week][min(i, 2)] + ", "
         data['tooltip'] += f"{day['date']}</b>\n"
         data['tooltip'] += f" {day['maxtempC']}°  {day['mintempC']}° "
-        data['tooltip'] += f"  {sunrise}   {sunset}\n"
+        data['tooltip'] += f"  {sunrise.strftime('%H:%M')} "
+        data['tooltip'] += f"  {sunset.strftime('%H:%M')}\n"
+
         for hour in day['hourly']:
             if not i and int(format_time(hour['time'])) < datetime.now().hour:
                 continue
+
+            time_obj = datetime.strptime(format_time(hour['time']), "%H")
+            is_daytime = sunrise <= time_obj - timedelta(hours=1) <= sunset
+
             data['tooltip'] += " ".join(
                 map(str,
                     (format_time(hour['time']),
-                     WEATHER_SYMBOL[WWO_CODE[hour['weatherCode']]],
+                     WEATHER_SYMBOL[WWO_CODE[hour['weatherCode']]][is_daytime],
                      format_temp(
                          hour['tempC']), hour['weatherDesc'][0]['value'])))
             data['tooltip'] += format_chances(hour)
