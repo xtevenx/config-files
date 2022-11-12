@@ -12,25 +12,25 @@ from datetime import datetime
 import requests
 
 WEATHER_SYMBOL = {
-    "Unknown": "✨",
-    "Cloudy": "☁️",
-    "Fog": "🌫",
-    "HeavyRain": "🌧",
-    "HeavyShowers": "🌧",
-    "HeavySnow": "❄️",
-    "HeavySnowShowers": "❄️",
-    "LightRain": "🌦",
-    "LightShowers": "🌦",
-    "LightSleet": "🌧",
-    "LightSleetShowers": "🌧",
-    "LightSnow": "🌨",
-    "LightSnowShowers": "🌨",
-    "PartlyCloudy": "⛅️",
-    "Sunny": "☀️",
-    "ThunderyHeavyRain": "🌩",
-    "ThunderyShowers": "⛈",
-    "ThunderySnowShowers": "⛈",
-    "VeryCloudy": "☁️",
+    "Unknown": " ",
+    "Cloudy": " ",
+    "Fog": " ",
+    "HeavyRain": " ",
+    "HeavyShowers": " ",
+    "HeavySnow": " ",
+    "HeavySnowShowers": " ",
+    "LightRain": " ",
+    "LightShowers": " ",
+    "LightSleet": " ",
+    "LightSleetShowers": " ",
+    "LightSnow": " ",
+    "LightSnowShowers": " ",
+    "PartlyCloudy": " ",
+    "Sunny": " ",
+    "ThunderyHeavyRain": " ",
+    "ThunderyShowers": " ",  # no nf-weather snow thunderstorm without sun
+    "ThunderySnowShowers": " ",  # no nf-weather snow thunderstorm without sun
+    "VeryCloudy": " ",
 }
 
 WWO_CODE = {
@@ -145,7 +145,7 @@ def build_data(weather):
         data['tooltip'] += "\n<b>"
         data['tooltip'] += ["Today", "Tomorrow", day_of_week][min(i, 2)] + ", "
         data['tooltip'] += f"{day['date']}</b>\n"
-        data['tooltip'] += f" {day['maxtempC']}°  {day['mintempC']}° "
+        data['tooltip'] += f" {day['maxtempC']}°  {day['mintempC']}° "
         data['tooltip'] += f"  {sunrise}   {sunset}\n"
         for hour in day['hourly']:
             if not i and int(format_time(hour['time'])) < datetime.now().hour:
@@ -154,8 +154,8 @@ def build_data(weather):
                 map(str,
                     (format_time(hour['time']),
                      WEATHER_SYMBOL[WWO_CODE[hour['weatherCode']]],
-                     format_temp(hour['tempC']),
-                     hour['weatherDesc'][0]['value'])))
+                     format_temp(
+                         hour['tempC']), hour['weatherDesc'][0]['value'])))
             data['tooltip'] += format_chances(hour)
             data['tooltip'] += "\n"
 
