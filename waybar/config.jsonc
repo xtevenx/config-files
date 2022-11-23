@@ -2,12 +2,54 @@
     "include": [
         "/usr/share/sway/templates/waybar/config.jsonc"
     ],
+    "modules-right": [
+        // Information
+        "custom/github",
+        "custom/clipboard",
+        "cpu",
+        "memory",
+        "temperature",
+
+        // Connectivity
+        "network",
+
+        // Media
+        "custom/playerctl",
+        "idle_inhibitor",
+        "custom/dnd",
+        "pulseaudio",
+        "backlight",
+
+        // System
+        "tray",
+        "clock"
+    ],
     "custom/weather": {
-        "exec": "~/.config/waybar/scripts/weather.py"
+        "interval": 600,  // wttr.in updates every 1000-2000 seconds
+        "exec": "~/.config/waybar/scripts/weather.py",
+        "format-icons": {
+            "Unknown": " ",
+            "Cloudy": " ",
+            "Fog": " ",
+            "HeavyRain": " ",
+            "HeavyShowers": " ",
+            "HeavySnow": " ",
+            "HeavySnowShowers": " ",
+            "LightRain": " ",
+            "LightShowers": " ",
+            "LightSleet": " ",
+            "LightSleetShowers": " ",
+            "LightSnow": " ",
+            "LightSnowShowers": " ",
+            "PartlyCloudy": " ",
+            "Sunny": " ",
+            "ThunderyHeavyRain": " ",
+            "ThunderyShowers": " ",
+            "ThunderySnowShowers": " ",
+            "VeryCloudy": " ",
+        }
     },
     "tray": {
-        "icon-size": 21,
-        "spacing": 5,
         "reverse-direction": true,
     }
 }
