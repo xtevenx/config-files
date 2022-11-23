@@ -23,7 +23,7 @@ import requests
 
 WEATHER_SYMBOL = {
     "Unknown": [" ", " "],
-    "Cloudy": [" ", " "],
+    "Cloudy": [" ", " "],
     "Fog": [" ", " "],
     "HeavyRain": [" ", " "],
     "HeavyShowers": [" ", " "],
