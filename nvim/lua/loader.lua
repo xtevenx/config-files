@@ -56,8 +56,8 @@ return require('packer').startup(function(use)
   use 'akinsho/toggleterm.nvim'
 
   -- File Explorer
-  use { 'kyazdani42/nvim-tree.lua',
-        requires = { 'kyazdani42/nvim-web-devicons' } }
+  use { 'nvim-tree/nvim-tree.lua',
+        requires = { 'nvim-tree/nvim-web-devicons' } }
 
   -- Code Outline
   use 'stevearc/aerial.nvim'
@@ -65,19 +65,19 @@ return require('packer').startup(function(use)
   -- Diagnostics Summary
   use { 'folke/trouble.nvim',
         config = function() require('trouble').setup() end,
-        requires = { 'kyazdani42/nvim-web-devicons' } }
+        requires = { 'nvim-tree/nvim-web-devicons' } }
 
   -- Buffer Line
   use { 'akinsho/bufferline.nvim',
-        requires = { 'kyazdani42/nvim-web-devicons' } }
+        requires = { 'nvim-tree/nvim-web-devicons' } }
 
   -- Status Line
   use { 'nvim-lualine/lualine.nvim',
-        requires = { 'kyazdani42/nvim-web-devicons' } }
+        requires = { 'nvim-tree/nvim-web-devicons' } }
 
   -- Start Screen
   use { 'goolord/alpha-nvim',
-        requires = { 'kyazdani42/nvim-web-devicons' } }
+        requires = { 'nvim-tree/nvim-web-devicons' } }
 
   -- Color Scheme
   use 'catppuccin/nvim'

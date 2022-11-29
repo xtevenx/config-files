@@ -10,10 +10,11 @@ else
     require('plugins.cinnamon')
 end
 
+require('plugins.catppuccin')
+
 require('plugins.aerial')
 require('plugins.alpha')
 require('plugins.bufferline')
-require('plugins.catppuccin')
 require('plugins.Comment')
 require('plugins.lualine')
 require('plugins.null-ls')
