@@ -28,8 +28,11 @@ null_ls.setup {
     null_ls.builtins.formatting.clang_format.with {
       extra_args = { '-style', '{BasedOnStyle: LLVM, IndentWidth: 4}' },
     },
-    -- https://github.com/PyCQA/isort
-    null_ls.builtins.formatting.isort.with {
+    -- https://github.com/charliermarsh/ruff/
+    null_ls.builtins.formatting.ruff.with {
+      extra_args = {
+        '--select', 'I001',
+      },
       prefer_local = '.venv/bin',
     },
     -- https://github.com/google/yapf

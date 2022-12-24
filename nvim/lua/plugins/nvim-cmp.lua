@@ -75,21 +75,16 @@ cmp.setup {
 
 local servers = {
   -- https://github.com/clangd/clangd
-  -- Run `pacman -S clang'
   clangd = {},
   -- https://github.com/microsoft/pyright
-  -- Run `pip install pyright'
   pyright = {},
   -- https://github.com/rust-lang/rust-analyzer
-  -- Run `pacman -S rust-analyzer`
-  -- <OR> Clone and run `cargo xtask install --server`
   rust_analyzer = {
     ['rust-analyzer'] = {
       checkOnSave = { command = 'clippy', features = 'all' },
     },
   },
   -- https://github.com/sumneko/lua-language-server
-  -- Run `pacman -S lua-language-server`
   sumneko_lua = {
     Lua = {
       diagnostics = {
@@ -98,8 +93,6 @@ local servers = {
     },
   },
   -- https://github.com/latex-lsp/texlab
-  -- Run `pacman -S texlab`
-  -- <OR> `cargo install texlab`
   texlab = {
     texlab = {
       build = {
@@ -108,16 +101,34 @@ local servers = {
       },
     },
   },
+
+  -- https://github.com/hrsh7th/vscode-langservers-extracted
+  cssls = {},
+  eslint = {},
+  html = {},
+  jsonls = {},
 }
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 local lspconfig = require('lspconfig')
+
+-- Use the git directory as the root for these language servers.
+local use_git = { eslint = true }
+
 for lsp, settings in pairs(servers) do
-  lspconfig[lsp].setup {
-    capabilities = capabilities,
-    settings = settings,
-  }
+  if use_git[lsp] then
+    lspconfig[lsp].setup {
+      capabilities = capabilities,
+      root_dir = require('lspconfig.util').find_git_ancestor,
+      settings = settings,
+    }
+  else
+    lspconfig[lsp].setup {
+      capabilities = capabilities,
+      settings = settings,
+    }
+  end
 end
 
 -- plugins/nvim-autopairs.lua
