@@ -1,0 +1,5 @@
+temp_low=4000
+temp_high=6500
+location=on
+fallback_longitude=-123.1
+fallback_latitude=49.2

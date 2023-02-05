@@ -21,9 +21,6 @@ return require('packer').startup(function(use)
   use 'L3MON4D3/LuaSnip'
   use 'saadparwaiz1/cmp_luasnip'
 
-  -- [Bonus] Snippet Database
-  use 'rafamadriz/friendly-snippets'
-
   -- Other Tools and LSP Integration
   use { 'jose-elias-alvarez/null-ls.nvim',
         requires = { 'nvim-lua/plenary.nvim' } }

@@ -8,6 +8,7 @@
         "custom/clipboard",
         "cpu",
         "memory",
+        "battery",
         "temperature",
 
         // Connectivity
@@ -15,12 +16,13 @@
 
         // Media
         "custom/playerctl",
-        "idle_inhibitor",
         "custom/dnd",
         "pulseaudio",
         "backlight",
 
         // System
+        "custom/sunset",
+
         "tray",
         "clock"
     ],
@@ -46,10 +48,10 @@
             "ThunderyHeavyRain": " ",
             "ThunderyShowers": " ",
             "ThunderySnowShowers": " ",
-            "VeryCloudy": " ",
+            "VeryCloudy": " "
         }
     },
     "tray": {
-        "reverse-direction": true,
+        "reverse-direction": true
     }
 }

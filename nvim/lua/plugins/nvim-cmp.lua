@@ -107,6 +107,9 @@ local servers = {
   eslint = {},
   html = {},
   jsonls = {},
+
+  -- https://github.com/haskell/haskell-language-server
+  hls = {},
 }
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
