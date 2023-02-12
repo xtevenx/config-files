@@ -84,11 +84,17 @@ local servers = {
       checkOnSave = { command = 'clippy', features = 'all' },
     },
   },
-  -- https://github.com/sumneko/lua-language-server
-  sumneko_lua = {
+  -- https://github.com/LuaLS/lua-language-server
+  lua_ls = {
     Lua = {
       diagnostics = {
         globals = { 'vim' }
+      },
+      workspace = {
+        library = vim.api.nvim_get_runtime_file("", true),
+      },
+      telemetry = {
+        enable = false,
       },
     },
   },
