@@ -1,5 +1,5 @@
 -- By default title is off. Needed for detecting window as neovim instance (sworkstyle)
-vim.cmd('set title')
+vim.cmd [[set title]]
 
 -- Basic configurations
 vim.g.python3_host_prog = '/usr/bin/python'
@@ -31,6 +31,6 @@ vim.o.undofile = true           -- Use an undo file
 
 local signs = { Error = ' ', Warn = ' ', Hint = ' ', Info = ' ' }
 for type, icon in pairs(signs) do
-  local hl = 'DiagnosticSign' .. type
-  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = '' })
+   local hl = 'DiagnosticSign' .. type
+   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = '' })
 end

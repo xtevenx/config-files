@@ -1,105 +1,173 @@
-local fn = vim.fn
-local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
-if fn.empty(fn.glob(install_path)) > 0 then
-  packer_bootstrap = fn.system {
-    'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path
-  }
+local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
+if not vim.loop.fs_stat(lazypath) then
+   vim.fn.system {
+      'git',
+      'clone',
+      '--filter=blob:none',
+      'https://github.com/folke/lazy.nvim.git',
+      '--branch=stable', -- latest stable release
+      lazypath,
+   }
 end
+vim.opt.rtp:prepend(lazypath)
 
-return require('packer').startup(function(use)
-  use 'wbthomason/packer.nvim'
+local plugins = {
+  'neovim/nvim-lspconfig',
 
-  -- Auto-completion
-  use 'neovim/nvim-lspconfig'
-
-  use 'hrsh7th/cmp-nvim-lsp'
-  use 'hrsh7th/cmp-path'
-  use 'hrsh7th/nvim-cmp'
-
-  use 'onsails/lspkind.nvim'
-
-  use 'L3MON4D3/LuaSnip'
-  use 'saadparwaiz1/cmp_luasnip'
+  {
+    'hrsh7th/nvim-cmp',
+    lazy = true,  -- setup in plugins/nvim-cmp.lua
+    dependencies = {
+      'hrsh7th/cmp-nvim-lsp',
+      'hrsh7th/cmp-path',
+      'L3MON4D3/LuaSnip',
+      'saadparwaiz1/cmp_luasnip',
+      'onsails/lspkind.nvim',
+    },
+  },
 
   -- Other Tools and LSP Integration
-  use { 'jose-elias-alvarez/null-ls.nvim',
-        requires = { 'nvim-lua/plenary.nvim' } }
+  {
+    'jose-elias-alvarez/null-ls.nvim',
+    lazy = true,  -- setup in plugins/null-ls.lua
+    dependencies = { 'nvim-lua/plenary.nvim' },
+  },
 
   -- Syntax Highlighting
-  use { 'nvim-treesitter/nvim-treesitter', run = 'TSUpdate' }
-  use 'p00f/nvim-ts-rainbow'
+  {
+    'nvim-treesitter/nvim-treesitter',
+    lazy = false,
+    priority = 100,
+    config = function ()
+      require('nvim-treesitter.configs').setup {
+        ensure_installed = 'all',
+        highlight = { enable = true },
+        rainbow = { enable = true },
+        sync_install = false,
+      }
+    end,
+    dependencies = { 'p00f/nvim-ts-rainbow' },
+  },
 
   -- Indent Style Guessing
-  use { 'NMAC427/guess-indent.nvim',
-        config = function() require('guess-indent').setup() end }
+  { 'NMAC427/guess-indent.nvim', lazy = false },
 
   -- Auto Pairing
-  use { 'windwp/nvim-autopairs',
-        config = function() require('nvim-autopairs').setup() end }
+  { 'windwp/nvim-autopairs', lazy = false },
 
   -- Commenting
-  use 'numToStr/Comment.nvim'
+  {
+    'numToStr/Comment.nvim',
+    lazy = false,
+    config = function ()
+      require('Comment').setup {
+        toggler = { line = '<leader>c<space>' }, -- KEYMAP!
+        opleader = { line = '<leader>c' }, -- KEYMAP!
+      }
+    end,
+  },
 
   -- Git Integration
-  use { 'lewis6991/gitsigns.nvim',
-        config = function() require('gitsigns').setup() end }
+  { 'lewis6991/gitsigns.nvim', lazy = false },
 
   -- Fuzzy Finder
-  use { 'nvim-telescope/telescope.nvim',
-        requires = { 'nvim-lua/plenary.nvim',
-                     'nvim-telescope/telescope-fzy-native.nvim' } }
+  {
+    'nvim-telescope/telescope.nvim',
+    lazy = true,
+    config = function ()
+      require('telescope').setup()
+      require('telescope').load_extension('fzy_native')
+    end,
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'nvim-telescope/telescope-fzy-native.nvim',
+    },
+  },
 
   -- Terminal Manager
-  use 'akinsho/toggleterm.nvim'
+  { 'akinsho/toggleterm.nvim', lazy = true },  -- setup in plugins/toggleterm.lua
 
   -- File Explorer
-  use { 'nvim-tree/nvim-tree.lua',
-        requires = { 'nvim-tree/nvim-web-devicons' } }
+  {
+    'nvim-tree/nvim-tree.lua',
+    lazy = true,  -- setup in plugins/nvim-tree.lua
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+  },
 
   -- Code Outline
-  use 'stevearc/aerial.nvim'
+  {
+    'stevearc/aerial.nvim',
+    lazy = true,
+    config = function ()
+      require('aerial').setup {
+        backends = { 'treesitter', 'lsp', 'markdown', 'man' },
+        layout = { min_width = 30 },
+        close_on_select = true,
+      }
+    end,
+  },
 
   -- Diagnostics Summary
-  use { 'folke/trouble.nvim',
-        config = function() require('trouble').setup() end,
-        requires = { 'nvim-tree/nvim-web-devicons' } }
+  {
+    'folke/trouble.nvim',
+    keys = {
+      { '<leader>d', '<cmd>TroubleToggle<CR>' },  -- KEYMAP!
+    },
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+  },
 
   -- Buffer Line
-  use { 'akinsho/bufferline.nvim',
-        requires = { 'nvim-tree/nvim-web-devicons' } }
+  {
+    'akinsho/bufferline.nvim',
+    lazy = false,
+    config = function ()
+      require('bufferline').setup {
+        options = {
+          separator_style = 'padded_slant',
+          offsets = {
+            { filetype = 'NvimTree', text = 'File Explorer' },
+          }
+        }
+      }
+    end,
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+  },
 
   -- Status Line
-  use { 'nvim-lualine/lualine.nvim',
-        requires = { 'nvim-tree/nvim-web-devicons' } }
+  {
+    'nvim-lualine/lualine.nvim',
+    lazy = true,  -- setup in plugins/lualine.lua
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+  },
 
   -- Start Screen
-  use { 'goolord/alpha-nvim',
-        requires = { 'nvim-tree/nvim-web-devicons' } }
-
-  -- Color Scheme
-  use 'catppuccin/nvim'
+  {
+    'goolord/alpha-nvim',
+    lazy = true,  -- setup in plugins/alpha.lua
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+  },
 
   -- Color Highlighting
-  use { 'norcalli/nvim-colorizer.lua' }
+  { 'norcalli/nvim-colorizer.lua', lazy = false },
 
   -- Indentation Guides
-  use 'lukas-reineke/indent-blankline.nvim'
+  {
+    'lukas-reineke/indent-blankline.nvim',
+    lazy = false,
+    config = function ()
+      require('indent_blankline').setup {
+        show_current_context = true,
+      }
+    end,
+  },
 
   -- Smooth Scrolling
-  use 'declancm/cinnamon.nvim'
+  {
+    'declancm/cinnamon.nvim',
+    lazy = true,  -- setup in plugins/cinnamon.lua IFF not in neovide.
+  },
+}
 
-  -- Keybind Helper
-  use { 'folke/which-key.nvim',
-        config = function() require('which-key').setup() end }
+plugins = vim.list_extend(plugins, require('plugins.catppuccin'))
 
-  -- Performance
-  use 'nathom/filetype.nvim'
-  use 'lewis6991/impatient.nvim'
-  use { 'dstein64/vim-startuptime', disable = true }
-
-  -- Automatically set up your configuration after cloning packer.nvim
-  -- Put this at the end after all plugins
-  if packer_bootstrap then
-    require('packer').sync()
-  end
-end)
+require('lazy').setup(plugins, {})

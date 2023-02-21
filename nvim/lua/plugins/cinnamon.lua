@@ -1,1 +1,1 @@
-require('cinnamon').setup { default_keymaps = true, default_delay = 1 }
+require('cinnamon').setup { default_keymaps = true, default_delay = 2 }

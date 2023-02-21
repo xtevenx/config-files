@@ -2,7 +2,7 @@ vim.o.timeoutlen = 600 -- Key mapping timeout
 
 -- This file contains *almost* all the custom keybinds.
 -- Exceptions commented with 'KEYMAP!' in:
--- - plugins/Comment.lua
+-- - loader.lua
 -- - plugins/toggleterm.lua
 
 vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { noremap = true })
@@ -18,26 +18,25 @@ vim.keymap.set('n', '<leader>sf', "<cmd>lua require('telescope.builtin').find_fi
 vim.keymap.set('n', '<leader>sg', "<cmd>lua require('telescope.builtin').live_grep()<CR>")
 
 vim.keymap.set('n', '<leader>b', '<cmd>AerialToggle<CR>')
-vim.keymap.set('n', '<leader>d', '<cmd>TroubleToggle<CR>')
 vim.keymap.set('n', '<leader>e', '<cmd>NvimTreeToggle<CR>')
 
 vim.keymap.set('n', '<C-n>', '<cmd>BufferLineCycleNext<CR>')
 vim.keymap.set('n', '<C-m>', '<cmd>BufferLineCyclePrev<CR>')
 
--- Formatting Commands
+-- Formatting commands
 vim.keymap.set('n', '<leader>f', '<cmd>lua vim.lsp.buf.format()<CR>')
 
 local choose_nls = { 'c', 'cpp' }
 for _, ft in ipairs(choose_nls) do
   vim.api.nvim_create_autocmd('FileType', {
     pattern = ft,
-    callback = function()
+    callback = function ()
       vim.keymap.set('n', '<leader>f', "<cmd>lua vim.lsp.buf.format({ name = 'null-ls' })<CR>", { buffer = true })
     end,
   })
 end
 
--- Simple Run Commands
+-- Simple run commands
 local commands = {
   c = 'gcc "%:p" -o "%:p:r" && "%:p:r"',
   cpp = 'g++ "%:p" -o "%:p:r" && "%:p:r"',
@@ -48,7 +47,7 @@ local commands = {
 for ft, cmd in pairs(commands) do
   vim.api.nvim_create_autocmd('FileType', {
     pattern = ft,
-    callback = function()
+    callback = function ()
       vim.keymap.set('n', '<leader>r', "<cmd>TermExec cmd='" .. cmd .. "'<CR>", { buffer = true })
     end,
   })
