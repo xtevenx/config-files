@@ -1,5 +1,7 @@
 *.example
-nvim/plugin/
+*.luarc.json
+
+nvim/lazy-lock.json
 sway/config.d/README.md
 sway/definitions.d/README.md
 sway/help.man
