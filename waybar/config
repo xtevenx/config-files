@@ -1,0 +1,147 @@
+// Global 
+{
+    "layer": "top",
+    "position": "top",
+
+    "modules-left": [
+        "clock",
+        "custom/weather",
+        "sway/workspaces",
+    ],
+ 
+    "modules-center": [
+        "sway/mode",
+    ],
+
+    "modules-right": [
+        "network",
+        "cpu",
+        "memory",
+        "pulseaudio",
+        "tray",
+        "custom/power",
+    ],
+
+    "margin-top": 5,
+    "margin-left": 5,
+    "margin-right": 5,
+    "margin-bottom": 0,
+
+    "exclusive": true,
+    "fixed-center": true,
+    "passthrough": false,
+
+    // Modules
+
+    "custom/weather": {
+        "exec": "~/.config/waybar/scripts/weather.py",
+        "return-type": "json",
+        "interval": 300,  // wttr.in updates every 1000-2000 seconds
+        "format": "{icon}{}",
+        "format-icons": {
+            "Unknown": " ",
+            "Cloudy": " ",
+            "Fog": " ",
+            "HeavyRain": " ",
+            "HeavyShowers": " ",
+            "HeavySnow": " ",
+            "HeavySnowShowers": " ",
+            "LightRain": " ",
+            "LightShowers": " ",
+            "LightSleet": " ",
+            "LightSleetShowers": " ",
+            "LightSnow": " ",
+            "LightSnowShowers": " ",
+            "PartlyCloudy": " ",
+            "Sunny": " ",
+            "ThunderyHeavyRain": " ",
+            "ThunderyShowers": " ",
+            "ThunderySnowShowers": " ",
+            "VeryCloudy": " ",
+        },
+    },
+ 
+    "network": {
+        "interval": 3,
+        "format-ethernet": "󰈀 {ipaddr}/{cidr}", // nf-md-ethernet
+        "format-disconnected": "󰀦 Disconnected", // nf-md-alert
+        "on-click": "xfce4-terminal -e 'nmtui'",
+        "tooltip": false,
+        //"format": "󰇚 {bandwidthDownBits}  󰕒 {bandwidthUpBits}", // nf-md-ethernet
+        //"tooltip-format-ethernet": "󰈀 {ipaddr}/{cidr}", // nf-md-ethernet
+    },
+
+    "cpu": {
+        "interval": 2,
+        "format": "󰘚 {usage}%", // nf-md-chip
+        "states": {
+            "warning": 60,
+            "critical": 90,
+        },
+        "on-click": "xfce4-terminal -e 'htop'",
+    },
+
+    "memory": {
+        "interval": 2,
+        "format": "󰍛 {}%", // nf-md-memory
+        "states": {
+            "warning": 60,
+            "critical": 90,
+        },
+        "on-click": "xfce4-terminal -e 'htop'", 
+    },
+
+    "sway/workspaces": {
+        "all-outputs": true,
+        "format": " {icon} ",
+        "format-icons": {
+            "1": "󰆍", // nf-md-console
+            "2": "󰆍", // nf-md-console
+            "3": "󰈹", // nf-md-firefox
+            "4": "󰙯", // nf-md-discord
+            "5": "󰺵", // nf-md-gamepad_square
+            "6": "󰺵", // nf-md-gamepad_square
+        },
+        "disable-scroll": true,
+        "disable-markup" : false,
+        "persistent_workspaces": {
+            "1": [],
+            "2": [],
+            "3": [],
+            "4": [],
+        },
+    },
+
+    "sway/mode": {
+        "format": "({})",
+        "tooltip": false
+    },
+
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": "󰝟 {volume}%", // nf-md-volume_mute
+        "format-icons": {
+            "default": ["󰕿", "󰖀", "󰕾"], // nf-md-volume_*
+        },
+        "scroll-step": 2,
+        "on-click": "pavucontrol",
+    },
+
+    "tray": {
+        "icon-size": 18,
+        "spacing": 8,
+        "reverse-direction": true,
+    },
+
+    "clock": {
+        "interval": 2,
+        "format": "{:%H:%M %b %e}",
+        "tooltip": false,
+    },
+
+    "custom/power": {
+        "format":"󰐥", // nf-md-power
+        "on-click": "exec ~/.config/waybar/scripts/power-menu.sh",
+        "tooltip": false,
+    },
+}

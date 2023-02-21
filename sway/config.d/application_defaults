@@ -1,0 +1,7 @@
+# Assign workspaces
+assign [app_id="firefox"] 3
+for_window [app_id="firefox"] focus
+
+# Assorted firefox tweaks
+for_window [app_id="firefox"] inhibit_idle fullscreen
+for_window [app_id="firefox" title="Firefox — Sharing Indicator"] kill
