@@ -42,10 +42,13 @@
     outline: none;
 }
 
+#window {
+    background: transparent;
+}
+
 #outer-box {
     background-color: @surface0;
     border-radius: 10px;
-    margin: 5px;
     padding: 20px;
 }
 

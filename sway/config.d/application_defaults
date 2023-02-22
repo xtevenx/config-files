@@ -2,6 +2,17 @@
 assign [app_id="firefox"] 3
 for_window [app_id="firefox"] focus
 
+# Assign workspaces (xwayland)
+assign [class="discord"] 4
+
+assign [class="explorer.exe"] 5
+assign [class="leagueclientux.exe"] 5
+assign [class="league of legends.exe"] 5
+for_window [class="explorer.exe"] focus
+for_window [class="leagueclientux.exe"] focus
+
+assign [class="steam_app_1284210"] 6
+for_window [class="steam_app_1284210"] focus
+
 # Assorted firefox tweaks
-for_window [app_id="firefox"] inhibit_idle fullscreen
 for_window [app_id="firefox" title="Firefox — Sharing Indicator"] kill

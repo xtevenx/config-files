@@ -1,7 +1,6 @@
 show=drun
 prompt=
 hide_scroll=true
-matching=fuzzy
 insensitive=true
 filter_rate=30
 

@@ -101,7 +101,7 @@
 
 tooltip,
 tooltip * {
-    background-color: @surface1;
+    background-color: @surface0;
     border-radius: 10px;
     padding: 2px;
 }

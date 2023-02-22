@@ -37,7 +37,7 @@
         "exec": "~/.config/waybar/scripts/weather.py",
         "return-type": "json",
         "interval": 300,  // wttr.in updates every 1000-2000 seconds
-        "format": "{icon}{}",
+        "format": "{icon} {}",
         "format-icons": {
             "Unknown": " ",
             "Cloudy": " ",
@@ -95,17 +95,16 @@
         "all-outputs": true,
         "format": " {icon} ",
         "format-icons": {
-            "1": "󰆍", // nf-md-console
+            "1": "󰈙", // nf-md-file_document
             "2": "󰆍", // nf-md-console
             "3": "󰈹", // nf-md-firefox
             "4": "󰙯", // nf-md-discord
-            "5": "󰺵", // nf-md-gamepad_square
-            "6": "󰺵", // nf-md-gamepad_square
+            "5": "󰰎", // nf-md-alpha_l_circle_outline
+            "6": "󰞇", // nf-md-sword_cross
         },
         "disable-scroll": true,
         "disable-markup" : false,
         "persistent_workspaces": {
-            "1": [],
             "2": [],
             "3": [],
             "4": [],

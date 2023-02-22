@@ -1,6 +1,9 @@
 show=dmenu
 hide_scroll=true
+insensitive=true
+filter_rate=30
 hide_search=true
+single_click=true
 
 width=9%
 lines=5

@@ -6,7 +6,7 @@ on-button-left=invoke-default-action
 on-button-right=dismiss
 
 font=monospace 10
-background-color=#45475a
+background-color=#313244
 text-color=#cdd6f4
 width=324
 height=200
