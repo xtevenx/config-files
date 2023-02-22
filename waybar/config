@@ -65,7 +65,7 @@
         "interval": 3,
         "format-ethernet": "󰈀 {ipaddr}/{cidr}", // nf-md-ethernet
         "format-disconnected": "󰀦 Disconnected", // nf-md-alert
-        "on-click": "xfce4-terminal -e 'nmtui'",
+        "on-click": "foot 'nmtui'",
         "tooltip": false,
         //"format": "󰇚 {bandwidthDownBits}  󰕒 {bandwidthUpBits}", // nf-md-ethernet
         //"tooltip-format-ethernet": "󰈀 {ipaddr}/{cidr}", // nf-md-ethernet
@@ -78,7 +78,7 @@
             "warning": 60,
             "critical": 90,
         },
-        "on-click": "xfce4-terminal -e 'htop'",
+        "on-click": "foot 'htop'",
     },
 
     "memory": {
@@ -88,15 +88,15 @@
             "warning": 60,
             "critical": 90,
         },
-        "on-click": "xfce4-terminal -e 'htop'", 
+        "on-click": "foot 'htop'", 
     },
 
     "sway/workspaces": {
         "all-outputs": true,
         "format": " {icon} ",
         "format-icons": {
-            "1": "󰈙", // nf-md-file_document
-            "2": "󰆍", // nf-md-console
+            "1": "󰆍", // nf-md-console
+            "2": "󰈙", // nf-md-file_document
             "3": "󰈹", // nf-md-firefox
             "4": "󰙯", // nf-md-discord
             "5": "󰰎", // nf-md-alpha_l_circle_outline
