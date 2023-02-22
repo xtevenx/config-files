@@ -27,5 +27,6 @@ format=<b>%s</b>\n%b
 text-alignment=left
 default-timeout=3000
 
-border-size=0
+border-size=1
+border-color=#585b70
 border-radius=10

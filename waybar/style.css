@@ -70,19 +70,10 @@
 /* Global settings */
 * {
     background-color: @base;
-    border: none;
     border-radius: 0;
     color: @text;
     font-family: 'FiraCode Nerd Font';
-    font-size: 12px;
-    min-height: 0;
     padding: 0;
-}
-
-/* The whole bar */
-#waybar {
-    background: transparent;
-    border-radius: 10px;
 }
 
 /* Every module */
@@ -103,7 +94,7 @@ tooltip,
 tooltip * {
     background-color: @surface0;
     border-radius: 10px;
-    padding: 2px;
+    padding: 1px 2px;
 }
 
 /* -----------------------------------------------------------------------------
@@ -111,12 +102,16 @@ tooltip * {
  * -------------------------------------------------------------------------- */
 
 #custom-weather {
-    margin-left: 0.236rem;
-    margin-right: 0.382rem;
+    margin: 0 0.382rem;
 }
 
 #workspaces button {
     border-bottom: 3px solid transparent;
+    font-size: 14px;
+}
+
+#workspaces button#sway-workspace-5 {
+    font-size: 16px;
 }
 
 #workspaces button.focused {
@@ -166,11 +161,7 @@ tooltip * {
     color: @overlay1;
 }
 
-#workspaces {
-    font-size: 13px;
-}
-
 #custom-power {
-    font-size: 15px;
+    font-size: 16px;
     margin-right: 5px;
 }
