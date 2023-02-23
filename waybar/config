@@ -104,11 +104,6 @@
         },
         "disable-scroll": true,
         "disable-markup" : false,
-        "persistent_workspaces": {
-            "2": [],
-            "3": [],
-            "4": [],
-        },
     },
 
     "sway/mode": {
