@@ -6,6 +6,7 @@ for_window [app_id="firefox"] focus
 assign [class="discord"] 4
 
 assign [class="explorer.exe"] 5
+assign [class="riotclientux.exe"] 5
 assign [class="leagueclient.exe"] 5
 assign [class="leagueclientux.exe"] 5
 assign [class="league of legends.exe"] 5
