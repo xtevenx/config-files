@@ -110,6 +110,10 @@ tooltip * {
     font-size: 14px;
 }
 
+#workspaces button#sway-workspace-2 {
+    font-size: 18px;
+}
+
 #workspaces button#sway-workspace-5 {
     font-size: 16px;
 }
