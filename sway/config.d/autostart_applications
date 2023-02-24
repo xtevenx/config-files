@@ -18,3 +18,4 @@ exec dex -a -s /etc/xdg/autostart/:~/.config/autostart/
 # Custom autostart applications
 exec discord --start-minimized
 exec steam -silent
+exec wlsunset
