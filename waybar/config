@@ -4,17 +4,17 @@
     "position": "top",
 
     "modules-left": [
-        "clock",
-        "custom/weather",
         "sway/workspaces",
+        "sway/mode",
     ],
  
     "modules-center": [
-        "sway/mode",
+        "clock",
+        "custom/weather",
     ],
 
     "modules-right": [
-        "network",
+        //"network",
         "cpu",
         "memory",
         "pulseaudio",
@@ -62,12 +62,12 @@
     },
  
     "network": {
-        "interval": 3,
+        "interval": 2,
         "format-ethernet": "󰈀 {ipaddr}/{cidr}", // nf-md-ethernet
         "format-disconnected": "󰀦 Disconnected", // nf-md-alert
         "on-click": "foot 'nmtui'",
         "tooltip": false,
-        //"format": "󰇚 {bandwidthDownBits}  󰕒 {bandwidthUpBits}", // nf-md-ethernet
+        //"format": "󰇚 {bandwidthDownBits}  󰕒 {bandwidthUpBits}", // nf-md-download nf-md-upload
         //"tooltip-format-ethernet": "󰈀 {ipaddr}/{cidr}", // nf-md-ethernet
     },
 
@@ -96,7 +96,7 @@
         "format": " {icon} ",
         "format-icons": {
             "1": "󰆍", // nf-md-console
-            "2": "󰈙", // nf-md-file_document
+            "2": "󱈹", // nf-md-desk
             "3": "󰈹", // nf-md-firefox
             "4": "󰙯", // nf-md-discord
             "5": "󰰎", // nf-md-alpha_l_circle_outline
@@ -130,7 +130,8 @@
     "clock": {
         "interval": 2,
         "format": "{:%H:%M %b %e}",
-        "tooltip": false,
+        "tooltip-format": "{:%B %Y}\n{calendar}",
+        "tooltip": true,
     },
 
     "custom/power": {

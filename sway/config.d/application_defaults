@@ -1,7 +1,4 @@
 # Assign workspaces
-assign [app_id="foot"] 1
-for_window [app_id="foot"] focus
-
 assign [app_id="firefox"] 3
 for_window [app_id="firefox"] focus
 
