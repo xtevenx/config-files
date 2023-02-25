@@ -85,7 +85,7 @@
 #pulseaudio,
 #tray,
 #custom-power {
-    padding: 0.382rem 0.618rem;
+    padding: 0.4rem 0.6rem;
 }
 
 /* Every tooltip */
@@ -102,7 +102,7 @@ tooltip * {
  * -------------------------------------------------------------------------- */
 
 #custom-weather {
-    margin: 0 0.382rem;
+    margin: 0 0.37rem;
 }
 
 #workspaces button {
