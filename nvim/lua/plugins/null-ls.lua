@@ -3,7 +3,6 @@ local null_ls = require('null-ls')
 null_ls.setup {
   sources = {
     -- https://github.com/danmar/cppcheck
-    -- Can install with pacman.
     null_ls.builtins.diagnostics.cppcheck,
     -- https://github.com/charliermarsh/ruff/
     null_ls.builtins.diagnostics.ruff.with {
@@ -24,10 +23,11 @@ null_ls.setup {
       prefer_local = '.venv/bin',
     },
     -- https://www.kernel.org/doc/html/latest/process/clang-format.html
-    -- Can install with pacman.
     null_ls.builtins.formatting.clang_format.with {
       extra_args = { '-style', '{BasedOnStyle: LLVM, IndentWidth: 4}' },
     },
+    -- https://github.com/prettier/prettier
+    null_ls.builtins.formatting.prettier,
     -- https://github.com/charliermarsh/ruff/
     null_ls.builtins.formatting.ruff.with {
       extra_args = {

@@ -76,14 +76,17 @@ cmp.setup {
 local servers = {
   -- https://github.com/clangd/clangd
   clangd = {},
+
   -- https://github.com/microsoft/pyright
   pyright = {},
+
   -- https://github.com/rust-lang/rust-analyzer
   rust_analyzer = {
     ['rust-analyzer'] = {
       checkOnSave = { command = 'clippy', features = 'all' },
     },
   },
+
   -- https://github.com/LuaLS/lua-language-server
   lua_ls = {
     Lua = {
@@ -98,6 +101,7 @@ local servers = {
       },
     },
   },
+
   -- https://github.com/latex-lsp/texlab
   texlab = {
     texlab = {
@@ -110,9 +114,11 @@ local servers = {
 
   -- https://github.com/hrsh7th/vscode-langservers-extracted
   cssls = {},
-  eslint = {},
   html = {},
   jsonls = {},
+
+  -- https://github.com/typescript-language-server/typescript-language-server
+  tsserver = {},
 
   -- https://github.com/haskell/haskell-language-server
   hls = {},

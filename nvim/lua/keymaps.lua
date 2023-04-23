@@ -24,7 +24,11 @@ vim.keymap.set('n', '<C-n>', '<cmd>BufferLineCycleNext<CR>')
 vim.keymap.set('n', '<C-m>', '<cmd>BufferLineCyclePrev<CR>')
 
 -- Formatting commands
-vim.keymap.set('n', '<leader>f', '<cmd>lua vim.lsp.buf.format()<CR>')
+vim.keymap.set('n', '<leader>f', function()
+  vim.lsp.buf.format {
+    filter = function(client) return client.name ~= "tsserver" end
+  }
+end)
 
 local choose_nls = { 'c', 'cpp' }
 for _, ft in ipairs(choose_nls) do
