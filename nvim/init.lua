@@ -4,9 +4,9 @@ require('keymaps')
 require('options')
 
 if vim.g.neovide then
-    require('neovide')
+   require('neovide')
 else
-    require('plugins.cinnamon')
+   require('plugins.cinnamon')
 end
 
 require('plugins.alpha')

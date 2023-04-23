@@ -1,1 +1,1 @@
-vim.keymap.set('n', '<tab>', "<cmd>lua require('aerial').select({ jump = false })<CR>", { buffer = true })
+vim.keymap.set('n', '<tab>', function() require('aerial').select({ jump = false }) end, { buffer = true })
