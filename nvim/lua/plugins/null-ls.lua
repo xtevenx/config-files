@@ -27,7 +27,9 @@ null_ls.setup {
          extra_args = { '-style', '{BasedOnStyle: LLVM, IndentWidth: 4}' },
       },
       -- https://github.com/prettier/prettier
-      null_ls.builtins.formatting.prettier,
+      null_ls.builtins.formatting.prettier.with {
+         extra_args = { '--single-quote' },
+      },
       -- https://github.com/charliermarsh/ruff/
       null_ls.builtins.formatting.ruff.with {
          extra_args = {
