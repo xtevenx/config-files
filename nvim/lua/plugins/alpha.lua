@@ -57,9 +57,9 @@ dashboard.section.header.opts = { position = 'center', hl = PURPLE }
 
 -- Buttons
 dashboard.section.buttons.val = {
-   button('e', 'ﱐ  New File', '<cmd>enew<CR>', nil, { hl = GREEN }),
-   button('f', '  Find File', '<cmd>Telescope find_files<CR>', nil, { hl = BLUE }),
-   button('q', '  Quit', '<cmd>qall!<CR>', nil, { hl = RED }),
+   button('e', '󰝒  New File', '<cmd>enew<CR>', nil, { hl = GREEN }),
+   button('f', '󰈞  Find File', '<cmd>Telescope find_files<CR>', nil, { hl = BLUE }),
+   button('q', '󰅗  Quit', '<cmd>qall!<CR>', nil, { hl = RED }),
 }
 
 -- Layout
