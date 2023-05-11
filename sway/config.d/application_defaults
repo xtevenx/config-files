@@ -11,7 +11,14 @@ assign [class="leagueclient.exe"] 5
 assign [class="leagueclientux.exe"] 5
 assign [class="league of legends.exe"] 5
 
+# Hades
+assign [class="steam_app_1145360"] 6
+
+# Guild Wars 2
 assign [class="steam_app_1284210"] 6
+
+# Steam
+assign [class="Steam"] 7
 
 # Assorted firefox tweaks
 for_window [app_id="firefox" title="Firefox — Sharing Indicator"] kill
