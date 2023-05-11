@@ -101,6 +101,7 @@
             "4": "󰙯", // nf-md-discord
             "5": "󰰎", // nf-md-alpha_l_circle_outline
             "6": "󰞇", // nf-md-sword_cross
+            "7": "󰓓", // nf-md-steam
         },
         "disable-scroll": true,
         "disable-markup" : false,

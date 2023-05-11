@@ -111,11 +111,15 @@ tooltip * {
 }
 
 #workspaces button#sway-workspace-2 {
-    font-size: 18px;
+    font-size: 17px;
 }
 
 #workspaces button#sway-workspace-5 {
     font-size: 16px;
+}
+
+#workspaces button#sway-workspace-7 {
+    font-size: 15px;
 }
 
 #workspaces button.focused {
