@@ -29,7 +29,7 @@ vim.o.cmdheight = 0         -- Disable command line if not in use
 
 vim.o.undofile = true       -- Use an undo file
 
-local signs = { Error = ' ', Warn = ' ', Hint = ' ', Info = ' ' }
+local signs = { Error = '󰅚 ', Warn = '󰀪 ', Hint = '󰛩 ', Info = '󰋽 ' }
 for type, icon in pairs(signs) do
    local hl = 'DiagnosticSign' .. type
    vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = '' })
