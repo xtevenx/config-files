@@ -131,7 +131,7 @@
     "clock": {
         "interval": 2,
         "format": "{:%H:%M %b %e}",
-        "tooltip-format": "{:%B %Y}\n{calendar}",
+        "tooltip-format": "{calendar}",
         "tooltip": true,
     },
 
