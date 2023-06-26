@@ -97,12 +97,12 @@ WWO_CODE = {
 
 def format_time(string):
     """Format tooltip hour number."""
-    return string.replace("00", "").zfill(2)
+    return string.replace('00', '').zfill(2)
 
 
 def format_temp(string):
     """Format tooltip temperature number."""
-    return (string + "°").ljust(3)
+    return (string + '°').ljust(3)
 
 
 def format_chances(hour):
@@ -118,7 +118,7 @@ def format_chances(hour):
         "chanceofwindy": "Wind"
     }
 
-    return "".join(f", {chance} {hour[event]}%"
+    return ''.join(f', {chance} {hour[event]}%'
                    for event, chance in chances.items() if int(hour[event]))
 
 
@@ -134,25 +134,25 @@ def build_data(weather):
     wind_speed = weather['current_condition'][0]['windspeedKmph']
     humidity = weather['current_condition'][0]['humidity']
 
-    data['text'] = curr_temp + "°"
+    data['text'] = curr_temp + '°'
     data['alt'] = WWO_CODE[weather['current_condition'][0]['weatherCode']]
 
-    data['tooltip'] = f"Weather in <b>{location_name}</b>:\n"
-    data['tooltip'] += f"<b>{curr_weather} {curr_temp}°</b>\n"
-    data['tooltip'] += f"Feels like: {feels_like}°\n"
-    data['tooltip'] += f"Wind: {wind_speed}km/h\n"
-    data['tooltip'] += f"Humidity: {humidity}%\n"
+    data['tooltip'] = f'Weather in <b>{location_name}</b>:\n'
+    data['tooltip'] += f'<b>{curr_weather} {curr_temp}°</b>\n'
+    data['tooltip'] += f'Feels like: {feels_like}°\n'
+    data['tooltip'] += f'Wind: {wind_speed}km/h\n'
+    data['tooltip'] += f'Humidity: {humidity}%\n'
 
-    if weather['weather'][0]['date'] != datetime.now().strftime("%Y-%m-%d"):
+    if weather['weather'][0]['date'] != datetime.now().strftime('%Y-%m-%d'):
         weather['weather'].pop(0)
 
     for i, day in enumerate(weather['weather']):
-        sunrise = datetime.strptime(day['astronomy'][0]['sunrise'], "%I:%M %p")
-        sunset = datetime.strptime(day['astronomy'][0]['sunset'], "%I:%M %p")
-        day_of_week = datetime.strptime(day['date'], "%Y-%m-%d").strftime("%A")
+        sunrise = datetime.strptime(day['astronomy'][0]['sunrise'], '%I:%M %p')
+        sunset = datetime.strptime(day['astronomy'][0]['sunset'], '%I:%M %p')
+        day_of_week = datetime.strptime(day['date'], '%Y-%m-%d').strftime('%A')
 
-        data['tooltip'] += "\n<b>"
-        data['tooltip'] += ["Today", "Tomorrow", day_of_week][min(i, 2)] + ", "
+        data['tooltip'] += '\n<b>'
+        data['tooltip'] += ['Today', 'Tomorrow', day_of_week][min(i, 2)] + ', '
         data['tooltip'] += f"{day['date']}</b>\n"
         data['tooltip'] += f" {day['maxtempC']}°  {day['mintempC']}° "
         data['tooltip'] += f"  {sunrise.strftime('%H:%M')} "
@@ -162,22 +162,19 @@ def build_data(weather):
             if not i and int(format_time(hour['time'])) < datetime.now().hour:
                 continue
 
-            time_obj = datetime.strptime(format_time(hour['time']), "%H")
+            time_obj = datetime.strptime(format_time(hour['time']), '%H')
             is_daytime = sunrise <= time_obj - timedelta(hours=1) <= sunset
 
-            data['tooltip'] += " ".join(
-                map(str,
-                    (format_time(hour['time']),
-                     WEATHER_SYMBOL[WWO_CODE[hour['weatherCode']]][is_daytime],
-                     format_temp(
-                         hour['tempC']), hour['weatherDesc'][0]['value'])))
-            data['tooltip'] += format_chances(hour)
-            data['tooltip'] += "\n"
+            data['tooltip'] += format_time(hour['time']) + ' '
+            data['tooltip'] += WEATHER_SYMBOL[WWO_CODE[hour['weatherCode']]][is_daytime] + ' '
+            data['tooltip'] += format_temp(hour['tempC']) + ' '
+            data['tooltip'] += hour['weatherDesc'][0]['value'] + ' '
+            data['tooltip'] += format_chances(hour) + '\n'
 
     data['tooltip'] = data['tooltip'].rstrip()
     return data
 
 
-if __name__ == "__main__":
-    weather_data = requests.get("https://wttr.in/?format=j1", timeout=1).json()
+if __name__ == '__main__':
+    weather_data = requests.get('https://wttr.in/?format=j1', timeout=5.0).json()
     print(json.dumps(build_data(weather_data), separators=(',', ':')))
