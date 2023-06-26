@@ -18,7 +18,7 @@ assign [class="steam_app_1145360"] 6
 assign [class="steam_app_1284210"] 6
 
 # Steam
-assign [class="Steam"] 7
+assign [class="steam"] 7
 
 # Assorted firefox tweaks
 for_window [app_id="firefox" title="Firefox — Sharing Indicator"] kill
