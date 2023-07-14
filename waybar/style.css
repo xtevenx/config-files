@@ -42,25 +42,25 @@
  * -------------------------------------------------------------------------- */
 
 @keyframes blink-warning {
-    70% {
-        color: @text;
-    }
+  70% {
+    color: @text;
+  }
 
-    to {
-        color: @text;
-        background-color: @peach;
-    }
+  to {
+    color: @text;
+    background-color: @peach;
+  }
 }
 
 @keyframes blink-critical {
-    70% {
-      color: @text;
-    }
+  70% {
+    color: @text;
+  }
 
-    to {
-        color: @text;
-        background-color: @maroon;
-    }
+  to {
+    color: @text;
+    background-color: @maroon;
+  }
 }
 
 /* -----------------------------------------------------------------------------
@@ -69,11 +69,11 @@
 
 /* Global settings */
 * {
-    background-color: transparent;
-    border-radius: 0;
-    color: @text;
-    font-family: 'FiraCode Nerd Font';
-    padding: 0;
+  background-color: transparent;
+  border-radius: 0;
+  color: @text;
+  font-family: 'CaskaydiaCove Nerd Font';
+  padding: 0;
 }
 
 /* Every module */
@@ -81,20 +81,21 @@
 #mode,
 #network,
 #cpu,
+#temperature,
 #memory,
 #pulseaudio,
 #tray,
 #custom-power {
-    padding: 0.4rem 0.6rem;
+  padding: 0.4rem 0.6rem;
 }
 
 /* Every tooltip */
 
 tooltip,
 tooltip * {
-    background-color: @surface0;
-    border-radius: 10px;
-    padding: 1px 2px;
+  background-color: @surface0;
+  border-radius: 10px;
+  padding: 1px 2px;
 }
 
 /* -----------------------------------------------------------------------------
@@ -102,74 +103,78 @@ tooltip * {
  * -------------------------------------------------------------------------- */
 
 #custom-weather {
-    margin: 0 0.37rem;
+  margin: 0 0.37rem;
 }
 
 #workspaces button {
-    border-bottom: 3px solid transparent;
-    font-size: 14px;
+  border-bottom: 3px solid transparent;
+  font-size: 14px;
 }
 
 #workspaces button#sway-workspace-2 {
-    font-size: 17px;
+  font-size: 17px;
 }
 
 #workspaces button#sway-workspace-5 {
-    font-size: 16px;
+  font-size: 16px;
 }
 
 #workspaces button#sway-workspace-7 {
-    font-size: 15px;
+  font-size: 15px;
 }
 
 #workspaces button.focused {
-    border-bottom: 3px solid @blue;
+  border-bottom: 3px solid @blue;
 }
 
 #workspaces button.urgent {
-    border-color: @yellow;
-    color: @yellow;
+  border-color: @yellow;
+  color: @yellow;
 }
 
 #mode {
-    background: transparent;
-    color: @text;
-    font-style: italic;
+  background: transparent;
+  color: @text;
+  font-style: italic;
 }
 
 #network.disconnected {
-    color: @peach;
+  color: @peach;
 }
 
 #cpu.warning {
-    color: @peach;
+  color: @peach;
 }
 
 #cpu.critical {
-    color: @maroon;
+  color: @maroon;
+}
+
+#temperature.critical {
+  color: @maroon;
 }
 
 #memory {
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 
 #memory.warning {
-    color: @peach;
+  color: @peach;
 }
 
 #memory.critical {
-    color: @maroon;
-    animation-name: blink-critical;
-    animation-duration: 2s;
+  color: @maroon;
+  animation-name: blink-critical;
+  animation-duration: 2s;
 }
 
 #pulseaudio.muted {
-    color: @overlay1;
+  color: @overlay1;
 }
 
 #custom-power {
-    font-size: 16px;
-    margin-right: 5px;
+  font-size: 16px;
+  margin-right: 5px;
 }

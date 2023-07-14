@@ -16,6 +16,7 @@
     "modules-right": [
         //"network",
         "cpu",
+        "temperature",
         "memory",
         "pulseaudio",
         "tray",
@@ -79,6 +80,15 @@
             "critical": 90,
         },
         "on-click": "foot 'htop'",
+    },
+
+    "temperature": {
+        "hwmon-path": "/sys/class/hwmon/hwmon1/temp1_input",
+        "critical-threshold": 95,
+        "interval": 2,
+        "format": "󰔐 {temperatureC}󰔄", // nf-md-thermometer_lines nf-md-temperature_celsius
+        // The nf-md-thermometer* icons are too narrow, otherwise format-icons is good.
+        //"format-icons": ["󱃃", "󰔏", "󱃂"],
     },
 
     "memory": {
