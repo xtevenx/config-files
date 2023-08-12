@@ -38,93 +38,65 @@
 @define-color rosewater #f5e0dc;
 
 /* -----------------------------------------------------------------------------
- * Keyframes
- * -------------------------------------------------------------------------- */
-
-@keyframes blink-warning {
-  70% {
-    color: @text;
-  }
-
-  to {
-    color: @text;
-    background-color: @peach;
-  }
-}
-
-@keyframes blink-critical {
-  70% {
-    color: @text;
-  }
-
-  to {
-    color: @text;
-    background-color: @maroon;
-  }
-}
-
-/* -----------------------------------------------------------------------------
  * Base styles
  * -------------------------------------------------------------------------- */
 
 /* Global settings */
 * {
-  background-color: transparent;
-  border-radius: 0;
   color: @text;
   font-family: 'CaskaydiaCove Nerd Font';
   padding: 0;
 }
 
+window#waybar {
+  background-color: transparent;
+}
+
 /* Every module */
-#clock,
+#workspaces button,
 #mode,
+#clock,
+#custom-weather,
 #network,
 #cpu,
-#temperature,
 #memory,
+#temperature,
 #pulseaudio,
 #tray,
 #custom-power {
-  padding: 0.4rem 0.6rem;
+  background-color: @base;
+  border-radius: 1rem;
+  margin: 0 0.3rem;
+  padding: 0.4rem 0.8rem;
 }
 
 /* Every tooltip */
-
-tooltip,
-tooltip * {
+tooltip label {
   background-color: @surface0;
-  border-radius: 10px;
-  padding: 1px 2px;
+  border-radius: 0.5rem;
+  padding: 0.2rem 0.4rem;
 }
 
 /* -----------------------------------------------------------------------------
  * Modules styles
  * -------------------------------------------------------------------------- */
 
-#custom-weather {
-  margin: 0 0.37rem;
-}
-
 #workspaces button {
-  border-bottom: 3px solid transparent;
-  font-size: 14px;
+  margin: 0 0.2rem;
+  padding: 0;
+  padding-right: 0.16em;
 }
 
 #workspaces button#sway-workspace-2 {
-  font-size: 17px;
-}
-
-#workspaces button#sway-workspace-5 {
   font-size: 16px;
 }
 
-#workspaces button#sway-workspace-7 {
+#workspaces button#sway-workspace-5 {
   font-size: 15px;
 }
 
 #workspaces button.focused {
-  border-bottom: 3px solid @blue;
+  background-color: @crust;
 }
 
 #workspaces button.urgent {
@@ -132,49 +104,23 @@ tooltip * {
   color: @yellow;
 }
 
-#mode {
-  background: transparent;
-  color: @text;
-  font-style: italic;
-}
-
-#network.disconnected {
-  color: @peach;
-}
-
-#cpu.warning {
-  color: @peach;
-}
-
-#cpu.critical {
-  color: @maroon;
-}
-
-#temperature.critical {
-  color: @maroon;
-}
-
-#memory {
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-}
-
-#memory.warning {
-  color: @peach;
-}
-
-#memory.critical {
-  color: @maroon;
-  animation-name: blink-critical;
-  animation-duration: 2s;
-}
-
+#network.disconnected,
 #pulseaudio.muted {
   color: @overlay1;
 }
 
+#cpu.warning,
+#memory.warning {
+  color: @peach;
+}
+
+#cpu.critical,
+#memory.critical,
+#temperature.critical {
+  color: @maroon;
+}
+
 #custom-power {
   font-size: 16px;
-  margin-right: 5px;
+  padding-right: 0.88rem; /* Custom padding to centre the power icon. */
 }
