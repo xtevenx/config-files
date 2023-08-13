@@ -1,8 +1,3 @@
-@define-color highlight #5294e2;
-@define-color base1  #404552;
-@define-color base2 #40455;
-@define-color base3  #4b5160;
-
 @define-color base      #1e1e2e;
 @define-color mantle    #181825;
 @define-color crust     #11111b;
@@ -34,30 +29,28 @@
 @define-color flamingo  #f2cdcd;
 @define-color rosewater #f5e0dc;
 
-/* Everything styling */
+/* Actual styling */
 
-* {
-    color: @text;
-    font-family: 'FiraCode Nerd Font';
-    outline: none;
+#text {
+  color: @text;
+  font-family: 'CaskaydiaCove Nerd Font';
 }
 
 #window {
-    background: transparent;
+  background: transparent;
 }
 
-#outer-box {
-    background-color: @surface0;
-    border-radius: 10px;
-    padding: 0 20px;
+#inner-box {
+  background-color: @mantle;
+  border-radius: 1rem;
+  padding: 0.3rem 0.6rem;
 }
 
-/* Entries styling */
-
-#text {
-    padding: 5px;
+#entry {
+  background: transparent;
+  outline: none;
 }
 
 #entry:selected {
-    background-color: @surface2;
+  font-weight: bold;
 }
