@@ -23,7 +23,7 @@ set $term-float foot
 # on the original workspace that the command was run on.
 set $menu wofi -c ~/.config/wofi/config -I
 
-set $powermenu ~/.config/waybar/scripts/power-menu.sh
+set $powermenu ~/.config/sway/scripts/power-menu.sh
 
 ### Key bindings
 #
