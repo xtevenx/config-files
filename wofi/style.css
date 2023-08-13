@@ -42,7 +42,7 @@
 }
 
 #outer-box {
-  background-color: @mantle;
+  background-color: @crust;
   border-radius: 1rem;
   padding: 1rem;
 }
