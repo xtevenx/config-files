@@ -38,6 +38,7 @@ null_ls.setup {
          prefer_local = '.venv/bin',
       },
       -- https://github.com/google/yapf
+      -- depends on: python-tomli
       null_ls.builtins.formatting.yapf.with {
          prefer_local = '.venv/bin',
       },
