@@ -42,7 +42,7 @@
 }
 
 .tab-background {
-  border-radius: 1.5rem !important;
+  outline: none !important;
   margin: 0 !important;
 }
 
