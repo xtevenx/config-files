@@ -20,7 +20,6 @@
         "temperature",
         "pulseaudio",
         "tray",
-        "custom/power",
     ],
 
     "margin-top": 5,
@@ -34,32 +33,38 @@
 
     // Modules
 
+    "sway/workspaces": {
+        "all-outputs": true,
+        "format": "{icon}",
+        "format-icons": {
+            "1": "󰆍", // nf-md-console
+            "2": "󱈹", // nf-md-desk
+            "3": "󰈹", // nf-md-firefox
+            "4": "󰙯", // nf-md-discord
+            "5": "󰰎", // nf-md-alpha_l_circle_outline
+            "6": "󰞇", // nf-md-sword_cross
+            "7": "󰓓", // nf-md-steam
+        },
+        "disable-scroll": true,
+        "disable-markup": false,
+    },
+
+    "sway/mode": {
+        "format": "{}",
+        "tooltip": false
+    },
+
+    "clock": {
+        "interval": 2,
+        "format": "{:%H:%M %b %e}",
+        "tooltip-format": "{calendar}",
+        "tooltip": true,
+    },
+
     "custom/weather": {
         "exec": "~/.config/waybar/scripts/weather.py",
         "return-type": "json",
-        "interval": 300,  // wttr.in updates every 1000-2000 seconds
-        "format": "{icon} {}",
-        "format-icons": {
-            "Unknown": " ",
-            "Cloudy": " ",
-            "Fog": " ",
-            "HeavyRain": " ",
-            "HeavyShowers": " ",
-            "HeavySnow": " ",
-            "HeavySnowShowers": " ",
-            "LightRain": " ",
-            "LightShowers": " ",
-            "LightSleet": " ",
-            "LightSleetShowers": " ",
-            "LightSnow": " ",
-            "LightSnowShowers": " ",
-            "PartlyCloudy": " ",
-            "Sunny": " ",
-            "ThunderyHeavyRain": " ",
-            "ThunderyShowers": " ",
-            "ThunderySnowShowers": " ",
-            "VeryCloudy": " ",
-        },
+        "interval": 30,  // open-meteo.com has a 10k/day API call limit
     },
  
     "network": {
@@ -82,15 +87,6 @@
         "on-click": "foot 'htop'",
     },
 
-    "temperature": {
-        "hwmon-path": "/sys/class/hwmon/hwmon1/temp1_input",
-        "critical-threshold": 85,
-        "interval": 2,
-        "format": "󰔐 {temperatureC}󰔄", // nf-md-thermometer_lines nf-md-temperature_celsius
-        // The nf-md-thermometer* icons are too narrow, otherwise this option is good.
-        //"format-icons": ["󱃃", "󰔏", "󱃂"],
-    },
-
     "memory": {
         "interval": 2,
         "format": "󰍛 {}%", // nf-md-memory
@@ -101,25 +97,13 @@
         "on-click": "foot 'htop'", 
     },
 
-    "sway/workspaces": {
-        "all-outputs": true,
-        "format": " {icon} ",
-        "format-icons": {
-            "1": "󰆍", // nf-md-console
-            "2": "󱈹", // nf-md-desk
-            "3": "󰈹", // nf-md-firefox
-            "4": "󰙯", // nf-md-discord
-            "5": "󰰎", // nf-md-alpha_l_circle_outline
-            "6": "󰞇", // nf-md-sword_cross
-            "7": "󰓓", // nf-md-steam
-        },
-        "disable-scroll": true,
-        "disable-markup" : false,
-    },
-
-    "sway/mode": {
-        "format": "({})",
-        "tooltip": false
+    "temperature": {
+        "hwmon-path": "/sys/class/hwmon/hwmon1/temp1_input",
+        "critical-threshold": 85,
+        "interval": 2,
+        "format": "󰔐 {temperatureC}󰔄", // nf-md-thermometer_lines nf-md-temperature_celsius
+        // The nf-md-thermometer* icons are too narrow, otherwise this option is good.
+        //"format-icons": ["󱃃", "󰔏", "󱃂"],
     },
 
     "pulseaudio": {
@@ -136,18 +120,5 @@
         "icon-size": 18,
         "spacing": 8,
         "reverse-direction": true,
-    },
-
-    "clock": {
-        "interval": 2,
-        "format": "{:%H:%M %b %e}",
-        "tooltip-format": "{calendar}",
-        "tooltip": true,
-    },
-
-    "custom/power": {
-        "format":"󰐥", // nf-md-power
-        "on-click": "exec ~/.config/waybar/scripts/power-menu.sh",
-        "tooltip": false,
     },
 }

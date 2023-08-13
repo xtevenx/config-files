@@ -62,8 +62,7 @@ window#waybar {
 #memory,
 #temperature,
 #pulseaudio,
-#tray,
-#custom-power {
+#tray {
   background-color: @base;
   border-radius: 1rem;
   margin: 0 0.3rem;
@@ -118,9 +117,4 @@ tooltip label {
 #memory.critical,
 #temperature.critical {
   color: @maroon;
-}
-
-#custom-power {
-  font-size: 16px;
-  padding-right: 0.88rem; /* Custom padding to centre the power icon. */
 }
