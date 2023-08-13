@@ -1,14 +1,12 @@
 #!/bin/bash
 
-entries="Suspend Reboot Shutdown"
+entries="󰜉 Reboot\n󰐥 Shutdown"
 
-selected=$(printf '%s\n' $entries | wofi --conf=$HOME/.config/wofi/config.widgets --style=$HOME/.config/wofi/style.widgets.css | awk '{print tolower($1)}')
+selected=$(echo -e $entries | wofi --conf=$HOME/.config/wofi/config.widgets --style=$HOME/.config/wofi/style.widgets.css | awk '{print $2}')
 
 case $selected in
-  suspend)
-    exec systemctl suspend;;
-  reboot)
+  Reboot)
     exec systemctl reboot;;
-  shutdown)
-    exec systemctl poweroff -i;;
+  Shutdown)
+    exec systemctl poweroff;;
 esac
