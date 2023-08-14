@@ -38,6 +38,10 @@
 }
 
 .tab-background {
+  border-top-left-radius: 1rem !important;
+  border-top-right-radius: 1rem !important;
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
   outline: none !important;
   margin: 0 !important;
 }
