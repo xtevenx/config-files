@@ -1,6 +1,6 @@
 :root {
   --navbar-height: 36px;
-  --navbar-width: 360px;
+  --navbar-width: 432px;
 }
 
 /* Merge the titlebar and navbar into one line. */
@@ -25,10 +25,6 @@
 
 /* Styling for url bar. */
 
-#urlbar-container {
-  margin: 0 3px !important;
-}
-
 #urlbar-background {
   background-color: transparent !important;
   border: none !important;
@@ -46,6 +42,17 @@
   margin: 0 !important;
 }
 
+/* Styling for toolbar buttons. */
+
+#unified-extensions-button,
+#PanelUI-button {
+  order: -1 !important;
+}
+
+#PanelUI-menu-button {
+  padding: 2px !important;
+}
+
 /* Hide everything that is not often used. */
 
 .tab-close-button,
@@ -56,8 +63,6 @@
 #forward-button,
 #stop-reload-button,
 #page-action-buttons,
-#urlbar-go-button,
-#unified-extensions-button,
-#PanelUI-menu-button {
+#urlbar-go-button {
   display: none;
 }
