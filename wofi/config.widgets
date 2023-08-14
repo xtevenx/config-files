@@ -1,10 +1,9 @@
 show=dmenu
+width=166
 hide_scroll=true
 insensitive=true
+lines=5
 filter_rate=30
 hide_search=true
-single_click=true
-
-width=200
-lines=5
-location=center
+dynamic_lines=true
+layer=overlay
