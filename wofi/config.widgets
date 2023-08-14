@@ -5,5 +5,4 @@ insensitive=true
 lines=5
 filter_rate=30
 hide_search=true
-dynamic_lines=true
 layer=overlay
