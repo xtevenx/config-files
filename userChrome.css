@@ -46,6 +46,17 @@
   margin: 0 !important;
 }
 
+/* Styling for tab close button. */
+
+.tab-close-button {
+  border-radius: 1rem !important;
+  display: none;
+}
+
+.tabbrowser-tab:hover .tab-close-button {
+  display: inline-flex !important;
+}
+
 /* Styling for toolbar buttons. */
 
 #unified-extensions-button,
@@ -59,7 +70,6 @@
 
 /* Hide everything that is not often used. */
 
-.tab-close-button,
 #alltabs-button,
 .titlebar-spacer,
 .titlebar-buttonbox-container,
