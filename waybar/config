@@ -119,6 +119,6 @@
     "tray": {
         "icon-size": 18,
         "spacing": 8,
-        "reverse-direction": false,
+        "reverse-direction": true,
     },
 }
