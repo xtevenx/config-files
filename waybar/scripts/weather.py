@@ -105,6 +105,7 @@ def _build_detailed(weather: dict, index: int) -> str:
 
 
 def _build_summary(weather: dict, index: int) -> str:
+    # TODO: Remove or implement (display a short summary for a day)
     return ''
 
 
@@ -122,7 +123,7 @@ def build_data(weather: dict) -> dict:
 
     current_time = datetime.fromtimestamp(current_weather['time'])
     details_start = current_time.hour >= 24 - 2
-    details_end = 2 + (current_time.hour >= 18)
+    details_end = 2 + (current_time.hour >= 12)
 
     for i in range(details_start, details_end):
         data['tooltip'] += _build_detailed(weather, i) + '\n'
