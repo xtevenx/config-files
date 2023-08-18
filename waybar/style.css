@@ -72,8 +72,9 @@ window#waybar {
 /* Every tooltip and system tray menu */
 tooltip label,
 #tray menu {
-  background-color: @surface0;
+  background-color: @base;
   border-radius: 0.5rem;
+  border: solid 1px @overlay0;
   padding: 0.2rem 0.4rem;
 }
 
