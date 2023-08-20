@@ -75,7 +75,14 @@ tooltip label,
   background-color: @base;
   border-radius: 0.5rem;
   border: solid 1px @overlay0;
-  padding: 0.2rem 0.4rem;
+}
+
+tooltip label {
+  padding: 0.15rem 0.4rem;
+}
+
+#tray menu {
+  padding: 0.15rem 0.15rem;
 }
 
 /* -----------------------------------------------------------------------------
