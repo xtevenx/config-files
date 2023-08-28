@@ -12,7 +12,7 @@ import requests
 
 # API reference: https://open-meteo.com/en/docs
 # The coordinates for latitude/longitude, as well as the time zone, are for Vancouver, Canada.
-API_URL = 'https://api.open-meteo.com/v1/forecast?latitude=49.25&longitude=-123.12&hourly=temperature_2m,precipitation_probability,precipitation,weathercode,cloudcover,windspeed_10m,windgusts_10m,uv_index,is_day&daily=sunrise,sunset&current_weather=true&timeformat=unixtime&timezone=America%2FLos_Angeles'
+API_URL = 'https://api.open-meteo.com/v1/forecast?latitude=49.24&longitude=-123.11&hourly=temperature_2m,precipitation_probability,precipitation,weathercode,cloudcover,windspeed_10m,windgusts_10m,uv_index,is_day&daily=sunrise,sunset&current_weather=true&timeformat=unixtime&timezone=America%2FLos_Angeles'
 
 # Font icons corresponding to WMO weather codes.
 # Definitions of the codes can be found at the bottom of the open-meteo.com documentation.
@@ -122,12 +122,11 @@ def build_data(weather: dict) -> dict:
     }
 
     current_time = datetime.fromtimestamp(current_weather['time'])
-    details_start = current_time.hour >= 24 - 2
-    details_end = 2 + (current_time.hour >= 12)
+    start = current_time.hour >= 24 - 2
 
-    for i in range(details_start, details_end):
+    for i in range(start, start + 2):
         data['tooltip'] += _build_detailed(weather, i) + '\n'
-    for i in range(details_end, 7):
+    for i in range(start + 2, start + 5):
         data['tooltip'] += _build_summary(weather, i) + '\n'
 
     data['tooltip'] = data['tooltip'].rstrip()
