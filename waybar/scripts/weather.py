@@ -109,9 +109,11 @@ def _build_summary(weather: dict, index: int) -> str:
     return ''
 
 
-def build_data(weather: dict) -> dict:
-    current_weather: dict = weather['current_weather']
-    temperature_units: str = weather['hourly_units']['temperature_2m']
+if __name__ == '__main__':
+    weather_data = requests.get(API_URL, timeout=5.0).json()
+
+    current_weather: dict = weather_data['current_weather']
+    temperature_units: str = weather_data['hourly_units']['temperature_2m']
 
     data = {
         'text':
@@ -125,15 +127,10 @@ def build_data(weather: dict) -> dict:
     start = current_time.hour >= 24 - 2
 
     for i in range(start, start + 2):
-        data['tooltip'] += _build_detailed(weather, i) + '\n'
+        data['tooltip'] += _build_detailed(weather_data, i) + '\n'
     for i in range(start + 2, start + 5):
-        data['tooltip'] += _build_summary(weather, i) + '\n'
+        data['tooltip'] += _build_summary(weather_data, i) + '\n'
 
     data['tooltip'] = data['tooltip'].rstrip()
 
-    return data
-
-
-if __name__ == '__main__':
-    weather_data = requests.get(API_URL, timeout=5.0).json()
-    print(json.dumps(build_data(weather_data), separators=(',', ':')))
+    print(json.dumps(data, separators=(',', ':')))
