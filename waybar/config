@@ -64,7 +64,7 @@
     "custom/weather": {
         "exec": "~/.config/waybar/scripts/weather.py",
         "return-type": "json",
-        "interval": 30,  // open-meteo.com has a 10k/day API call limit
+        "interval": 900,  // open-meteo.com has a 10k/day API call limit, ensemble calls count more
     },
  
     "network": {
