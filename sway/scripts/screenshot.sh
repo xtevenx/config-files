@@ -6,9 +6,9 @@ selected=$(echo -e $entries | wofi --conf=$HOME/.config/wofi/config.widgets --st
  
 case $selected in
   Area)
-    /usr/share/sway/scripts/grimshot --notify save area;;
+    /usr/share/sway-contrib/grimshot --notify save area;;
   Output)
-    /usr/share/sway/scripts/grimshot --notify save output;;
+    /usr/share/sway-contrib/grimshot --notify save output;;
   Window)
-    /usr/share/sway/scripts/grimshot --notify save window;;
+    /usr/share/sway-contrib/grimshot --notify save window;;
 esac
