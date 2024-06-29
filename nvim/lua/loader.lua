@@ -155,12 +155,6 @@ local plugins = {
       opts = {},
       main = 'ibl',
    },
-
-   -- Smooth Scrolling
-   {
-      'declancm/cinnamon.nvim',
-      lazy = true, -- setup in plugins/cinnamon.lua IFF not in neovide.
-   },
 }
 
 plugins = vim.list_extend(plugins, require('plugins.catppuccin'))
