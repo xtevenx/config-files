@@ -112,7 +112,7 @@ local servers = {
    html = {},
    jsonls = {},
    -- https://github.com/typescript-language-server/typescript-language-server
-   tsserver = {},
+   ts_ls = {},
    -- https://github.com/haskell/haskell-language-server
    hls = {},
 }

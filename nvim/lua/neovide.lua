@@ -1,5 +1,5 @@
 -- Neovide configurations
-vim.o.guifont = 'CaskaydiaCove NF:h13'
+vim.o.guifont = 'CaskaydiaCove NF:h12'
 vim.g.neovide_cursor_animation_length = 0.06
 vim.g.neovide_cursor_trail_length = 0.4
 
