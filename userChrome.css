@@ -50,6 +50,10 @@
   padding: 0 !important;
 }
 
+#PanelUI-button {
+  margin-left: var(--urlbar-margin-inline);
+}
+
 /* Hide everything else that is not often used. */
 
 #alltabs-button,
