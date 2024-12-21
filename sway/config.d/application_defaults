@@ -22,3 +22,6 @@ assign [class="steam"] 7
 
 # Assorted firefox tweaks
 for_window [app_id="firefox" title="Firefox — Sharing Indicator"] kill
+
+# Float a window in a 1600x900 window.
+bindsym Mod4+Shift+r resize set 1600 900
