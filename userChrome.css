@@ -38,6 +38,10 @@
   display: none;
 }
 
+.tabbrowser-tab:hover .tab-close-button {
+  display: inline-flex !important;
+}
+
 /* Styling for toolbar buttons. */
 
 #unified-extensions-button,
