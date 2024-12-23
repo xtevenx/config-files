@@ -6,7 +6,7 @@ seat seat0 xcursor_theme Catppuccin-Mocha-Dark-Cursors 24
 
 # Set inner/outer gaps
 gaps inner 3
-gaps outer 2
+gaps outer 3
 
 # Hide titlebar on windows
 default_border pixel 1
