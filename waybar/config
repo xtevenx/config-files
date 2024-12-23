@@ -6,6 +6,8 @@
     "modules-left": [
         "sway/workspaces",
         "sway/mode",
+        "hyprland/workspaces",
+        "hyprland/submap",
     ],
  
     "modules-center": [
@@ -41,7 +43,7 @@
             "2": "󱈹", // nf-md-desk
             "3": "󰈹", // nf-md-firefox
             "4": "󰙯", // nf-md-discord
-            "5": "󰰎", // nf-md-alpha_l_circle_outline
+            "5": "󰊗", // nf-md-gamepad_square
             "6": "󰞇", // nf-md-sword_cross
             "7": "󰓓", // nf-md-steam
         },
@@ -51,7 +53,26 @@
 
     "sway/mode": {
         "format": "{}",
-        "tooltip": false
+        "tooltip": false,
+    },
+
+    "hyprland/workspaces": {
+        "all-outputs": true,
+        "format": "{icon}",
+        "format-icons": {
+            "1": "󰆍", // nf-md-console
+            "2": "󱈹", // nf-md-desk
+            "3": "󰈹", // nf-md-firefox
+            "4": "󰙯", // nf-md-discord
+            "5": "󰊗", // nf-md-gamepad_square
+            "6": "󰞇", // nf-md-sword_cross
+            "7": "󰓓", // nf-md-steam
+        },
+    },
+
+    "hyprland/submap": {
+        "format": "{}",
+        "tooltip": false,
     },
 
     "clock": {
