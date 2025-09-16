@@ -62,6 +62,7 @@ window#waybar {
 #memory,
 #temperature,
 #pulseaudio,
+#battery,
 #tray {
   background-color: @base;
   border-radius: 9px;
@@ -111,12 +112,14 @@ tooltip label {
 }
 
 #cpu.warning,
-#memory.warning {
+#memory.warning,
+#battery.warning {
   color: @peach;
 }
 
 #cpu.critical,
 #memory.critical,
-#temperature.critical {
+#temperature.critical,
+#battery.critical {
   color: @maroon;
 }

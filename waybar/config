@@ -21,6 +21,7 @@
         "memory",
         "temperature",
         "pulseaudio",
+	"battery",
         "tray",
     ],
 
@@ -135,6 +136,17 @@
         },
         "scroll-step": 2,
         "on-click": "pavucontrol",
+    },
+
+    "battery": {
+        "states": {
+	    "warning": 20,
+	    "critical": 10,
+	},
+        "format": "{icon}",
+	"format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"], // nf-md-battery*
+	"on-click": "~/.config/hypr/scripts/power_menu.sh",
+	"tooltip-format": "{timeTo} ({capacity}%)",
     },
 
     "tray": {
