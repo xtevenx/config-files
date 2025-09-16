@@ -4,9 +4,9 @@ SELECTION="$(printf "󰒉 Area\n󰍹 Output\n󰓩 Window" | fuzzel --dmenu -l 3 
 
 case $SELECTION in
   Area)
-    /usr/share/sway-contrib/grimshot --notify save area;;
+    grimshot --notify save area;;
   Output)
-    /usr/share/sway-contrib/grimshot --notify save output;;
+    grimshot --notify save output;;
   Window)
-    /usr/share/sway-contrib/grimshot --notify save window;;
+    grimshot --notify save window;;
 esac
