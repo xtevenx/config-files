@@ -1,5 +1,5 @@
-# use the IBM character set.
-OPTIONS=symset:IBMGraphics_2,roguesymset:RogueEpyx
+# choose the character set.
+OPTIONS=symset:DECGraphics,roguesymset:RogueEpyx
 
 # show color
 OPTIONS=color
