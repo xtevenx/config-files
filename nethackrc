@@ -43,16 +43,16 @@ OPTIONS=statushilites
 # hitpoints
 OPTIONS=hilite_status:hitpoints/100%/grey&normal
 OPTIONS=hilite_status:hitpoints/<100%/green&normal
-OPTIONS=hilite_status:hitpoints/<87%/yellow&normal
-OPTIONS=hilite_status:hitpoints/<42%/orange&normal
-OPTIONS=hilite_status:hitpoints/<21%/red&bold
-OPTIONS=hilite_status:hitpoints/<9%/red&inverse
+OPTIONS=hilite_status:hitpoints/<80%/yellow&normal
+OPTIONS=hilite_status:hitpoints/<40%/orange&normal
+OPTIONS=hilite_status:hitpoints/<20%/red&bold
+OPTIONS=hilite_status:hitpoints/<10%/red&inverse
 
 # power
 OPTIONS=hilite_status:power/100%/grey&normal
 OPTIONS=hilite_status:power/<100%/green&normal
-OPTIONS=hilite_status:power/<49%/yellow&normal
-OPTIONS=hilite_status:power/<24%/orange&normal
+OPTIONS=hilite_status:power/<50%/yellow&normal
+OPTIONS=hilite_status:power/<25%/orange&normal
 OPTIONS=hilite_status:power/<10%/red&bold
 
 # carry
